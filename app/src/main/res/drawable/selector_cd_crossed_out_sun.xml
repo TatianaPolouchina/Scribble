@@ -1,0 +1,11 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Selected state -->
+    <item android:state_selected="true">
+        <layer-list>
+            <item android:drawable="@drawable/vector_cd_crossed_out_sun" />
+            <item android:drawable="@drawable/circle_purple" />
+        </layer-list>
+    </item>
+    <!-- Default state -->
+    <item android:drawable="@drawable/vector_cd_crossed_out_sun" />
+</selector>

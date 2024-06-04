@@ -11,7 +11,7 @@
         android:layout_height="@dimen/distortion_diameter"
         android:layout_gravity="center_vertical"
         android:layout_marginEnd="@dimen/distortion_layout_margin"
-        android:src="@drawable/vector_cd_crossed_out_sun" />
+        android:src="@drawable/selector_cd_crossed_out_sun" />
 
     <LinearLayout
         android:layout_width="0dp"
