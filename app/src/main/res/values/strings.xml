@@ -1,0 +1,53 @@
+<resources>
+
+    <string name="app_name">Worry App</string>
+
+    --- Ongoing Worries Page ---
+    <string name="ongoing_page_title">Ongoing Worries</string>
+    <string name="ongoing_page_subtitle">You have XX ongoing worries</string>
+    <string name="worry_button_description">Navigates to worry</string>
+
+    --- Finished Worries Page ---
+    <string name="finished_page_title">Finished Worries</string>
+    <string name="finished_page_subtitle">You have XX finished worries</string>
+
+    --- Bottom Navigation Bar ----
+    <string name="ongoing_worries_nav_title">Ongoing Worries</string>
+    <string name="finished_worries_nav_title">Finished Worries</string>
+    <string name="add_worry_nav_title">Add Worry</string>
+
+    --- Distortions Page ---
+    <string name="distortions_page_title">Add Distortions</string>
+    <string name="back_arrow_description">Purple Back Arrow</string>
+
+    --- Cognitive Distortions ---
+    <string name="Distortion1Name">Overgeneralizing</string>
+    <string name="Distortion1Description">Believing a single negative event represents a pattern
+        and drawing overly broad conclusions</string>
+    <string name="Distortion2Name">Mind Reading</string>
+    <string name="Distortion2Description">Assuming you know what others are thinking</string>
+    <string name="Distortion3Name">Fortune Telling</string>
+    <string name="Distortion3Description">Predicting bad things will happen without any real
+        evidence</string>
+    <string name="Distortion4Name">Catastrophizing</string>
+    <string name="Distortion4Description">Viewing small problems as much more serious than they
+        truly are</string>
+    <string name="Distortion5Name">All-or-Nothing Thinking</string>
+    <string name="Distortion5Description">Viewing situations only as good or bad, with no middle
+        ground</string>
+    <string name="Distortion6Name">Negative Mental Filtering</string>
+    <string name="Distortion6Description">Focusing only on the negative parts of a situation, while
+        disregarding the positive</string>
+    <string name="Distortion7Name">Disqualifying the Positive</string>
+    <string name="Distortion7Description">Dismissing or ignoring positive experiences, feedback, or
+        accomplishments</string>
+    <string name="Distortion8Name">Personalization</string>
+    <string name="Distortion8Description">Blaming yourself for events or outcomes that are out of your
+        control</string>
+    <string name="Distortion9Name">Emotional Reasoning</string>
+    <string name="Distortion9Description">Assuming how you feel reflects reality</string>
+    <string name="Distortion10Name">Labelling</string>
+    <string name="Distortion10Description">Assigning labels to yourself or others</string>
+
+
+</resources>

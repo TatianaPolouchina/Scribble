@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_ongoing_worries"
+        android:icon="@drawable/nav_cloud_selector"
+        android:title="@string/ongoing_worries_nav_title"
+        android:visible="true" />
+
+    <item
+        android:id="@+id/navigation_add_worry"
+        android:icon="@drawable/vector_plus_sign"
+        android:title="@string/add_worry_nav_title"
+        android:visible="true" />
+
+    <item
+        android:id="@+id/navigation_finished_worries"
+        android:icon="@drawable/nav_sun_selector"
+        android:title="@string/finished_worries_nav_title"
+        android:visible="true" />
+
+</menu>
