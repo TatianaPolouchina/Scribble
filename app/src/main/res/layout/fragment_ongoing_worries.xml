@@ -14,13 +14,14 @@
         app:layout_constraintTop_toTopOf="parent">
     </include>
 
-    <GridView
-        android:id="@+id/worry_display"
-        android:layout_width="306dp"
-        android:layout_height="12dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/worries_title_bar" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

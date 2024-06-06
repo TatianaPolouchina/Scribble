@@ -4,9 +4,9 @@
     <color name="black">#FF000000</color>
     <color name="lightOrangeMain">#FFB564</color>
     <color name="darkOrangeMain">#F59A22</color>
+    <color name="grey">#878787</color>
     <color name="lightPurpleMain">#8FA2B7</color>
     <color name="darkPurpleMain">#6080A2</color>
     <color name="darkPurple2">#5C758F</color>
     <color name="white">#FFFFFFFF</color>
-
 </resources>

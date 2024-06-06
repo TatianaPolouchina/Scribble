@@ -48,6 +48,7 @@
     <string name="Distortion9Description">Assuming how you feel reflects reality</string>
     <string name="Distortion10Name">Labelling</string>
     <string name="Distortion10Description">Assigning labels to yourself or others</string>
+    <string name="worry_1_description">worry icon</string>
 
 
 </resources>

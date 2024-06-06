@@ -17,6 +17,7 @@ public class DistortionsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_distortions_page, container, false);
+
     }
 
     @Override
@@ -24,5 +25,11 @@ public class DistortionsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         ((MainActivity) requireActivity()).setStatusBarColor(R.color.lightPurpleMain);
+
+        view.findViewById(R.id.distortion_1).setOnClickListener(v -> {
+            // TODO set selected
+        });
+
+
     }
 }
