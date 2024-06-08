@@ -24,7 +24,7 @@ public class DistortionsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        ((MainActivity) requireActivity()).setStatusBarColor(R.color.lightPurpleMain);
+        ((MainActivity) requireActivity()).setStatusBarColor(R.color.white);
 
         view.findViewById(R.id.distortion_1).setOnClickListener(v -> {
             // TODO set selected

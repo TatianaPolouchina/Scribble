@@ -39,11 +39,10 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
         if (id == R.id.navigation_ongoing_worries) {
             showOngoingWorriesFragment();
-            //item.getIcon().setColorFilter(, PorterDuff.Mode.SRC_IN);
             return true;
         } else if (id == R.id.navigation_add_worry) {
-            showDistortionsFragment();
-            return true; //!!!
+            showNewWorryFragment();
+            return true;
         } else if (id == R.id.navigation_finished_worries) {
             showFinishedWorriesFragment();
             return true;
@@ -85,6 +84,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /*
+Replaces the current fragment with new worry fragment
+ */
+    public void showNewWorryFragment() {
+        NewWorryFragment1 newWorryFragment = new NewWorryFragment1();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.main, newWorryFragment);
+        bottomNavigationView.setVisibility(View.GONE);
+        transaction.commit();
+    }
+
+    /*
     Replaces the current fragment with fragment showing cognitive distortions
      */
     public void showDistortionsFragment() {
@@ -94,4 +104,5 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setVisibility(View.GONE);
         transaction.commit();
     }
+
 }

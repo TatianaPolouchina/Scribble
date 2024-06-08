@@ -5,7 +5,7 @@
     <dimen name="distortion_diameter">60dp</dimen>
     <dimen name="distortion_title_size">16sp</dimen>
     <dimen name="distortion_subtitle_size">12sp</dimen>
-    <dimen name="distortion_layout_margin">15dp</dimen>
+    <dimen name="distortion_layout_margin">20dp</dimen>
     <dimen name="distortion_padding">10dp</dimen>
     <dimen name="distortion_subtitle_margin_top">4dp</dimen>
 </resources>

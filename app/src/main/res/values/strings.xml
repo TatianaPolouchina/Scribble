@@ -2,25 +2,29 @@
 
     <string name="app_name">Worry App</string>
 
-    --- Ongoing Worries Page ---
+    <!-- Ongoing Worries Page -->
     <string name="ongoing_page_title">Ongoing Worries</string>
     <string name="ongoing_page_subtitle">You have XX ongoing worries</string>
     <string name="worry_button_description">Navigates to worry</string>
 
-    --- Finished Worries Page ---
+    <!-- Finished Worries Page-->
     <string name="finished_page_title">Finished Worries</string>
     <string name="finished_page_subtitle">You have XX finished worries</string>
 
-    --- Bottom Navigation Bar ----
+    <!-- Bottom Navigation Bar -->
     <string name="ongoing_worries_nav_title">Ongoing Worries</string>
     <string name="finished_worries_nav_title">Finished Worries</string>
     <string name="add_worry_nav_title">Add Worry</string>
 
-    --- Distortions Page ---
+    <!-- Distortions Page -->
     <string name="distortions_page_title">Add Distortions</string>
     <string name="back_arrow_description">Purple Back Arrow</string>
+    <string name="distortions_description1">Cognitive distortions are negative thought patterns that
+        lead to worry. </string>
+    <string name="distortions_description2">Recognizing these distortions can help us see situations
+        more clearly and manage our worries effectively. </string>
 
-    --- Cognitive Distortions ---
+    <!-- Cognitive Distortions -->
     <string name="Distortion1Name">Overgeneralizing</string>
     <string name="Distortion1Description">Believing a single negative event represents a pattern
         and drawing overly broad conclusions</string>
@@ -50,5 +54,11 @@
     <string name="Distortion10Description">Assigning labels to yourself or others</string>
     <string name="worry_1_description">worry icon</string>
 
+    <!-- New Worry Page -->
+    <string name="new_worry_page_title">New Worry</string>
+    <string name="new_worry_instruction_1">Give your worry a name</string>
+    <string name="new_worry_instruction_2">Describe your worry</string>
+    <string name="new_worry_instruction_1_hint">…</string>
+    <string name="new_worry_button_text">Next</string>
 
 </resources>
