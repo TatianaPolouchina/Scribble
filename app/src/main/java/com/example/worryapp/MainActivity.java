@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /*
-    Replaces the current fragment with the ongoing worries fragment
+    Replaces the current fragment with OngoingWorriesFragment
     */
     public void showOngoingWorriesFragment() {
         OngoingWorriesFragment ongoingWorriesFragment = new OngoingWorriesFragment();
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /*
-   Replaces the current fragment with the ongoing worries fragment
+   Replaces the current fragment with FinishedWorriesFragment
    */
     public void showFinishedWorriesFragment() {
         FinishedWorriesFragment finishedWorriesFragment = new FinishedWorriesFragment();
@@ -84,8 +84,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /*
-Replaces the current fragment with new worry fragment
- */
+    Replaces the current fragment with NewWorryFragment1
+    */
     public void showNewWorryFragment() {
         NewWorryFragment1 newWorryFragment = new NewWorryFragment1();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
@@ -94,15 +94,5 @@ Replaces the current fragment with new worry fragment
         transaction.commit();
     }
 
-    /*
-    Replaces the current fragment with fragment showing cognitive distortions
-     */
-    public void showDistortionsFragment() {
-        DistortionsFragment distortionsFragment = new DistortionsFragment();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.main, distortionsFragment);
-        bottomNavigationView.setVisibility(View.GONE);
-        transaction.commit();
-    }
 
 }

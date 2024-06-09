@@ -21,6 +21,7 @@ public class NewWorryFragment1 extends Fragment {
     private TextView instruction;
     private TextInputEditText textInputField;
     private ImageButton backButton;
+    private boolean secondFrame;
 
     public NewWorryFragment1() {
     }
@@ -38,11 +39,18 @@ public class NewWorryFragment1 extends Fragment {
         instruction = view.findViewById(R.id.instruction);
         textInputField = view.findViewById(R.id.textInputField);
         backButton = view.findViewById(R.id.back_button);
+        secondFrame = false;
 
         view.findViewById(R.id.next_button).setOnClickListener(v -> {
-            instruction.setText(R.string.new_worry_instruction_2);
-            textInputField.setText("");
-            backButton.setVisibility(view.GONE);
+            if (!secondFrame) {
+                instruction.setText(R.string.new_worry_instruction_2);
+                textInputField.setText("");
+                backButton.setVisibility(view.GONE);
+                secondFrame = true;
+            } else {
+                openNewFragment();
+            }
+
         });
 
         return view;

@@ -7,10 +7,13 @@
   <component name="ProjectType">
     <option name="id" value="Android" />
   </component>
+  <component name="SuppressKotlinCodeStyleNotification">
+    <option name="disableForAll" value="true" />
+  </component>
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.18639546515505168" />
+        <option name="scale" value="0.07908653846153846" />
       </ProjectState>
     </option>
   </component>
