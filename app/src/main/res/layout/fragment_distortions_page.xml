@@ -29,6 +29,7 @@
         app:layout_constraintVertical_bias="0.03" />
 
     <ImageButton
+        android:id="@+id/return_button"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:background="@android:color/transparent"

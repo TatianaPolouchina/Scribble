@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/karla_bold"
             android:text="@string/Distortion1Name"
-            android:textColor="@color/darkPurpleMain"
+            android:textColor="@drawable/cd_colour_selector"
             android:textSize="@dimen/distortion_title_size"
             android:textStyle="bold" />
 
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/distortion_subtitle_margin_top"
             android:text="@string/Distortion1Description"
-            android:textColor="@color/darkPurpleMain"
+            android:textColor="@drawable/cd_colour_selector"
             android:textSize="@dimen/distortion_subtitle_size" />
     </LinearLayout>
 </LinearLayout>
