@@ -5,7 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +16,6 @@ public class DistortionsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_distortions_page, container, false);
     }
 
@@ -60,14 +59,11 @@ public class DistortionsFragment extends Fragment {
                 v.setSelected(!v.isSelected()));
     }
 
-    // TODO replace with usage of a nav controller
     /*
     Replaces the current fragment with NewWorryFragment2
     */
     public void exitFragment() {
-        NewWorryFragment2 newWorryFragment2 = new NewWorryFragment2();
-        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-        transaction.replace(R.id.main, newWorryFragment2);
-        transaction.commit();
+        NavHostFragment.findNavController(this).navigate
+                (R.id.newWorryFragment2);
     }
 }

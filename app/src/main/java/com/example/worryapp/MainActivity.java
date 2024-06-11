@@ -8,25 +8,37 @@ import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
-    private FragmentManager fragmentManager;
+    private NavController navController;
     private BottomNavigationView bottomNavigationView;
 
     @Override
+    // TODO: refactor
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        fragmentManager = getSupportFragmentManager();
+        NavHostFragment navHostFragment = (NavHostFragment)
+                getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
+        assert navHostFragment != null;
+        navController = navHostFragment.getNavController();
+
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnItemSelectedListener(this::onItemSelectedListener);
 
-        showOngoingWorriesFragment();
+        navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
+            if (destination.getId() == R.id.ongoingWorriesFragment ||
+                    destination.getId() == R.id.finishedWorriesFragment) {
+                bottomNavigationView.setVisibility(View.VISIBLE);
+            } else {
+                bottomNavigationView.setVisibility(View.GONE);
+            }
+        });
     }
 
     /**
@@ -38,13 +50,13 @@ public class MainActivity extends AppCompatActivity {
     private boolean onItemSelectedListener(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.navigation_ongoing_worries) {
-            showOngoingWorriesFragment();
+            navController.navigate(R.id.ongoingWorriesFragment);
             return true;
         } else if (id == R.id.navigation_add_worry) {
-            showNewWorryFragment();
+            navController.navigate(R.id.newWorryFragment1);
             return true;
         } else if (id == R.id.navigation_finished_worries) {
-            showFinishedWorriesFragment();
+            navController.navigate(R.id.finishedWorriesFragment);
             return true;
         }
         return false;
@@ -60,39 +72,4 @@ public class MainActivity extends AppCompatActivity {
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.setStatusBarColor(ContextCompat.getColor(this, colourId));
     }
-
-    /*
-    Replaces the current fragment with OngoingWorriesFragment
-    */
-    public void showOngoingWorriesFragment() {
-        OngoingWorriesFragment ongoingWorriesFragment = new OngoingWorriesFragment();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.frame_layout, ongoingWorriesFragment);
-        bottomNavigationView.setVisibility(View.VISIBLE);
-        transaction.commit();
-    }
-
-    /*
-   Replaces the current fragment with FinishedWorriesFragment
-   */
-    public void showFinishedWorriesFragment() {
-        FinishedWorriesFragment finishedWorriesFragment = new FinishedWorriesFragment();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.frame_layout, finishedWorriesFragment);
-        bottomNavigationView.setVisibility(View.VISIBLE);
-        transaction.commit();
-    }
-
-    /*
-    Replaces the current fragment with NewWorryFragment1
-    */
-    public void showNewWorryFragment() {
-        NewWorryFragment1 newWorryFragment = new NewWorryFragment1();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.main, newWorryFragment);
-        bottomNavigationView.setVisibility(View.GONE);
-        transaction.commit();
-    }
-
-
 }

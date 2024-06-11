@@ -5,7 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,7 +32,6 @@ public class NewWorryFragment2 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         return inflater.inflate(R.layout.fragment_new_worry2, container, false);
     }
 
@@ -61,17 +60,9 @@ public class NewWorryFragment2 extends Fragment {
             }
         }
 
-        addDistortionButton.setOnClickListener(v -> showDistortionsFragment());
-    }
-
-    /*
-    Replaces the current fragment with DistortionsFragment
-    */
-    public void showDistortionsFragment() {
-        DistortionsFragment distortionsFragment = new DistortionsFragment();
-        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-        transaction.replace(R.id.main, distortionsFragment);
-        transaction.commit();
+        addDistortionButton.setOnClickListener(v ->
+                NavHostFragment.findNavController(this).navigate
+                        (R.id.distortionsFragment));
     }
 
     // TODO finish adding logos to selectedItemsContainer
