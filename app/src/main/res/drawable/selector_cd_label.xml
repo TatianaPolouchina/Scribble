@@ -7,5 +7,5 @@
         </layer-list>
     </item>
     <!-- Default state -->
-    <item android:drawable="@drawable/vector_cd_label" />
+    <item android:drawable="@drawable/vector_cd_label_bw" />
 </selector>

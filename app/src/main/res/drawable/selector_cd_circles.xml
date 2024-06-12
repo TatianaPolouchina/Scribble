@@ -7,5 +7,5 @@
         </layer-list>
     </item>
     <!-- Default state -->
-    <item android:drawable="@drawable/vector_cd_circles" />
+    <item android:drawable="@drawable/vector_cd_circles_bw" />
 </selector>
