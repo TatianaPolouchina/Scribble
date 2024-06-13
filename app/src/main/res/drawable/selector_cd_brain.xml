@@ -2,8 +2,8 @@
     <!-- Selected state -->
     <item android:state_selected="true">
         <layer-list>
-            <item android:drawable="@drawable/vector_cd_brain" />
             <item android:drawable="@drawable/circle_purple" />
+            <item android:drawable="@drawable/vector_cd_brain" />
         </layer-list>
     </item>
     <!-- Default state -->

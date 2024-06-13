@@ -62,5 +62,7 @@
     <string name="new_worry_button_text">Next</string>
     <string name="new_worry_distortions_prompt">Is this a distorted thought?</string>
     <string name="add_distortion_button_label">Add distortions</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
