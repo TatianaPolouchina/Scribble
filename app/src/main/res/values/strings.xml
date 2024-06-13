@@ -64,5 +64,7 @@
     <string name="add_distortion_button_label">Add distortions</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="worry_finished_message">Comforting Message</string>
+    <string name="worry_finished_button">Finish</string>
 
 </resources>

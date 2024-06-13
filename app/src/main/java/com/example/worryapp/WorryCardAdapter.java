@@ -13,9 +13,9 @@ import java.util.List;
 
 public class WorryCardAdapter extends RecyclerView.Adapter<WorryCardAdapter.ViewHolder> {
 
-    private List<WorryItem> worryItems;
+    private List<Worry> worryItems;
 
-    public WorryCardAdapter(List<WorryItem> worryItems) {
+    public WorryCardAdapter(List<Worry> worryItems) {
         this.worryItems = worryItems;
     }
 
@@ -30,7 +30,7 @@ public class WorryCardAdapter extends RecyclerView.Adapter<WorryCardAdapter.View
     // !!! Replaces the contents of the view with the data from WorryItem
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        WorryItem item = worryItems.get(position);
+        Worry item = worryItems.get(position);
         holder.textView.setText(item.getTitle());
         holder.image.setImageResource(item.getImageResId());
     }

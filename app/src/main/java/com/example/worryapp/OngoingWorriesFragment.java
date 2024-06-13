@@ -36,17 +36,17 @@ public class OngoingWorriesFragment extends Fragment {
         ((MainActivity) requireActivity()).setStatusBarColor(R.color.darkPurpleMain);
 
         //Set up recycler view
-        List<WorryItem> data = new ArrayList<>();
-        data.add(new WorryItem("TEST", R.drawable.worry_1));
-        data.add(new WorryItem("TEST2", R.drawable.worry_1));
-        data.add(new WorryItem("TEST3", R.drawable.worry_1));
-        data.add(new WorryItem("TEST4", R.drawable.worry_1));
-        data.add(new WorryItem("TEST5", R.drawable.worry_1));
-        data.add(new WorryItem("TEST6", R.drawable.worry_1));
-        data.add(new WorryItem("TEST7", R.drawable.worry_1));
-        data.add(new WorryItem("TEST8", R.drawable.worry_1));
-        data.add(new WorryItem("TEST9", R.drawable.worry_1));
-        data.add(new WorryItem("TEST10", R.drawable.worry_1));
+        List<Worry> data = new ArrayList<>();
+        data.add(new Worry("TEST", R.drawable.worry_1));
+        data.add(new Worry("TEST2", R.drawable.worry_1));
+        data.add(new Worry("TEST3", R.drawable.worry_1));
+        data.add(new Worry("TEST4", R.drawable.worry_1));
+        data.add(new Worry("TEST5", R.drawable.worry_1));
+        data.add(new Worry("TEST6", R.drawable.worry_1));
+        data.add(new Worry("TEST7", R.drawable.worry_1));
+        data.add(new Worry("TEST8", R.drawable.worry_1));
+        data.add(new Worry("TEST9", R.drawable.worry_1));
+        data.add(new Worry("TEST10", R.drawable.worry_1));
 
         WorryCardAdapter adapter = new WorryCardAdapter(data);
 

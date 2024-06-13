@@ -64,6 +64,6 @@ public class DistortionsFragment extends Fragment {
     */
     public void exitFragment() {
         NavHostFragment.findNavController(this).navigate
-                (R.id.newWorryFragment2);
+                (R.id.newWorryFragment3);
     }
 }

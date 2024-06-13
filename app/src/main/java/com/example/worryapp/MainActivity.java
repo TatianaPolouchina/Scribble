@@ -27,10 +27,13 @@ public class MainActivity extends AppCompatActivity {
                 getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
         assert navHostFragment != null;
         navController = navHostFragment.getNavController();
+        setUpBottomNavMenu();
+    }
 
+    // Creates the bottom navigation menu
+    private void setUpBottomNavMenu() {
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnItemSelectedListener(this::onItemSelectedListener);
-
         navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
             if (destination.getId() == R.id.ongoingWorriesFragment ||
                     destination.getId() == R.id.finishedWorriesFragment) {

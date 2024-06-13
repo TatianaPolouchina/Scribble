@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".NewWorryFragment1">
+    tools:context=".NewWorryFragment3">
 
     <TextView
         android:id="@+id/textView"
@@ -20,22 +20,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/back_button"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="-15dp"
-        android:background="@android:color/transparent"
-        android:contentDescription="@string/back_arrow_description"
-        android:src="@drawable/vector_arrow_back"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/textView"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.01"
-        app:tint="@color/darkPurple2" />
 
 
     <FrameLayout
@@ -70,38 +54,56 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/karla_bold"
-        android:text="@string/new_worry_instruction_1"
+        android:text="@string/new_worry_distortions_prompt"
         android:textColor="@color/darkPurple2"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
-        android:layout_width="0dp"
-        android:maxWidth="400dp"
+    <ImageButton
+        android:id="@+id/add_distortion_Button"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="25dp"
-        app:boxStrokeColor="@color/grey"
-        app:hintEnabled="false"
-        app:counterEnabled="true"
-        app:counterMaxLength="20"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="40dp"
+        android:background="@color/white"
+        android:src="@drawable/vector_plus_sign"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/instruction">
+        app:layout_constraintTop_toBottomOf="@+id/instruction" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputField"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:textColor="@color/darkPurple2"
-            android:hint="@string/new_worry_instruction_1_hint"
-            android:maxLength="20"
-            />
-    </com.google.android.material.textfield.TextInputLayout>
+    <HorizontalScrollView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="10dp"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/add_distortion_Button"
+        app:layout_constraintTop_toTopOf="@id/instruction">
+
+        <LinearLayout
+            android:id="@+id/selectedDistortionsContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" />
+    </HorizontalScrollView>
+
+<!--    -->
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="30dp"-->
+<!--        android:layout_marginTop="45dp"-->
+<!--        android:fontFamily="@font/karla_bold"-->
+<!--        android:text="@string/add_distortion_button_label"-->
+<!--        android:textColor="@color/darkPurpleMain"-->
+<!--        android:textSize="16sp"-->
+<!--        app:layout_constraintStart_toEndOf="@id/add_distortion_Button"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/instruction" />-->
+
 
     <Button
         android:id="@+id/next_button"
@@ -119,6 +121,7 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
