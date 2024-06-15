@@ -8,13 +8,17 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
 public class NewWorryFinishedFragment extends Fragment {
 
+    private SharedViewModel sharedViewModel;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
     }
 
     @Override
@@ -27,10 +31,10 @@ public class NewWorryFinishedFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        view.findViewById(R.id.finish_button).setOnClickListener(v ->
+        view.findViewById(R.id.finish_button).setOnClickListener(v -> {
                 NavHostFragment.findNavController(this).navigate
-                        (R.id.action_newWorryFinishedFragment_to_ongoingWorriesFragment));
-
-        // TODO: save worry
+                        (R.id.action_newWorryFinishedFragment_to_ongoingWorriesFragment);
+                sharedViewModel.saveWorry();
+                });
     }
 }

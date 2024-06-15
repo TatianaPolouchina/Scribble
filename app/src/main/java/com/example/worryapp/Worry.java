@@ -2,8 +2,8 @@ package com.example.worryapp;
 
 public class Worry {
 
-    private final String title;
-    private final int imageResId;
+    private String title;
+    private int imageResId;
     private String description;
     private boolean overgeneralizing;
     private boolean mindReading;
@@ -21,6 +21,15 @@ public class Worry {
         this.imageResId = imageResId;
     }
 
+    public Worry() {
+        this.title = "";
+        this.imageResId = R.drawable.worry_1;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -29,4 +38,51 @@ public class Worry {
         return imageResId;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setOvergeneralizing(boolean overgeneralizing) {
+        this.overgeneralizing = overgeneralizing;
+    }
+
+    public void setMindReading(boolean mindReading) {
+        this.mindReading = mindReading;
+    }
+
+    public void setFortuneTelling(boolean fortuneTelling) {
+        this.fortuneTelling = fortuneTelling;
+    }
+
+    public void setCatastrophizing(boolean catastrophizing) {
+        this.catastrophizing = catastrophizing;
+    }
+
+    public void setAllOrNothing(boolean allOrNothing) {
+        this.allOrNothing = allOrNothing;
+    }
+
+    public void setNegMentalFilter(boolean negMentalFilter) {
+        this.negMentalFilter = negMentalFilter;
+    }
+
+    public void setDisqualifyPositive(boolean disqualifyPositive) {
+        this.disqualifyPositive = disqualifyPositive;
+    }
+
+    public void setPersonalization(boolean personalization) {
+        this.personalization = personalization;
+    }
+
+    public void setEmotionalReasoning(boolean emotionalReasoning) {
+        this.emotionalReasoning = emotionalReasoning;
+    }
+
+    public void setLabelling(boolean labelling) {
+        this.labelling = labelling;
+    }
 }

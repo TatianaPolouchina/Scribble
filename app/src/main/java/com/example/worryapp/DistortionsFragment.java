@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
@@ -13,9 +14,12 @@ import android.view.ViewGroup;
 
 public class DistortionsFragment extends Fragment {
 
+    private SharedViewModel sharedViewModel;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        sharedViewModel = new ViewModelProvider(this).get(SharedViewModel.class);
         return inflater.inflate(R.layout.fragment_distortions_page, container, false);
     }
 
@@ -37,8 +41,10 @@ public class DistortionsFragment extends Fragment {
     private void addOnClickListeners(@NonNull View view) {
         view.findViewById(R.id.return_button).setOnClickListener(v ->
                 exitFragment());
-        view.findViewById(R.id.distortion_1).setOnClickListener(v ->
-                v.setSelected(!v.isSelected()));
+        view.findViewById(R.id.distortion_1).setOnClickListener(v -> {
+                v.setSelected(!v.isSelected());
+                sharedViewModel.getWorry().setOvergeneralizing(v.isSelected());
+                });
         view.findViewById(R.id.distortion_2).setOnClickListener(v ->
                 v.setSelected(!v.isSelected()));
         view.findViewById(R.id.distortion_3).setOnClickListener(v ->

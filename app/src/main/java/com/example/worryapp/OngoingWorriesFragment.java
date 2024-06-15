@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,9 +18,12 @@ import java.util.List;
 
 public class OngoingWorriesFragment extends Fragment {
 
+    private SharedViewModel sharedViewModel;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
     }
 
     @Override
@@ -34,24 +38,8 @@ public class OngoingWorriesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ((MainActivity) requireActivity()).setStatusBarColor(R.color.darkPurpleMain);
-
-        //Set up recycler view
-        List<Worry> data = new ArrayList<>();
-        data.add(new Worry("TEST", R.drawable.worry_1));
-        data.add(new Worry("TEST2", R.drawable.worry_1));
-        data.add(new Worry("TEST3", R.drawable.worry_1));
-        data.add(new Worry("TEST4", R.drawable.worry_1));
-        data.add(new Worry("TEST5", R.drawable.worry_1));
-        data.add(new Worry("TEST6", R.drawable.worry_1));
-        data.add(new Worry("TEST7", R.drawable.worry_1));
-        data.add(new Worry("TEST8", R.drawable.worry_1));
-        data.add(new Worry("TEST9", R.drawable.worry_1));
-        data.add(new Worry("TEST10", R.drawable.worry_1));
-
-        WorryCardAdapter adapter = new WorryCardAdapter(data);
-
+        WorryCardAdapter adapter = new WorryCardAdapter(sharedViewModel.getOngoingWorries());
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
-
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         recyclerView.setAdapter(adapter);
     }

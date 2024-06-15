@@ -8,6 +8,7 @@ import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
@@ -16,6 +17,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity {
     private NavController navController;
     private BottomNavigationView bottomNavigationView;
+    private SharedViewModel sharedViewModel;
 
     @Override
     // TODO: refactor
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         assert navHostFragment != null;
         navController = navHostFragment.getNavController();
         setUpBottomNavMenu();
+        sharedViewModel = new ViewModelProvider(this).get(SharedViewModel.class);
     }
 
     // Creates the bottom navigation menu
