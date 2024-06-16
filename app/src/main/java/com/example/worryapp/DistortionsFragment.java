@@ -19,7 +19,7 @@ public class DistortionsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        sharedViewModel = new ViewModelProvider(this).get(SharedViewModel.class);
+        sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
         return inflater.inflate(R.layout.fragment_distortions_page, container, false);
     }
 
@@ -40,36 +40,47 @@ public class DistortionsFragment extends Fragment {
      */
     private void addOnClickListeners(@NonNull View view) {
         view.findViewById(R.id.return_button).setOnClickListener(v ->
-                exitFragment());
-        view.findViewById(R.id.distortion_1).setOnClickListener(v -> {
-                v.setSelected(!v.isSelected());
-                sharedViewModel.getWorry().setOvergeneralizing(v.isSelected());
-                });
-        view.findViewById(R.id.distortion_2).setOnClickListener(v ->
-                v.setSelected(!v.isSelected()));
-        view.findViewById(R.id.distortion_3).setOnClickListener(v ->
-                v.setSelected(!v.isSelected()));
-        view.findViewById(R.id.distortion_4).setOnClickListener(v ->
-                v.setSelected(!v.isSelected()));
-        view.findViewById(R.id.distortion_5).setOnClickListener(v ->
-                v.setSelected(!v.isSelected()));
-        view.findViewById(R.id.distortion_6).setOnClickListener(v ->
-                v.setSelected(!v.isSelected()));
-        view.findViewById(R.id.distortion_7).setOnClickListener(v ->
-                v.setSelected(!v.isSelected()));
-        view.findViewById(R.id.distortion_8).setOnClickListener(v ->
-                v.setSelected(!v.isSelected()));
-        view.findViewById(R.id.distortion_9).setOnClickListener(v ->
-                v.setSelected(!v.isSelected()));
-        view.findViewById(R.id.distortion_10).setOnClickListener(v ->
-                v.setSelected(!v.isSelected()));
-    }
-
-    /*
-    Replaces the current fragment with NewWorryFragment2
-    */
-    public void exitFragment() {
-        NavHostFragment.findNavController(this).navigate
-                (R.id.newWorryFragment3);
+                NavHostFragment.findNavController(this).navigate
+                        (R.id.newWorryFragment3));
+        view.findViewById(R.id.overgeneralizing).setOnClickListener(v -> {
+            v.setSelected(!v.isSelected());
+            sharedViewModel.getWorry().setOvergeneralizing(v.isSelected());
+        });
+        view.findViewById(R.id.mindReading).setOnClickListener(v -> {
+            v.setSelected(!v.isSelected());
+            sharedViewModel.getWorry().setMindReading(v.isSelected());
+        });
+        view.findViewById(R.id.fortuneTelling).setOnClickListener(v -> {
+            v.setSelected(!v.isSelected());
+            sharedViewModel.getWorry().setFortuneTelling(v.isSelected());
+        });
+        view.findViewById(R.id.catastrophizing).setOnClickListener(v -> {
+            v.setSelected(!v.isSelected());
+            sharedViewModel.getWorry().setCatastrophizing(v.isSelected());
+        });
+        view.findViewById(R.id.allOrNothing).setOnClickListener(v -> {
+            v.setSelected(!v.isSelected());
+            sharedViewModel.getWorry().setAllOrNothing(v.isSelected());
+        });
+        view.findViewById(R.id.negMentalFilter).setOnClickListener(v -> {
+            v.setSelected(!v.isSelected());
+            sharedViewModel.getWorry().setNegMentalFilter(v.isSelected());
+        });
+        view.findViewById(R.id.disqualifyPositive).setOnClickListener(v -> {
+            v.setSelected(!v.isSelected());
+            sharedViewModel.getWorry().setDisqualifyPositive(v.isSelected());
+        });
+        view.findViewById(R.id.personalization).setOnClickListener(v -> {
+            v.setSelected(!v.isSelected());
+            sharedViewModel.getWorry().setPersonalization(v.isSelected());
+        });
+        view.findViewById(R.id.emotionalReasoning).setOnClickListener(v -> {
+            v.setSelected(!v.isSelected());
+            sharedViewModel.getWorry().setEmotionalReasoning(v.isSelected());
+        });
+        view.findViewById(R.id.labelling).setOnClickListener(v -> {
+            v.setSelected(!v.isSelected());
+            sharedViewModel.getWorry().setLabelling(v.isSelected());
+        });
     }
 }

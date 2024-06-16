@@ -61,70 +61,70 @@
             android:orientation="vertical">
 
             <include
-                android:id="@+id/distortion_1"
+                android:id="@+id/overgeneralizing"
                 layout="@layout/distortion_1_card"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <include
-                android:id="@+id/distortion_2"
+                android:id="@+id/mindReading"
                 layout="@layout/distortion_2_card"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <include
-                android:id="@+id/distortion_3"
+                android:id="@+id/fortuneTelling"
                 layout="@layout/distortion_3_card"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <include
-                android:id="@+id/distortion_4"
+                android:id="@+id/catastrophizing"
                 layout="@layout/distortion_4_card"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <include
-                android:id="@+id/distortion_5"
+                android:id="@+id/allOrNothing"
                 layout="@layout/distortion_5_card"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <include
-                android:id="@+id/distortion_6"
+                android:id="@+id/negMentalFilter"
                 layout="@layout/distortion_6_card"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <include
-                android:id="@+id/distortion_7"
+                android:id="@+id/disqualifyPositive"
                 layout="@layout/distortion_7_card"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <include
-                android:id="@+id/distortion_8"
+                android:id="@+id/personalization"
                 layout="@layout/distortion_8_card"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <include
-                android:id="@+id/distortion_9"
+                android:id="@+id/emotionalReasoning"
                 layout="@layout/distortion_9_card"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <include
-                android:id="@+id/distortion_10"
+                android:id="@+id/labelling"
                 layout="@layout/distortion_10_card"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

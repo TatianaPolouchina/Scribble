@@ -85,4 +85,44 @@ public class Worry {
     public void setLabelling(boolean labelling) {
         this.labelling = labelling;
     }
+
+    public boolean isOvergeneralizing() {
+        return overgeneralizing;
+    }
+
+    public boolean isMindReading() {
+        return mindReading;
+    }
+
+    public boolean isFortuneTelling() {
+        return fortuneTelling;
+    }
+
+    public boolean isCatastrophizing() {
+        return catastrophizing;
+    }
+
+    public boolean isAllOrNothing() {
+        return allOrNothing;
+    }
+
+    public boolean isNegMentalFilter() {
+        return negMentalFilter;
+    }
+
+    public boolean isDisqualifyPositive() {
+        return disqualifyPositive;
+    }
+
+    public boolean isPersonalization() {
+        return personalization;
+    }
+
+    public boolean isEmotionalReasoning() {
+        return emotionalReasoning;
+    }
+
+    public boolean isLabelling() {
+        return labelling;
+    }
 }
