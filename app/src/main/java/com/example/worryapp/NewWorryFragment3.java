@@ -11,14 +11,14 @@ import androidx.navigation.fragment.NavHostFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 public class NewWorryFragment3 extends Fragment {
 
     private SharedViewModel sharedViewModel;
-    private LinearLayout selectedDistortionsContainer;
+    private GridLayout selectedDistortionsContainer;
 
     public NewWorryFragment3() {
     }
@@ -99,6 +99,10 @@ public class NewWorryFragment3 extends Fragment {
         ImageView imageView = new ImageView(getContext());
         imageView.setImageResource(id);
         imageView.setPadding(8, 8, 8, 8);
+
+        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(190, 190);
+        imageView.setLayoutParams(params);
+
         selectedDistortionsContainer.addView(imageView);
     }
 }

@@ -3,6 +3,14 @@
     <style name="AppTheme.BottomNavigationView" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:background">@color/white</item>
     </style>
+    <style name="CustomButton" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/rectangle_rounded_beige_outline</item>
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/karla_bold</item>
+    </style>
+
 </resources>
 
 <!-- Theme.MaterialComponents.Light.DarkActionBar-->
