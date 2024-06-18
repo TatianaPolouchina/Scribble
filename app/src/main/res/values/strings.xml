@@ -66,5 +66,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="worry_finished_message">Comforting Message</string>
     <string name="worry_finished_button">Finish</string>
+    <string name="options_title">Actions</string>
+    <string name="finish_worry_button_text">Finish Worry</string>
+    <string name="worry_respond_button_text">Respond</string>
 
 </resources>
