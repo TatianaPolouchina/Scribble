@@ -43,9 +43,7 @@ public class NewWorryFragment3 extends Fragment {
         ImageButton addDistortionButton = view.findViewById(R.id.add_distortion_Button);
         selectedDistortionsContainer = view.findViewById(R.id.selectedDistortionsContainer);
 
-        // Add cognitive distortions:
         addSelectedDistortions();
-
 
         addDistortionButton.setOnClickListener(v ->
                 NavHostFragment.findNavController(this).navigate
