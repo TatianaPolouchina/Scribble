@@ -48,7 +48,11 @@ public class OngoingWorriesFragment extends Fragment implements OnItemClickListe
     public void onItemClick(int position) {
         Worry selectedWorry = sharedViewModel.getOngoingWorries().get(position);
         ((MainActivity) requireActivity()).setStatusBarColor(R.color.white);
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("selectedWorry", selectedWorry);
+
         NavHostFragment.findNavController(this).navigate
-                (R.id.action_ongoingWorriesFragment_to_ongoingWorryFragment);
+                (R.id.action_ongoingWorriesFragment_to_ongoingWorryFragment, bundle);
     }
 }

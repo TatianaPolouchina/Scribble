@@ -41,7 +41,7 @@ public class NewWorryFragment3 extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         ImageButton addDistortionButton = view.findViewById(R.id.add_distortion_Button);
-        selectedDistortionsContainer = view.findViewById(R.id.selectedDistortionsContainer);
+        selectedDistortionsContainer = view.findViewById(R.id.distortionsContainer);
 
         addSelectedDistortions();
 

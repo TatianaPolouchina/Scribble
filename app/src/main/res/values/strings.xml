@@ -69,5 +69,8 @@
     <string name="options_title">Actions</string>
     <string name="finish_worry_button_text">Finish Worry</string>
     <string name="worry_respond_button_text">Respond</string>
+    <string name="cognitive_distortions_label">Cognitive Distortions</string>
+    <string name="reminders_label">Reminders</string>
+    <string name="finish_worry_title">Finish Worry</string>
 
 </resources>

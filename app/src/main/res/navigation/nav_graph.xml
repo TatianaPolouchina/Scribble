@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/newWorryFragment3"
         android:name="com.example.worryapp.NewWorryFragment3"
-        tools:layout="@layout/fragment_new_worry3" >
+        tools:layout="@layout/fragment_new_worry3">
 
         <action
             android:id="@+id/action_newWorryFragment3_to_distortionsFragment"
@@ -21,7 +21,7 @@
     <fragment
         android:id="@+id/distortionsFragment"
         android:name="com.example.worryapp.DistortionsFragment"
-        tools:layout="@layout/fragment_distortions_page" >
+        tools:layout="@layout/fragment_distortions_page">
         <action
             android:id="@+id/action_distortionsFragment_to_newWorryFragment2"
             app:destination="@id/newWorryFragment3" />
@@ -31,7 +31,7 @@
         android:id="@+id/ongoingWorriesFragment"
         android:name="com.example.worryapp.OngoingWorriesFragment"
         android:label="OngoingWorriesFragment"
-        tools:layout="@layout/fragment_ongoing_worries" >
+        tools:layout="@layout/fragment_ongoing_worries">
         <action
             android:id="@+id/action_ongoingWorriesFragment_to_ongoingWorryFragment"
             app:destination="@id/ongoingWorryFragment" />
@@ -41,14 +41,13 @@
         android:id="@+id/finishedWorriesFragment"
         android:name="com.example.worryapp.FinishedWorriesFragment"
         android:label="FinishedWorriesFragment"
-        tools:layout="@layout/fragment_finished_worries" >
-    </fragment>
+        tools:layout="@layout/fragment_finished_worries" />
 
     <fragment
         android:id="@+id/newWorryFragment1"
         android:name="com.example.worryapp.NewWorryFragment1"
         android:label="fragment_new_worry"
-        tools:layout="@layout/fragment_new_worry" >
+        tools:layout="@layout/fragment_new_worry">
         <action
             android:id="@+id/action_newWorryFragment1_to_newWorryFragment2"
             app:destination="@id/newWorryFragment2" />
@@ -79,7 +78,11 @@
         android:id="@+id/ongoingWorryFragment"
         android:name="com.example.worryapp.OngoingWorryFragment"
         android:label="fragment_ongoing_worry"
-        tools:layout="@layout/fragment_ongoing_worry" />
+        tools:layout="@layout/fragment_ongoing_worry">
+        <argument
+            android:name="selectedWorry"
+            app:argType="com.example.worryapp.Worry" />
+    </fragment>
 
 
 </navigation>

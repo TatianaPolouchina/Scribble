@@ -1,6 +1,8 @@
 package com.example.worryapp;
 
-public class Worry {
+import java.io.Serializable;
+
+public class Worry implements Serializable {
 
     private String title;
     private int imageResId;

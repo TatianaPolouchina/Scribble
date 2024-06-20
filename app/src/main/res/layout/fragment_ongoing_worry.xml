@@ -62,7 +62,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/worryDescription"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -87,7 +87,7 @@
                 android:textColor="@color/grey"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+                app:layout_constraintTop_toBottomOf="@+id/worryDescription" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/respondButton"
@@ -132,22 +132,34 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/karla_bold"
-                android:text="Cognitive Distortions"
+                android:text="@string/cognitive_distortions_label"
                 android:textColor="@color/grey"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/finishWorryButton" />
 
-            <GridLayout
-                android:id="@+id/selectedDistortionsContainer"
+            <HorizontalScrollView
+                android:id="@+id/distortionsScrollView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:columnCount="4"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="5dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cognitiveDistortionsLabel" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cognitiveDistortionsLabel"
+                >
+
+                <LinearLayout
+                    android:id="@+id/distortionsContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:orientation="horizontal"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/distortionsScrollView" />
+            </HorizontalScrollView>
 
             <TextView
                 android:id="@+id/remindersLabel"
@@ -156,11 +168,11 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/karla_bold"
-                android:text="Reminders"
+                android:text="@string/reminders_label"
                 android:textColor="@color/grey"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/selectedDistortionsContainer" />
+                app:layout_constraintTop_toBottomOf="@+id/distortionsScrollView" />
 
             <TextView
                 android:id="@+id/reminderTextView"
