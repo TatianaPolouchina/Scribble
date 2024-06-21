@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,7 +35,7 @@ public class OngoingWorryFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        TextView worryTitle = view.findViewById(R.id.worryNameTitle);
+        TextView worryTitle = view.findViewById(R.id.finishWorryTitle);
         TextView worryDescription = view.findViewById(R.id.worryDescription);
         distortionsContainer = view.findViewById(R.id.distortionsContainer);
 
@@ -55,6 +56,13 @@ public class OngoingWorryFragment extends Fragment {
                 }
             }
         }
+
+        view.findViewById(R.id.finishWorryButton).setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("selectedWorry", worry);
+            NavHostFragment.findNavController(this).navigate
+                    (R.id.action_ongoingWorryFragment_to_endWorryFragment1, bundle);
+        });
     }
 
     // TODO: repeated code from NewWorryFragment3 (refactor)

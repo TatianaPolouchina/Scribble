@@ -82,6 +82,45 @@
         <argument
             android:name="selectedWorry"
             app:argType="com.example.worryapp.Worry" />
+        <action
+            android:id="@+id/action_ongoingWorryFragment_to_endWorryFragment1"
+            app:destination="@id/endWorryFragment1" />
+    </fragment>
+    <fragment
+        android:id="@+id/endWorryFragment1"
+        android:name="com.example.worryapp.EndWorryFragment1"
+        android:label="fragment_end_worry1"
+        tools:layout="@layout/fragment_end_worry1" >
+        <argument
+            android:name="selectedWorry"
+            app:argType="com.example.worryapp.Worry" />
+        <action
+            android:id="@+id/action_endWorryFragment1_to_endWorryFragment2"
+            app:destination="@id/endWorryFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/endWorryFragment2"
+        android:name="com.example.worryapp.EndWorryFragment2"
+        android:label="fragment_end_worry2"
+        tools:layout="@layout/fragment_end_worry2" >
+        <argument
+            android:name="selectedWorry"
+            app:argType="com.example.worryapp.Worry" />
+        <action
+            android:id="@+id/action_endWorryFragment2_to_endWorryFragment3"
+            app:destination="@id/endWorryFragment3" />
+    </fragment>
+    <fragment
+        android:id="@+id/endWorryFragment3"
+        android:name="com.example.worryapp.EndWorryFragment3"
+        android:label="fragment_end_worry3"
+        tools:layout="@layout/fragment_end_worry3" >
+        <argument
+            android:name="selectedWorry"
+            app:argType="com.example.worryapp.Worry" />
+        <action
+            android:id="@+id/action_endWorryFragment3_to_finishedWorriesFragment"
+            app:destination="@id/finishedWorriesFragment" />
     </fragment>
 
 

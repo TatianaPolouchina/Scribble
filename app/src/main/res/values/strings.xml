@@ -62,9 +62,8 @@
     <string name="new_worry_button_text">Next</string>
     <string name="new_worry_distortions_prompt">Is this a distorted thought?</string>
     <string name="add_distortion_button_label">Add distortions</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="worry_finished_message">Comforting Message</string>
+
+    <!-- TODO: organize strings -->
     <string name="worry_finished_button">Finish</string>
     <string name="options_title">Actions</string>
     <string name="finish_worry_button_text">Finish Worry</string>
@@ -72,5 +71,14 @@
     <string name="cognitive_distortions_label">Cognitive Distortions</string>
     <string name="reminders_label">Reminders</string>
     <string name="finish_worry_title">Finish Worry</string>
+    <string name="end_worry_button_text">Finish Worry</string>
+    <string name="no_button_text">No</string>
+    <string name="yes_button_text">Yes</string>
+    <string name="finish_worry_question">Was it as bad as you feared?</string>
+    <string name="finish_worry_prompt_2">How did it end?</string>
+    <string name="worry_ended_message">Yay!</string>
+    <string name="close_button_text">Close</string>
+    <string name="worry_ended_subtitle">This worry is over</string>
+    <string name="worry_created_message">Comforting Message</string>
 
 </resources>

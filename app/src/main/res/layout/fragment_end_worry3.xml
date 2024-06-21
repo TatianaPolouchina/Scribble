@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".NewWorryFragment1">
+    tools:context=".EndWorryFragment3">
 
     <TextView
         android:id="@+id/finishWorryTitle"
@@ -13,9 +13,9 @@
         android:layout_height="0dp"
         android:layout_marginTop="7dp"
         android:fontFamily="@font/karla_bold"
-        android:text="@string/new_worry_page_title"
+        android:text="@string/finish_worry_title"
         android:textAlignment="center"
-        android:textColor="@color/darkPurpleMain"
+        android:textColor="@color/grey"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,60 +49,51 @@
     </FrameLayout>
 
     <TextView
-        android:id="@+id/instruction"
+        android:id="@+id/question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/karla_bold"
-        android:text="@string/new_worry_instruction_2"
-        android:textColor="@color/darkPurple2"
-        android:textSize="20sp"
+        android:text="@string/worry_ended_message"
+        android:textColor="@color/lightOrangeMain"
+        android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
-        android:layout_width="0dp"
-        android:maxWidth="400dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="25dp"
-        app:boxStrokeColor="@color/grey"
-        app:hintEnabled="false"
-        app:counterEnabled="true"
-        app:counterMaxLength="150"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/instruction">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputField"
-            android:layout_width="match_parent"
-            android:layout_height="110dp"
-            android:textColor="@color/darkPurple2"
-            android:gravity="top"
-            android:hint="@string/new_worry_instruction_1_hint"
-            android:maxLength="150"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <Button
-        android:id="@+id/next_button"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/closeButton"
+        style="@style/CustomButton"
         android:layout_width="0dp"
-        android:maxWidth="400dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:backgroundTint="@color/darkPurple2"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rectangle_rounded_beige_outline"
         android:elegantTextHeight="false"
         android:fontFamily="@font/karla_bold"
-        android:text="@string/new_worry_button_text"
+        android:maxWidth="400dp"
+        android:text="@string/close_button_text"
         android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/grey"
         android:textSize="16sp"
-        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/karla_bold"
+        android:text="@string/worry_ended_subtitle"
+        android:textColor="#9A9A9A"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/question" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

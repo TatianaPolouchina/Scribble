@@ -5,7 +5,8 @@ import java.io.Serializable;
 public class Worry implements Serializable {
 
     private String title;
-    private int imageResId;
+    private final int ongoingImageResId;
+    private final int finishedImageResId;
     private String description;
     private boolean overgeneralizing;
     private boolean mindReading;
@@ -17,15 +18,20 @@ public class Worry implements Serializable {
     private boolean personalization;
     private boolean emotionalReasoning;
     private boolean labelling;
+    private boolean result; // true if the worry ended up being as bad as expected
+    private String howItEnded; // description of how the worry ended
+    public boolean finished;
 
-    public Worry(String title, int imageResId) {
+    public Worry(String title, int ongoingImageResId, int finishedImageResId) {
         this.title = title;
-        this.imageResId = imageResId;
+        this.ongoingImageResId = ongoingImageResId;
+        this.finishedImageResId = finishedImageResId;
     }
 
     public Worry() {
         this.title = "";
-        this.imageResId = R.drawable.worry_1;
+        this.ongoingImageResId = R.drawable.worry_1;
+        this.finishedImageResId = R.drawable.worry_1_finished_ombre;
     }
 
     public void setTitle(String title) {
@@ -36,8 +42,8 @@ public class Worry implements Serializable {
         return title;
     }
 
-    public int getImageResId() {
-        return imageResId;
+    public int getOngoingImageResId() {
+        return ongoingImageResId;
     }
 
     public void setDescription(String description) {
@@ -126,5 +132,33 @@ public class Worry implements Serializable {
 
     public boolean isLabelling() {
         return labelling;
+    }
+
+    public boolean getResult() {
+        return result;
+    }
+
+    public void setResult(boolean result) {
+        this.result = result;
+    }
+
+    public String getHowItEnded() {
+        return howItEnded;
+    }
+
+    public void setHowItEnded(String howItEnded) {
+        this.howItEnded = howItEnded;
+    }
+
+    public int getFinishedImageResId() {
+        return finishedImageResId;
+    }
+
+    public void setFinished() {
+        this.finished = true;
+    }
+
+    public boolean isFinished() {
+        return finished;
     }
 }

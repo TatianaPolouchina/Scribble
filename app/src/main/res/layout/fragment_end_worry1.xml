@@ -5,37 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".endWorryFragment1">
+    tools:context=".EndWorryFragment1">
 
     <TextView
-        android:id="@+id/worryNameTitle"
+        android:id="@+id/finishWorryTitle"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginTop="7dp"
         android:fontFamily="@font/karla_bold"
         android:text="@string/finish_worry_title"
         android:textAlignment="center"
-        android:textColor="@color/darkPurpleMain"
+        android:textColor="@color/grey"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/backButton"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="-15dp"
-        android:background="@android:color/transparent"
-        android:contentDescription="@string/back_arrow_description"
-        android:src="@drawable/vector_arrow_back"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/worryNameTitle"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.01"
-        app:tint="@color/darkPurple2" />
 
 
     <FrameLayout
@@ -45,7 +29,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/worryNameTitle"
+        app:layout_constraintTop_toBottomOf="@+id/finishWorryTitle"
         app:layout_constraintVertical_bias="0.15">
 
         <ImageView
@@ -65,37 +49,59 @@
     </FrameLayout>
 
     <TextView
-        android:id="@+id/instruction"
+        android:id="@+id/question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/karla_bold"
-        android:text="@string/new_worry_instruction_1"
-        android:textColor="@color/darkPurple2"
+        android:text="@string/finish_worry_question"
+        android:textColor="@color/grey"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
 
 
-
-
-    <Button
-        android:id="@+id/next_button"
-        android:layout_width="0dp"
-        android:maxWidth="400dp"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/yesButton"
+        style="@style/CustomButton"
+        android:layout_width="wrap_content"
+        android:paddingStart="140dp"
+        android:paddingEnd="140dp"
+        android:maxWidth="320dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:backgroundTint="@color/darkPurple2"
-        android:elegantTextHeight="false"
-        android:fontFamily="@font/karla_bold"
-        android:text="@string/new_worry_button_text"
-        android:textAlignment="center"
-        android:textSize="16sp"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/rectangle_rounded_beige_outline"
+        android:gravity="center_horizontal"
+        android:stateListAnimator="@anim/nav_default_enter_anim"
+        android:text="@string/yes_button_text"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColorLink="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/question" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/noButton"
+        style="@style/CustomButton"
+        android:layout_width="wrap_content"
+        android:paddingStart="140dp"
+        android:paddingEnd="140dp"
+        android:maxWidth="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/rectangle_rounded_beige_outline"
+        android:gravity="center_horizontal"
+        android:stateListAnimator="@anim/nav_default_enter_anim"
+        android:text="@string/no_button_text"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColorLink="@color/grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/yesButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

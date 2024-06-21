@@ -8,7 +8,7 @@
     tools:context=".NewWorryFragment3">
 
     <TextView
-        android:id="@+id/worryNameTitle"
+        android:id="@+id/finishWorryTitle"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginTop="7dp"
@@ -29,7 +29,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/worryNameTitle"
+        app:layout_constraintTop_toBottomOf="@+id/finishWorryTitle"
         app:layout_constraintVertical_bias="0.15">
 
         <ImageView
@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
         android:fontFamily="@font/karla_bold"
-        android:text="@string/worry_finished_message"
+        android:text="@string/worry_created_message"
         android:textColor="@color/darkPurple2"
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"

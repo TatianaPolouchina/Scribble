@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".NewWorryFragment1">
+    tools:context=".EndWorryFragment2">
 
     <TextView
         android:id="@+id/finishWorryTitle"
@@ -13,9 +13,9 @@
         android:layout_height="0dp"
         android:layout_marginTop="7dp"
         android:fontFamily="@font/karla_bold"
-        android:text="@string/new_worry_page_title"
+        android:text="@string/finish_worry_title"
         android:textAlignment="center"
-        android:textColor="@color/darkPurpleMain"
+        android:textColor="@color/grey"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,13 +49,13 @@
     </FrameLayout>
 
     <TextView
-        android:id="@+id/instruction"
+        android:id="@+id/question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/karla_bold"
-        android:text="@string/new_worry_instruction_2"
-        android:textColor="@color/darkPurple2"
+        android:text="@string/finish_worry_prompt_2"
+        android:textColor="@color/grey"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -75,7 +75,7 @@
         app:counterMaxLength="150"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/instruction">
+        app:layout_constraintTop_toBottomOf="@+id/question">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textInputField"
@@ -88,21 +88,19 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/next_button"
-        android:layout_width="0dp"
-        android:maxWidth="400dp"
+        android:id="@+id/finishWorryButton"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
         android:backgroundTint="@color/darkPurple2"
         android:elegantTextHeight="false"
         android:fontFamily="@font/karla_bold"
-        android:text="@string/new_worry_button_text"
+        android:maxWidth="400dp"
+        android:text="@string/end_worry_button_text"
         android:textAlignment="center"
-        android:textSize="16sp"
         android:textColor="@color/white"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

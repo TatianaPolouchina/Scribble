@@ -6,16 +6,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
-public class FinishedWorriesFragment extends Fragment implements OnItemClickListener {
-
+public class EndWorryFragment3 extends Fragment {
     private SharedViewModel sharedViewModel;
+    private Worry worry;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,21 +26,27 @@ public class FinishedWorriesFragment extends Fragment implements OnItemClickList
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_finished_worries, container, false);
+        return inflater.inflate(R.layout.fragment_end_worry3, container, false);
     }
 
+    // TODO: refactor
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ((MainActivity) requireActivity()).setStatusBarColor(R.color.beige);
-        WorryCardAdapter adapter = new WorryCardAdapter(sharedViewModel.getFinishedWorries(), this);
-        RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
-        recyclerView.setAdapter(adapter);
-    }
 
-    @Override
-    public void onItemClick(int position) {
-        // TODO: implement
+        //update image
+        if (getArguments() != null) {
+            worry = (Worry) getArguments().getSerializable("selectedWorry");
+            if (worry != null) {
+                ImageView image = view.findViewById(R.id.worry_character);
+                image.setImageResource(worry.getFinishedImageResId());
+            }
+        }
+
+        view.findViewById(R.id.closeButton).setOnClickListener(v -> {
+            sharedViewModel.finishWorry(worry);
+            NavHostFragment.findNavController(this).navigate
+                    (R.id.action_endWorryFragment3_to_finishedWorriesFragment);
+        });
     }
 }

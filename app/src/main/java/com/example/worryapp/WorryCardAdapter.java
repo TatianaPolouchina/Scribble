@@ -30,12 +30,19 @@ public class WorryCardAdapter extends RecyclerView.Adapter<WorryCardAdapter.View
         return new ViewHolder(view);
     }
 
-    // !!! Replaces the contents of the view with the data from WorryItem
+    /**
+     * Replaces the contents of the view with the data from WorryItem and the correct image based
+     * on whether the worry is finished or ongoing
+     */
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Worry worry = worryItems.get(position);
         holder.textView.setText(worry.getTitle());
-        holder.image.setImageResource(worry.getImageResId());
+        if (worry.isFinished()) {
+            holder.image.setImageResource(worry.getFinishedImageResId());
+        } else {
+            holder.image.setImageResource(worry.getOngoingImageResId());
+        }
         holder.bind(listener);
     }
 
@@ -49,6 +56,7 @@ public class WorryCardAdapter extends RecyclerView.Adapter<WorryCardAdapter.View
         return worryItems.size();
     }
 
+    // TODO: finish comments
     // ViewHolder class to hold the views
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView textView;
