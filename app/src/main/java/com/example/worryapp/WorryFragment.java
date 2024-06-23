@@ -10,14 +10,16 @@ import androidx.navigation.fragment.NavHostFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class OngoingWorryFragment extends Fragment {
+public class WorryFragment extends Fragment {
 
     private Worry worry;
     private LinearLayout distortionsContainer;
+    private TextView worryTitle;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -27,7 +29,7 @@ public class OngoingWorryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_ongoing_worry, container, false);
+        return inflater.inflate(R.layout.fragment_worry, container, false);
     }
 
     // TODO: refactor
@@ -35,7 +37,7 @@ public class OngoingWorryFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        TextView worryTitle = view.findViewById(R.id.finishWorryTitle);
+        worryTitle = view.findViewById(R.id.worryNameTitle);
         TextView worryDescription = view.findViewById(R.id.worryDescription);
         distortionsContainer = view.findViewById(R.id.distortionsContainer);
 
@@ -46,14 +48,7 @@ public class OngoingWorryFragment extends Fragment {
                 worryDescription.setText(worry.getDescription());
                 addSelectedDistortions();
 
-                //Set missing info invisible
-                if (worry.getDescription().isEmpty()) {
-                    worryDescription.setVisibility(View.GONE);
-                }
-                if (distortionsContainer.getChildCount() == 0) {
-                    view.findViewById(R.id.cognitiveDistortionsLabel).setVisibility(View.GONE);
-                    distortionsContainer.setVisibility(View.GONE);
-                }
+                setVisibility(view, worryDescription);
             }
         }
 
@@ -63,6 +58,36 @@ public class OngoingWorryFragment extends Fragment {
             NavHostFragment.findNavController(this).navigate
                     (R.id.action_ongoingWorryFragment_to_endWorryFragment1, bundle);
         });
+    }
+
+    // TODO: comment (sets relevant info visible)
+    private void setVisibility(@NonNull View view, TextView worryDescription) {
+        //Set missing info invisible
+        if (worry.getDescription().isEmpty()) {
+            worryDescription.setVisibility(View.GONE);
+        }
+        if (distortionsContainer.getChildCount() == 0) {
+            view.findViewById(R.id.cognitiveDistortionsLabel).setVisibility(View.GONE);
+            distortionsContainer.setVisibility(View.GONE);
+        }
+        if (worry.isFinished()) {
+            updateLayoutFinished(view);
+        }
+    }
+
+    // TODO: comment and finish
+    // Updates the layout colours and images to the finished worry layout
+    public void updateLayoutFinished(View view) {
+        ImageView background = view.findViewById(R.id.worryImageBackground);
+        TextView actionsTextView = view.findViewById(R.id.actionsTextView);
+        Button respondButton = view.findViewById(R.id.respondButton);
+        Button finishWorryButton = view.findViewById(R.id.finishWorryButton);
+
+        worryTitle.setTextColor(getResources().getColor(R.color.lightOrangeMain, requireActivity().getTheme()));
+        background.setImageResource(R.drawable.rectangle_rounded_beige);
+        actionsTextView.setVisibility(View.GONE);
+        respondButton.setVisibility(View.GONE);
+        finishWorryButton.setVisibility(View.GONE);
     }
 
     // TODO: repeated code from NewWorryFragment3 (refactor)

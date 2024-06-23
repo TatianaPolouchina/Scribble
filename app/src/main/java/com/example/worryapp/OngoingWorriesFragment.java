@@ -53,6 +53,6 @@ public class OngoingWorriesFragment extends Fragment implements OnItemClickListe
         bundle.putSerializable("selectedWorry", selectedWorry);
 
         NavHostFragment.findNavController(this).navigate
-                (R.id.action_ongoingWorriesFragment_to_ongoingWorryFragment, bundle);
+                (R.id.action_ongoingWorriesFragment_to_worryFragment, bundle);
     }
 }

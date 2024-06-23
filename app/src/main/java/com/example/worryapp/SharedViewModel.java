@@ -29,9 +29,9 @@ public class SharedViewModel extends ViewModel {
         return worry.getValue();
     }
 
-    // Saves the current worry object to the list of Worries
+    // Saves the current worry object to the beginning of the list of Worries
     public void saveWorry() {
-        Objects.requireNonNull(this.ongoingWorries.getValue()).add(worry.getValue());
+        Objects.requireNonNull(this.ongoingWorries.getValue()).add(0, worry.getValue());
     }
 
     public List<Worry> getOngoingWorries() {
@@ -43,14 +43,14 @@ public class SharedViewModel extends ViewModel {
     }
 
     /**
-     * Removes the worry from ongoingWorries and adds it to finishedWorries
+     * Removes the worry from ongoingWorries and adds it to the beginning of finishedWorries
      *
      * @param worry the worry to be set as finished
      */
     public void finishWorry(Worry worry) {
         Objects.requireNonNull(ongoingWorries.getValue()).remove(worry);
         if (!Objects.requireNonNull(finishedWorries.getValue()).contains(worry)) {
-            finishedWorries.getValue().add(worry);
+            finishedWorries.getValue().add(0, worry);
         }
         worry.setFinished();
     }

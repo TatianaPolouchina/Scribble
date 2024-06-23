@@ -33,15 +33,19 @@
         android:label="OngoingWorriesFragment"
         tools:layout="@layout/fragment_ongoing_worries">
         <action
-            android:id="@+id/action_ongoingWorriesFragment_to_ongoingWorryFragment"
-            app:destination="@id/ongoingWorryFragment" />
+            android:id="@+id/action_ongoingWorriesFragment_to_worryFragment"
+            app:destination="@id/worryFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/finishedWorriesFragment"
         android:name="com.example.worryapp.FinishedWorriesFragment"
         android:label="FinishedWorriesFragment"
-        tools:layout="@layout/fragment_finished_worries" />
+        tools:layout="@layout/fragment_finished_worries" >
+        <action
+            android:id="@+id/action_finishedWorriesFragment_to_worryFragment"
+            app:destination="@id/worryFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/newWorryFragment1"
@@ -75,10 +79,10 @@
             app:exitAnim="@android:animator/fade_out" />
     </fragment>
     <fragment
-        android:id="@+id/ongoingWorryFragment"
-        android:name="com.example.worryapp.OngoingWorryFragment"
+        android:id="@+id/worryFragment"
+        android:name="com.example.worryapp.WorryFragment"
         android:label="fragment_ongoing_worry"
-        tools:layout="@layout/fragment_ongoing_worry">
+        tools:layout="@layout/fragment_worry">
         <argument
             android:name="selectedWorry"
             app:argType="com.example.worryapp.Worry" />

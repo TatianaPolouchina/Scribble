@@ -6,10 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".OngoingWorryFragment">
+    tools:context=".WorryFragment">
 
     <TextView
-        android:id="@+id/finishWorryTitle"
+        android:id="@+id/worryNameTitle"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginTop="12dp"
@@ -30,7 +30,7 @@
         android:contentDescription="@string/back_arrow_description"
         android:src="@drawable/vector_arrow_back"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/finishWorryTitle"
+        app:layout_constraintEnd_toStartOf="@id/worryNameTitle"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -44,7 +44,7 @@
         android:layout_marginBottom="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/finishWorryTitle"
+        app:layout_constraintTop_toBottomOf="@id/worryNameTitle"
         app:layout_constraintBottom_toBottomOf="parent"
         >
 
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/worryImage"
+                android:id="@+id/worryImageBackground"
                 android:layout_width="0dp"
                 android:layout_height="300dp"
                 android:src="@drawable/rectangle_rounded_purple"
@@ -65,19 +65,19 @@
                 android:id="@+id/worryDescription"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="30dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginRight="30dp"
                 android:fontFamily="@font/karla_bold"
                 android:text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam."
                 android:textColor="@color/grey"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/worryImage" />
+                app:layout_constraintTop_toBottomOf="@+id/worryImageBackground" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/actionsTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -105,7 +105,7 @@
                 android:textColorLink="@color/grey"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                app:layout_constraintTop_toBottomOf="@+id/actionsTextView" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/finishWorryButton"

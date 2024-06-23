@@ -30,6 +30,7 @@ public class WorryCardAdapter extends RecyclerView.Adapter<WorryCardAdapter.View
         return new ViewHolder(view);
     }
 
+
     /**
      * Replaces the contents of the view with the data from WorryItem and the correct image based
      * on whether the worry is finished or ongoing
