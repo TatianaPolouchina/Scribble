@@ -21,7 +21,7 @@
         android:layout_marginTop="23dp"
         android:fontFamily="@font/karla_bold"
         android:text="@string/distortions_page_title"
-        android:textColor="@color/darkPurple2"
+        android:textColor="@color/darkBlueMain"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +39,7 @@
         android:src="@drawable/vector_arrow_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/darkPurple2" />
+        app:tint="@color/darkBlueMain" />
 
 
 
@@ -142,7 +142,7 @@
         android:backgroundTint="#00FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/vector_info_icon" />
-
+        app:srcCompat="@drawable/vector_info_icon"
+        app:tint="@color/darkBlueMain" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

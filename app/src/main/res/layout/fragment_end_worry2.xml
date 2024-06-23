@@ -81,7 +81,7 @@
             android:id="@+id/textInputField"
             android:layout_width="match_parent"
             android:layout_height="110dp"
-            android:textColor="@color/darkPurple2"
+            android:textColor="@color/darkBlueMain"
             android:gravity="top"
             android:hint="@string/new_worry_instruction_1_hint"
             android:maxLength="150"/>
@@ -91,7 +91,7 @@
         android:id="@+id/finishWorryButton"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/darkPurple2"
+        android:backgroundTint="@color/darkBlueMain"
         android:elegantTextHeight="false"
         android:fontFamily="@font/karla_bold"
         android:maxWidth="400dp"

@@ -35,7 +35,7 @@ public class OngoingWorriesFragment extends Fragment implements OnItemClickListe
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ((MainActivity) requireActivity()).setStatusBarColor(R.color.darkPurpleMain);
+        ((MainActivity) requireActivity()).setStatusBarColor(R.color.darkBlueMain);
         WorryCardAdapter adapter = new WorryCardAdapter(sharedViewModel.getOngoingWorries(), this);
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));

@@ -16,7 +16,7 @@
         android:fontFamily="@font/karla_bold"
         android:text="Worry Name"
         android:textAlignment="center"
-        android:textColor="@color/darkPurpleMain"
+        android:textColor="@color/darkBlueMain"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +35,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:tint="@color/darkPurple2" />
+        app:tint="@color/grey" />
 
     <ScrollView
         android:layout_width="match_parent"

@@ -18,7 +18,7 @@
 
     <!-- Distortions Page -->
     <string name="distortions_page_title">Add Distortions</string>
-    <string name="back_arrow_description">Purple Back Arrow</string>
+    <string name="back_arrow_description">Back Arrow</string>
     <string name="distortions_description1">Cognitive distortions are negative thought patterns that
         lead to worry. </string>
     <string name="distortions_description2">Recognizing these distortions can help us see situations
