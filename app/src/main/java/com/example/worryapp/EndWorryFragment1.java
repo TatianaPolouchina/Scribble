@@ -35,7 +35,7 @@ public class EndWorryFragment1 extends Fragment {
         if (getArguments() != null) {
             worry = (Worry) getArguments().getSerializable("selectedWorry");
             if (worry != null) {
-                ImageView image = view.findViewById(R.id.worry_character);
+                ImageView image = view.findViewById(R.id.worryCharacter);
                 image.setImageResource(worry.getOngoingImageResId());
             }
         }
@@ -44,12 +44,12 @@ public class EndWorryFragment1 extends Fragment {
         bundle.putSerializable("selectedWorry", worry);
 
         view.findViewById(R.id.yesButton).setOnClickListener(v -> {
-            worry.setResult(true);
+            worry.setBetterThanExpected(false);
             NavHostFragment.findNavController(this).navigate
                     (R.id.action_endWorryFragment1_to_endWorryFragment2, bundle);
         });
         view.findViewById(R.id.noButton).setOnClickListener(v -> {
-            worry.setResult(false);
+            worry.setBetterThanExpected(true);
             NavHostFragment.findNavController(this).navigate
                     (R.id.action_endWorryFragment1_to_endWorryFragment2, bundle);
         });

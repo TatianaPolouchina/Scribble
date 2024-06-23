@@ -41,7 +41,7 @@
             android:src="@drawable/vector_scribble_1" />
 
         <ImageView
-            android:id="@+id/worry_character"
+            android:id="@+id/worryCharacter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

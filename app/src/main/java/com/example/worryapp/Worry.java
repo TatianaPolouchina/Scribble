@@ -18,7 +18,7 @@ public class Worry implements Serializable {
     private boolean personalization;
     private boolean emotionalReasoning;
     private boolean labelling;
-    private boolean result; // true if the worry ended up being as bad as expected
+    private boolean betterThanExpected; // true if the worry ended up being better than expected
     private String howItEnded; // description of how the worry ended
     public boolean finished;
 
@@ -134,12 +134,12 @@ public class Worry implements Serializable {
         return labelling;
     }
 
-    public boolean getResult() {
-        return result;
+    public boolean isBetterThanExpected() {
+        return betterThanExpected;
     }
 
-    public void setResult(boolean result) {
-        this.result = result;
+    public void setBetterThanExpected(boolean betterThanExpected) {
+        this.betterThanExpected = betterThanExpected;
     }
 
     public String getHowItEnded() {

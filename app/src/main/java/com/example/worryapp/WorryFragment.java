@@ -51,18 +51,33 @@ public class WorryFragment extends Fragment {
                 setVisibility(view, worryDescription);
             }
         }
+        addOnClickListeners(view);
+    }
 
+    /**
+     * Adds on click listeners to all buttons in the fragment
+     *
+     * @param view The view containing the worry fragment views
+     */
+    private void addOnClickListeners(@NonNull View view) {
         view.findViewById(R.id.finishWorryButton).setOnClickListener(v -> {
             Bundle bundle = new Bundle();
             bundle.putSerializable("selectedWorry", worry);
             NavHostFragment.findNavController(this).navigate
                     (R.id.action_ongoingWorryFragment_to_endWorryFragment1, bundle);
         });
+
+        view.findViewById(R.id.backButton).setOnClickListener(v ->
+                NavHostFragment.findNavController(WorryFragment.this).navigateUp());
     }
 
-    // TODO: comment (sets relevant info visible)
+    /**
+     * Updates the layout to show only content specific to the type of worry (finished or ongoing)
+     * and hide empty content
+     *
+     * @param view The view containing the worry fragment views
+     */
     private void setVisibility(@NonNull View view, TextView worryDescription) {
-        //Set missing info invisible
         if (worry.getDescription().isEmpty()) {
             worryDescription.setVisibility(View.GONE);
         }
@@ -72,22 +87,61 @@ public class WorryFragment extends Fragment {
         }
         if (worry.isFinished()) {
             updateLayoutFinished(view);
+        } else {
+            updateLayoutOngoing(view);
         }
     }
 
-    // TODO: comment and finish
-    // Updates the layout colours and images to the finished worry layout
+    // TODO: too long? refactor?
+    /**
+     * Updates the layout to show only content specific to finished worries
+     *
+     * @param view The view containing the worry fragment views
+     */
     public void updateLayoutFinished(View view) {
         ImageView background = view.findViewById(R.id.worryImageBackground);
+        ImageView scribble = view.findViewById(R.id.scribble);
+        ImageView worryCharacter = view.findViewById(R.id.worryCharacter);
         TextView actionsTextView = view.findViewById(R.id.actionsTextView);
         Button respondButton = view.findViewById(R.id.respondButton);
         Button finishWorryButton = view.findViewById(R.id.finishWorryButton);
+        TextView howItEndedTitle = view.findViewById(R.id.howItEndedTitle);
+        TextView howItEndedDescription = view.findViewById(R.id.howItEndedDescription);
 
-        worryTitle.setTextColor(getResources().getColor(R.color.lightOrangeMain, requireActivity().getTheme()));
+        worryTitle.setTextColor(getResources().getColor(R.color.lightOrangeMain,
+                requireActivity().getTheme()));
         background.setImageResource(R.drawable.rectangle_rounded_beige);
+        scribble.setVisibility(View.GONE);
+        worryCharacter.setImageResource(worry.getFinishedImageResId());
         actionsTextView.setVisibility(View.GONE);
         respondButton.setVisibility(View.GONE);
         finishWorryButton.setVisibility(View.GONE);
+
+        if (worry.getHowItEnded().isEmpty()) {
+            howItEndedTitle.setVisibility(View.GONE);
+            howItEndedDescription.setVisibility(View.GONE);
+        } else {
+            howItEndedDescription.setText(worry.getHowItEnded());
+        }
+
+        if (!worry.isBetterThanExpected()) {
+            view.findViewById(R.id.betterThanExpectedBadge).setVisibility(View.GONE);
+        }
+    }
+
+    /**
+     * Updates the layout to show only content specific to ongoing worries
+     *
+     * @param view The view containing the worry fragment views
+     */
+    public void updateLayoutOngoing(View view) {
+        ImageView worryCharacter = view.findViewById(R.id.worryCharacter);
+
+        view.findViewById(R.id.sunAndStars).setVisibility(View.GONE);
+        worryCharacter.setImageResource(worry.getOngoingImageResId());
+        view.findViewById(R.id.howItEndedTitle).setVisibility(View.GONE);
+        view.findViewById(R.id.howItEndedDescription).setVisibility(View.GONE);
+        view.findViewById(R.id.betterThanExpectedBadge).setVisibility(View.GONE);
     }
 
     // TODO: repeated code from NewWorryFragment3 (refactor)

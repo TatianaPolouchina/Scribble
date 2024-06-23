@@ -2,6 +2,7 @@
 <resources>
     <color name="beige">#F8F7F2</color>
     <color name="black">#FF000000</color>
+    <color name="lightOrange">#FFEEDB</color>
     <color name="lightOrangeMain">#FFB564</color>
     <color name="darkOrangeMain">#F59A22</color>
     <color name="grey">#878787</color>

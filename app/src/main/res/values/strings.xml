@@ -82,5 +82,7 @@
     <string name="worry_created_message">Comforting Message</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="better_than_expected_badge_text">This worry went better than expected!</string>
+    <string name="how_it_ended_label">How It Ended</string>
 
 </resources>

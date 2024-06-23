@@ -38,7 +38,7 @@ public class EndWorryFragment3 extends Fragment {
         if (getArguments() != null) {
             worry = (Worry) getArguments().getSerializable("selectedWorry");
             if (worry != null) {
-                ImageView image = view.findViewById(R.id.worry_character);
+                ImageView image = view.findViewById(R.id.worryCharacter);
                 image.setImageResource(worry.getFinishedImageResId());
             }
         }

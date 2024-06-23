@@ -41,7 +41,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/worryNameTitle"
@@ -50,16 +49,70 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            >
 
-            <ImageView
-                android:id="@+id/worryImageBackground"
-                android:layout_width="0dp"
-                android:layout_height="300dp"
-                android:src="@drawable/rectangle_rounded_purple"
+            <FrameLayout
+                android:id="@+id/frameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                >
+
+                <ImageView
+                    android:id="@+id/worryImageBackground"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_gravity="center"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/rectangle_rounded_purple"
+                    />
+
+                <ImageView
+                    android:id="@+id/sunAndStars"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/vector_sun_and_stars" />
+
+                <ImageView
+                    android:id="@+id/scribble"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/vector_scribble_1" />
+
+                <ImageView
+                    android:id="@+id/worryCharacter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/worry_1" />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/betterThanExpectedBadge"
+                android:layout_width="0dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_height="40dp"
+                android:text="@string/better_than_expected_badge_text"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="@color/darkOrangeMain"
+                android:fontFamily="@font/karla_bold"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@id/frameLayout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:background="@drawable/rectangle_rounded_orange"/>
 
             <TextView
                 android:id="@+id/worryDescription"
@@ -74,20 +127,49 @@
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/worryImageBackground" />
+                app:layout_constraintTop_toBottomOf="@+id/betterThanExpectedBadge" />
+
+
+            <TextView
+                android:id="@+id/howItEndedTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/karla_bold"
+                android:text="@string/how_it_ended_label"
+                android:textColor="@color/grey"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/worryDescription" />
+
+            <TextView
+                android:id="@+id/howItEndedDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:fontFamily="@font/karla_bold"
+                android:text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit"
+                android:textColor="@color/lightOrangeMain"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/howItEndedTitle" />
 
             <TextView
                 android:id="@+id/actionsTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/karla_bold"
                 android:text="@string/options_title"
                 android:textColor="@color/grey"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/worryDescription" />
+                app:layout_constraintTop_toBottomOf="@+id/howItEndedDescription" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/respondButton"
@@ -143,6 +225,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:scrollbars="none"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/cognitiveDistortionsLabel"
