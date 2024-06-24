@@ -8,7 +8,7 @@
     tools:context=".EndWorryFragment2">
 
     <TextView
-        android:id="@+id/finishWorryTitle"
+        android:id="@+id/respondTitle"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginTop="7dp"
@@ -29,7 +29,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/finishWorryTitle"
+        app:layout_constraintTop_toBottomOf="@+id/respondTitle"
         app:layout_constraintVertical_bias="0.15">
 
         <ImageView
@@ -89,12 +89,11 @@
 
     <Button
         android:id="@+id/finishWorryButton"
-        android:layout_width="320dp"
+        android:layout_width="@dimen/button_width"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/darkBlueMain"
         android:elegantTextHeight="false"
         android:fontFamily="@font/karla_bold"
-        android:maxWidth="400dp"
         android:text="@string/end_worry_button_text"
         android:textAlignment="center"
         android:textColor="@color/white"

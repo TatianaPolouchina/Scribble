@@ -84,5 +84,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="better_than_expected_badge_text">This worry went better than expected!</string>
     <string name="how_it_ended_label">How It Ended</string>
+    <string name="respond_page_title">Respond</string>
+    <string name="respond_prompt">What do you want to tell this worry?</string>
+    <string name="submit_button_text">Submit</string>
 
 </resources>

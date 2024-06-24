@@ -38,8 +38,25 @@ public class WorryFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         worryTitle = view.findViewById(R.id.worryNameTitle);
-        TextView worryDescription = view.findViewById(R.id.worryDescription);
         distortionsContainer = view.findViewById(R.id.distortionsContainer);
+
+        populateLayout(view);
+        addOnClickListeners(view);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        populateLayout(requireView());
+    }
+
+    /**
+     * Replaces all titles and information with the corresponding data from the Worry
+     *
+     * @param view The view containing the worry fragment views
+     */
+    private void populateLayout(@NonNull View view) {
+        TextView worryDescription = view.findViewById(R.id.worryDescription);
 
         if (getArguments() != null) {
             worry = (Worry) getArguments().getSerializable("selectedWorry");
@@ -47,11 +64,9 @@ public class WorryFragment extends Fragment {
                 worryTitle.setText(worry.getTitle());
                 worryDescription.setText(worry.getDescription());
                 addSelectedDistortions();
-
                 setVisibility(view, worryDescription);
             }
         }
-        addOnClickListeners(view);
     }
 
     /**
@@ -67,8 +82,22 @@ public class WorryFragment extends Fragment {
                     (R.id.action_ongoingWorryFragment_to_endWorryFragment1, bundle);
         });
 
-        view.findViewById(R.id.backButton).setOnClickListener(v ->
-                NavHostFragment.findNavController(WorryFragment.this).navigateUp());
+        view.findViewById(R.id.respondButton).setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("selectedWorry", worry);
+            NavHostFragment.findNavController(this).navigate
+                    (R.id.action_worryFragment_to_respondFragment, bundle);
+        });
+
+        view.findViewById(R.id.backButton).setOnClickListener(v -> {
+            if (worry.isFinished()) {
+                NavHostFragment.findNavController(WorryFragment.this).navigate
+                        (R.id.action_worryFragment_to_finishedWorriesFragment);
+            } else {
+                NavHostFragment.findNavController(WorryFragment.this).navigate
+                        (R.id.action_worryFragment_to_ongoingWorriesFragment);
+            }
+        });
     }
 
     /**
@@ -93,6 +122,7 @@ public class WorryFragment extends Fragment {
     }
 
     // TODO: too long? refactor?
+
     /**
      * Updates the layout to show only content specific to finished worries
      *
@@ -145,6 +175,7 @@ public class WorryFragment extends Fragment {
     }
 
     // TODO: repeated code from NewWorryFragment3 (refactor)
+
     /**
      * Adds the logos associated to the selected distortions to the linear layout
      */
@@ -185,7 +216,7 @@ public class WorryFragment extends Fragment {
     private void addPhotoToLinearLayout(int id) {
         ImageView imageView = new ImageView(getContext());
         imageView.setImageResource(id);
-        imageView.setPadding(15,10,15,10);
+        imageView.setPadding(15, 10, 15, 10);
 
         ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(220, 220);
         imageView.setLayoutParams(params);

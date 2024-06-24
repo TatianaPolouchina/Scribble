@@ -8,7 +8,7 @@
     tools:context=".EndWorryFragment3">
 
     <TextView
-        android:id="@+id/finishWorryTitle"
+        android:id="@+id/respondTitle"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginTop="7dp"
@@ -29,7 +29,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/finishWorryTitle"
+        app:layout_constraintTop_toBottomOf="@+id/respondTitle"
         app:layout_constraintVertical_bias="0.15">
 
         <ImageView
@@ -65,15 +65,12 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/closeButton"
         style="@style/CustomButton"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/button_width"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/rectangle_rounded_beige_outline"
         android:elegantTextHeight="false"
         android:fontFamily="@font/karla_bold"
-        android:maxWidth="400dp"
         android:text="@string/close_button_text"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"

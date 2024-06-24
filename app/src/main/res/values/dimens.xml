@@ -8,4 +8,6 @@
     <dimen name="distortion_layout_margin">20dp</dimen>
     <dimen name="distortion_padding">10dp</dimen>
     <dimen name="distortion_subtitle_margin_top">4dp</dimen>
+    <dimen name="button_width">320dp</dimen>
+
 </resources>

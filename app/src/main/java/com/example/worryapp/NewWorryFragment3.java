@@ -60,40 +60,40 @@ public class NewWorryFragment3 extends Fragment {
     private void addSelectedDistortions() {
         Worry worry = sharedViewModel.getWorry();
         if (worry.isOvergeneralizing()) {
-            addPhotoToLinearLayout(R.drawable.vector_cd_circles);
+            addPhotoToGridLayout(R.drawable.vector_cd_circles);
         }
         if (worry.isMindReading()) {
-            addPhotoToLinearLayout(R.drawable.vector_cd_brain);
+            addPhotoToGridLayout(R.drawable.vector_cd_brain);
         }
         if (worry.isFortuneTelling()) {
-            addPhotoToLinearLayout(R.drawable.vector_cd_crystal_ball);
+            addPhotoToGridLayout(R.drawable.vector_cd_crystal_ball);
         }
         if (worry.isCatastrophizing()) {
-            addPhotoToLinearLayout(R.drawable.vector_cd_explosion);
+            addPhotoToGridLayout(R.drawable.vector_cd_explosion);
         }
         if (worry.isAllOrNothing()) {
-            addPhotoToLinearLayout(R.drawable.vector_cd_cross_out_circle);
+            addPhotoToGridLayout(R.drawable.vector_cd_cross_out_circle);
         }
         if (worry.isNegMentalFilter()) {
-            addPhotoToLinearLayout(R.drawable.vector_cd_magnifying_glass);
+            addPhotoToGridLayout(R.drawable.vector_cd_magnifying_glass);
         }
         if (worry.isDisqualifyPositive()) {
-            addPhotoToLinearLayout(R.drawable.vector_cd_crossed_out_sun);
+            addPhotoToGridLayout(R.drawable.vector_cd_crossed_out_sun);
         }
         if (worry.isPersonalization()) {
-            addPhotoToLinearLayout(R.drawable.vector_cd_mirror);
+            addPhotoToGridLayout(R.drawable.vector_cd_mirror);
         }
         if (worry.isEmotionalReasoning()) {
-            addPhotoToLinearLayout(R.drawable.vector_cd_heart);
+            addPhotoToGridLayout(R.drawable.vector_cd_heart);
         }
         if (worry.isLabelling()) {
-            addPhotoToLinearLayout(R.drawable.vector_cd_label);
+            addPhotoToGridLayout(R.drawable.vector_cd_label);
         }
     }
 
 
     // TODO: comment
-    private void addPhotoToLinearLayout(int id) {
+    private void addPhotoToGridLayout(int id) {
         ImageView imageView = new ImageView(getContext());
         imageView.setImageResource(id);
         imageView.setPadding(8, 8, 8, 8);

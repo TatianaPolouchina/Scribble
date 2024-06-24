@@ -1,6 +1,8 @@
 package com.example.worryapp;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Worry implements Serializable {
 
@@ -21,17 +23,29 @@ public class Worry implements Serializable {
     private boolean betterThanExpected; // true if the worry ended up being better than expected
     private String howItEnded; // description of how the worry ended
     public boolean finished;
+    private List<String> responses;
 
     public Worry(String title, int ongoingImageResId, int finishedImageResId) {
         this.title = title;
         this.ongoingImageResId = ongoingImageResId;
         this.finishedImageResId = finishedImageResId;
+        this.responses = new ArrayList<>();
     }
 
     public Worry() {
         this.title = "";
         this.ongoingImageResId = R.drawable.worry_1;
         this.finishedImageResId = R.drawable.worry_1_finished_ombre;
+        this.responses = new ArrayList<>();
+    }
+
+    /**
+    * Adds a response to the list of responses/reminders
+    *
+    * @param response the response to be added
+     **/
+    public void addResponse(String response) {
+        this.responses.add(response);
     }
 
     public void setTitle(String title) {
