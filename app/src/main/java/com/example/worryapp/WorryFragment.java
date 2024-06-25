@@ -11,15 +11,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class WorryFragment extends Fragment {
+import java.util.List;
 
+public class WorryFragment extends Fragment {
     private Worry worry;
     private LinearLayout distortionsContainer;
     private TextView worryTitle;
+    private TextView reminderText;
+    private int reminderIndex;
+    private ImageButton leftButton;
+    private ImageButton rightButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,17 +45,15 @@ public class WorryFragment extends Fragment {
 
         worryTitle = view.findViewById(R.id.worryNameTitle);
         distortionsContainer = view.findViewById(R.id.distortionsContainer);
+        reminderText = view.findViewById(R.id.reminderTextView);
+        leftButton = view.findViewById(R.id.leftReminderButton);
+        rightButton = view.findViewById(R.id.rightReminderButton);
 
         populateLayout(view);
         addOnClickListeners(view);
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        populateLayout(requireView());
-    }
-
+    // TODO: refactor
     /**
      * Replaces all titles and information with the corresponding data from the Worry
      *
@@ -65,6 +69,10 @@ public class WorryFragment extends Fragment {
                 worryDescription.setText(worry.getDescription());
                 addSelectedDistortions();
                 setVisibility(view, worryDescription);
+                reminderIndex = 0;
+                reminderText.setText(worry.getResponses().get(reminderIndex));
+                updateLeftButton();
+                updateRightButton();
             }
         }
     }
@@ -98,6 +106,9 @@ public class WorryFragment extends Fragment {
                         (R.id.action_worryFragment_to_ongoingWorriesFragment);
             }
         });
+
+        leftButton.setOnClickListener(v -> previousReminder());
+        rightButton.setOnClickListener(v -> nextReminder());
     }
 
     /**
@@ -223,4 +234,53 @@ public class WorryFragment extends Fragment {
 
         distortionsContainer.addView(imageView);
     }
+
+    /**
+     * Displays the next reminder if one exists, updating the left/right buttons' visibility
+     */
+    public void nextReminder() {
+        List<String> responses = worry.getResponses();
+
+        if (responses.size() > (reminderIndex + 1)) {
+            reminderIndex++;
+            reminderText.setText(responses.get(reminderIndex));
+            updateLeftButton();
+            updateRightButton();
+        }
+    }
+
+    /**
+     * Displays the previous reminder if one exists, updating the left/right buttons' visibility
+     */
+    public void previousReminder() {
+        if (reminderIndex > 0) {
+            reminderIndex--;
+            reminderText.setText(worry.getResponses().get(reminderIndex));
+            updateLeftButton();
+            updateRightButton();
+        }
+    }
+
+    /**
+     * Sets the left button invisible if this is the first reminder, visible otherwise
+     */
+    private void updateLeftButton() {
+        if (reminderIndex == 0) {
+            leftButton.setVisibility(View.GONE);
+        } else {
+            leftButton.setVisibility(View.VISIBLE);
+        }
+    }
+
+    /**
+     * Sets the right button invisible if there are no more reminders to be shown, visible otherwise
+     */
+    private void updateRightButton() {
+        if ((reminderIndex + 1) >= worry.getResponses().size()) {
+            rightButton.setVisibility(View.GONE);
+        } else {
+            rightButton.setVisibility(View.VISIBLE);
+        }
+    }
+
 }

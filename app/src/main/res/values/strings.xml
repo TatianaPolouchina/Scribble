@@ -63,6 +63,13 @@
     <string name="new_worry_distortions_prompt">Is this a distorted thought?</string>
     <string name="add_distortion_button_label">Add distortions</string>
 
+    <!-- Reminders -->
+    <string name="reminder_1">All worries come to an end</string>
+    <string name="reminder_2">"Worrying does not take away tomorrow's troubles. It takes away
+        today's peace" -Randy Armstrong</string>
+
+
+
     <!-- TODO: organize strings -->
     <string name="worry_finished_button">Finish</string>
     <string name="options_title">Actions</string>
@@ -87,5 +94,8 @@
     <string name="respond_page_title">Respond</string>
     <string name="respond_prompt">What do you want to tell this worry?</string>
     <string name="submit_button_text">Submit</string>
+
+
+
 
 </resources>

@@ -23,13 +23,16 @@ public class Worry implements Serializable {
     private boolean betterThanExpected; // true if the worry ended up being better than expected
     private String howItEnded; // description of how the worry ended
     public boolean finished;
-    private List<String> responses;
+    private final List<String> responses;
+    // TODO: replace with a String taken from strings.xml (for translation purposes)
+    private String preloadedResponse = "All worries come to an end";
 
     public Worry(String title, int ongoingImageResId, int finishedImageResId) {
         this.title = title;
         this.ongoingImageResId = ongoingImageResId;
         this.finishedImageResId = finishedImageResId;
         this.responses = new ArrayList<>();
+        addResponse(preloadedResponse);
     }
 
     public Worry() {
@@ -37,15 +40,16 @@ public class Worry implements Serializable {
         this.ongoingImageResId = R.drawable.worry_1;
         this.finishedImageResId = R.drawable.worry_1_finished_ombre;
         this.responses = new ArrayList<>();
+        addResponse(preloadedResponse);
     }
 
     /**
-    * Adds a response to the list of responses/reminders
+    * Adds a response to the front of a list of responses/reminders
     *
     * @param response the response to be added
      **/
     public void addResponse(String response) {
-        this.responses.add(response);
+        this.responses.add(0, response);
     }
 
     public void setTitle(String title) {
@@ -174,5 +178,9 @@ public class Worry implements Serializable {
 
     public boolean isFinished() {
         return finished;
+    }
+
+    public List<String> getResponses() {
+        return responses;
     }
 }
