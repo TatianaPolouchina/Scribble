@@ -12,7 +12,7 @@
         android:id="@+id/worryNameTitle"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/karla_bold"
         android:text="Worry Name"
         android:textAlignment="center"
@@ -40,26 +40,23 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="15dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/worryNameTitle"
+        android:layout_marginTop="17dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        >
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/worryNameTitle">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
+            android:layout_height="wrap_content">
 
             <FrameLayout
                 android:id="@+id/frameLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                >
+                app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
                     android:id="@+id/worryImageBackground"
@@ -67,8 +64,7 @@
                     android:layout_height="300dp"
                     android:layout_gravity="center"
                     android:scaleType="centerInside"
-                    android:src="@drawable/rectangle_rounded_purple"
-                    />
+                    android:src="@drawable/rectangle_rounded_purple" />
 
                 <ImageView
                     android:id="@+id/sunAndStars"
@@ -99,20 +95,20 @@
             <TextView
                 android:id="@+id/betterThanExpectedBadge"
                 android:layout_width="0dp"
+                android:layout_height="40dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_height="40dp"
+                android:background="@drawable/rectangle_rounded_orange"
+                android:fontFamily="@font/karla_bold"
+                android:gravity="center"
                 android:text="@string/better_than_expected_badge_text"
                 android:textAlignment="center"
-                android:gravity="center"
                 android:textColor="@color/darkOrangeMain"
-                android:fontFamily="@font/karla_bold"
                 android:textSize="16sp"
-                app:layout_constraintTop_toBottomOf="@id/frameLayout"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:background="@drawable/rectangle_rounded_orange"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/frameLayout" />
 
             <TextView
                 android:id="@+id/worryDescription"
@@ -147,8 +143,8 @@
                 android:id="@+id/howItEndedDescription"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
                 android:layout_marginLeft="30dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginRight="30dp"
                 android:fontFamily="@font/karla_bold"
                 android:text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit"
@@ -222,10 +218,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:scrollbars="none"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cognitiveDistortionsLabel"
-                >
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cognitiveDistortionsLabel">
 
                 <LinearLayout
                     android:id="@+id/distortionsContainer"
@@ -235,8 +230,8 @@
                     android:orientation="horizontal"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/distortionsScrollView" />
             </HorizontalScrollView>
 
@@ -256,7 +251,7 @@
             <TextView
                 android:id="@+id/reminderTextView"
                 android:layout_width="0dp"
-                android:layout_height="110dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="15dp"
@@ -264,7 +259,9 @@
                 android:background="@drawable/rectangle_rounded_beige_outline"
                 android:fontFamily="@font/karla_bold"
                 android:gravity="center"
-                android:padding="20dp"
+                android:minHeight="130dp"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
                 android:text="Reminder..... "
                 android:textColor="@color/grey"
                 android:textSize="16sp"
@@ -278,22 +275,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="43dp"
                 android:background="@null"
                 android:src="@drawable/vector_triangle_arrow_left"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/reminderTextView"
+                app:layout_constraintStart_toStartOf="@id/reminderTextView"
                 app:layout_constraintTop_toTopOf="@id/reminderTextView" />
 
             <ImageButton
                 android:id="@+id/rightReminderButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="43dp"
                 android:layout_marginEnd="20dp"
                 android:background="@null"
                 android:src="@drawable/vector_triangle_arrow_right"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/reminderTextView" />
+                app:layout_constraintBottom_toBottomOf="@+id/reminderTextView"
+                app:layout_constraintEnd_toEndOf="@id/reminderTextView"
+                app:layout_constraintTop_toTopOf="@+id/reminderTextView" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

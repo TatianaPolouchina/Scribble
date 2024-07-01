@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 public class DistortionsFragment extends Fragment {
 
     private SharedViewModel sharedViewModel;
+    private DistortionsInfoFragment infoFragment;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -83,6 +84,12 @@ public class DistortionsFragment extends Fragment {
         view.findViewById(R.id.labelling).setOnClickListener(v -> {
             v.setSelected(!v.isSelected());
             sharedViewModel.getWorry().setLabelling(v.isSelected());
+        });
+        view.findViewById(R.id.infoButton).setOnClickListener(v -> {
+            if (infoFragment == null) {
+                infoFragment = new DistortionsInfoFragment();
+            }
+            infoFragment.show(getParentFragmentManager(), "overlay_dialog_fragment");
         });
     }
 

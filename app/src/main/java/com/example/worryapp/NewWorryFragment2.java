@@ -40,8 +40,13 @@ public class NewWorryFragment2 extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        view.findViewById(R.id.skipButton).setOnClickListener(v -> {
+                sharedViewModel.getWorry().setDescription("");
+                NavHostFragment.findNavController(this).navigate
+                        (R.id.action_newWorryFragment2_to_newWorryFragment3);
+        });
+
         view.findViewById(R.id.next_button).setOnClickListener(v -> {
-            //update worry description
             TextInputEditText textInputField = view.findViewById(R.id.textInputField);
             sharedViewModel.getWorry().setDescription(Objects.requireNonNull
                     (textInputField.getText()).toString());

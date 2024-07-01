@@ -44,16 +44,27 @@ public class EndWorryFragment2 extends Fragment {
             }
         }
 
+        view.findViewById(R.id.skipButton).setOnClickListener(v -> {
+            worry.setHowItEnded("");
+            nextFragment();
+        });
+
         view.findViewById(R.id.finishWorryButton).setOnClickListener(v -> {
             // Update how the worry ended
             TextInputEditText textInputField = view.findViewById(R.id.textInputField);
             worry.setHowItEnded(Objects.requireNonNull
                     (textInputField.getText()).toString());
-
-            Bundle bundle = new Bundle();
-            bundle.putSerializable("selectedWorry", worry);
-            NavHostFragment.findNavController(this).navigate
-                    (R.id.action_endWorryFragment2_to_endWorryFragment3, bundle);
+            nextFragment();
         });
+    }
+
+    /**
+     * Replaces the current fragment with the next fragment, passing the finished worry in a bundle
+     */
+    private void nextFragment() {
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("selectedWorry", worry);
+        NavHostFragment.findNavController(this).navigate
+                (R.id.action_endWorryFragment2_to_endWorryFragment3, bundle);
     }
 }

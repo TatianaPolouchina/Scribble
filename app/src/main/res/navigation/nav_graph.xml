@@ -146,7 +146,7 @@
     <dialog
         android:id="@+id/distortionsInfoFragment"
         android:name="com.example.worryapp.DistortionsInfoFragment"
-        android:label="fragment_distortions_info"
+        android:label="fragment_distortion_info"
         tools:layout="@layout/fragment_distortions_info" />
     <fragment
         android:id="@+id/respondFragment"

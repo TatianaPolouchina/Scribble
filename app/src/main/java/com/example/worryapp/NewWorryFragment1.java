@@ -12,12 +12,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.worryapp.ui.theme.ReminderHelper;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Objects;
 
 public class NewWorryFragment1 extends Fragment {
     private SharedViewModel sharedViewModel;
+    private ReminderHelper reminderHelper;
+    private TextInputEditText textInputField;
 
     public NewWorryFragment1() {
     }
@@ -27,6 +30,7 @@ public class NewWorryFragment1 extends Fragment {
         super.onCreate(savedInstanceState);
 
         sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
+        this.reminderHelper = new ReminderHelper(requireContext());
     }
 
     @Override
@@ -39,18 +43,25 @@ public class NewWorryFragment1 extends Fragment {
     // TODO: refactor
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        textInputField = view.findViewById(R.id.textInputField);
+
         ((MainActivity) requireActivity()).setStatusBarColor(R.color.white);
 
-        sharedViewModel.setWorry(new Worry());
+        sharedViewModel.setWorry(new Worry(reminderHelper));
 
         view.findViewById(R.id.next_button).setOnClickListener(v -> {
-            //update worry title
-            TextInputEditText textInputField = view.findViewById(R.id.textInputField);
-            sharedViewModel.getWorry().setTitle(Objects.requireNonNull
-                    (textInputField.getText()).toString());
+            //check if named
+           if (!Objects.requireNonNull(textInputField.getText()).toString().isEmpty()) {
+               //update worry title
+               sharedViewModel.getWorry().setTitle(Objects.requireNonNull
+                       (textInputField.getText()).toString());
 
-            NavHostFragment.findNavController(this).navigate
-                    (R.id.action_newWorryFragment1_to_newWorryFragment2);
+               NavHostFragment.findNavController(this).navigate
+                       (R.id.action_newWorryFragment1_to_newWorryFragment2);
+           } else {
+               view.findViewById(R.id.warningText).setVisibility(View.VISIBLE);
+           }
+
         });
 
     }

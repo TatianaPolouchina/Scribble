@@ -1,5 +1,7 @@
 package com.example.worryapp;
 
+import com.example.worryapp.ui.theme.ReminderHelper;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,21 +28,15 @@ public class Worry implements Serializable {
     private final List<String> responses;
     // TODO: replace with a String taken from strings.xml (for translation purposes)
     private String preloadedResponse = "All worries come to an end";
+    private ReminderHelper reminderHelper;
 
-    public Worry(String title, int ongoingImageResId, int finishedImageResId) {
-        this.title = title;
-        this.ongoingImageResId = ongoingImageResId;
-        this.finishedImageResId = finishedImageResId;
-        this.responses = new ArrayList<>();
-        addResponse(preloadedResponse);
-    }
-
-    public Worry() {
+    public Worry(ReminderHelper reminderHelper) {
         this.title = "";
         this.ongoingImageResId = R.drawable.worry_1;
         this.finishedImageResId = R.drawable.worry_1_finished_ombre;
         this.responses = new ArrayList<>();
-        addResponse(preloadedResponse);
+        this.reminderHelper = reminderHelper;
+        addResponse(reminderHelper.getRandomReminder());
     }
 
     /**

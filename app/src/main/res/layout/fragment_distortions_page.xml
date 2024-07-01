@@ -18,7 +18,7 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="25dp"
         android:fontFamily="@font/karla_bold"
         android:text="@string/distortions_page_title"
         android:textColor="@color/darkBlueMain"
@@ -32,7 +32,7 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="12dp"
         android:background="@android:color/transparent"
 
         android:contentDescription="@string/back_arrow_description"
@@ -40,9 +40,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/darkBlueMain" />
-
-
-
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -56,6 +53,7 @@
         app:layout_constraintWidth_percent="0.85">
 
         <LinearLayout
+            android:id="@+id/distortionsContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -129,15 +127,16 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
         </LinearLayout>
     </ScrollView>
 
     <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
+        android:id="@+id/infoButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
         android:background="@android:color/transparent"
         android:backgroundTint="#00FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
