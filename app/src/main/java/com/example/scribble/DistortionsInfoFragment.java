@@ -1,4 +1,4 @@
-package com.example.worryapp;
+package com.example.scribble;
 
 import android.app.Dialog;
 import android.graphics.Color;
@@ -12,6 +12,8 @@ import androidx.fragment.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.scribble.R;
 
 import java.util.Objects;
 

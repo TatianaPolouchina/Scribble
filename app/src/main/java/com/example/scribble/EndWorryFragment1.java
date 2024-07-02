@@ -1,4 +1,4 @@
-package com.example.worryapp;
+package com.example.scribble;
 
 import android.os.Bundle;
 
@@ -12,11 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.google.android.material.textfield.TextInputEditText;
+import com.example.scribble.R;
 
-import java.util.Objects;
+public class EndWorryFragment1 extends Fragment {
 
-public class RespondFragment extends Fragment {
     private Worry worry;
 
     @Override
@@ -27,12 +26,14 @@ public class RespondFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_respond, container, false);
+        return inflater.inflate(R.layout.fragment_end_worry1, container, false);
     }
 
+    // TODO: refactor
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         if (getArguments() != null) {
             worry = (Worry) getArguments().getSerializable("selectedWorry");
             if (worry != null) {
@@ -41,15 +42,19 @@ public class RespondFragment extends Fragment {
             }
         }
 
-        view.findViewById(R.id.submitButton).setOnClickListener(v -> {
-            TextInputEditText textInputField = view.findViewById(R.id.textInputField);
-            worry.addResponse(Objects.requireNonNull
-                    (textInputField.getText()).toString());
-            
-            Bundle bundle = new Bundle();
-            bundle.putSerializable("selectedWorry", worry);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("selectedWorry", worry);
+
+        view.findViewById(R.id.yesButton).setOnClickListener(v -> {
+            worry.setBetterThanExpected(false);
             NavHostFragment.findNavController(this).navigate
-                    (R.id.action_respondFragment_to_worryFragment, bundle);
+                    (R.id.action_endWorryFragment1_to_endWorryFragment2, bundle);
         });
+        view.findViewById(R.id.noButton).setOnClickListener(v -> {
+            worry.setBetterThanExpected(true);
+            NavHostFragment.findNavController(this).navigate
+                    (R.id.action_endWorryFragment1_to_endWorryFragment2, bundle);
+        });
+
     }
 }

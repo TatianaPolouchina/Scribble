@@ -1,8 +1,8 @@
-package com.example.worryapp.ui.theme;
+package com.example.scribble.ui.theme;
 
 import android.content.Context;
 
-import com.example.worryapp.R;
+import com.example.scribble.R;
 
 import java.util.Random;
 

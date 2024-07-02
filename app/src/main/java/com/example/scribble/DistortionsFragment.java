@@ -1,4 +1,4 @@
-package com.example.worryapp;
+package com.example.scribble;
 
 import android.os.Bundle;
 
@@ -11,6 +11,8 @@ import androidx.navigation.fragment.NavHostFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.scribble.R;
 
 public class DistortionsFragment extends Fragment {
 

@@ -1,4 +1,4 @@
-package com.example.worryapp;
+package com.example.scribble;
 
 import android.os.Bundle;
 
@@ -15,6 +15,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.example.scribble.R;
 
 import java.util.List;
 

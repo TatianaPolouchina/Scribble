@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.worryapp"
+    namespace = "com.example.scribble"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.worryapp"
+        applicationId = "com.example.scribble"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

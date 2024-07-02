@@ -1,4 +1,4 @@
-package com.example.worryapp;
+package com.example.scribble;
 
 import android.app.Activity;
 import android.content.Context;

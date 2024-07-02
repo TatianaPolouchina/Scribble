@@ -1,4 +1,4 @@
-package com.example.worryapp;
+package com.example.scribble;
 
 import android.os.Bundle;
 
@@ -12,7 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.worryapp.ui.theme.ReminderHelper;
+import com.example.scribble.ui.theme.ReminderHelper;
+import com.example.scribble.R;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Objects;

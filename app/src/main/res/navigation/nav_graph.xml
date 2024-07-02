@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/newWorryFragment3"
-        android:name="com.example.worryapp.NewWorryFragment3"
+        android:name="com.example.scribble.NewWorryFragment3"
         tools:layout="@layout/fragment_new_worry3">
 
         <action
@@ -20,7 +20,7 @@
 
     <fragment
         android:id="@+id/distortionsFragment"
-        android:name="com.example.worryapp.DistortionsFragment"
+        android:name="com.example.scribble.DistortionsFragment"
         tools:layout="@layout/fragment_distortions_page">
         <action
             android:id="@+id/action_distortionsFragment_to_newWorryFragment2"
@@ -32,7 +32,7 @@
 
     <fragment
         android:id="@+id/ongoingWorriesFragment"
-        android:name="com.example.worryapp.OngoingWorriesFragment"
+        android:name="com.example.scribble.OngoingWorriesFragment"
         android:label="OngoingWorriesFragment"
         tools:layout="@layout/fragment_ongoing_worries">
         <action
@@ -42,7 +42,7 @@
 
     <fragment
         android:id="@+id/finishedWorriesFragment"
-        android:name="com.example.worryapp.FinishedWorriesFragment"
+        android:name="com.example.scribble.FinishedWorriesFragment"
         android:label="FinishedWorriesFragment"
         tools:layout="@layout/fragment_finished_worries" >
         <action
@@ -52,7 +52,7 @@
 
     <fragment
         android:id="@+id/newWorryFragment1"
-        android:name="com.example.worryapp.NewWorryFragment1"
+        android:name="com.example.scribble.NewWorryFragment1"
         android:label="fragment_new_worry"
         tools:layout="@layout/fragment_new_worry">
         <action
@@ -62,7 +62,7 @@
 
     <fragment
         android:id="@+id/newWorryFragment2"
-        android:name="com.example.worryapp.NewWorryFragment2"
+        android:name="com.example.scribble.NewWorryFragment2"
         android:label="NewWorryFragment2"
         tools:layout="@layout/fragment_new_worry2">
         <action
@@ -72,7 +72,7 @@
 
     <fragment
         android:id="@+id/newWorryFinishedFragment"
-        android:name="com.example.worryapp.NewWorryFinishedFragment"
+        android:name="com.example.scribble.NewWorryFinishedFragment"
         android:label="NewWorryFinishedFragment"
         tools:layout="@layout/fragment_new_worry_finished">
         <action
@@ -84,12 +84,12 @@
 
     <fragment
         android:id="@+id/worryFragment"
-        android:name="com.example.worryapp.WorryFragment"
+        android:name="com.example.scribble.WorryFragment"
         android:label="fragment_ongoing_worry"
         tools:layout="@layout/fragment_worry">
         <argument
             android:name="selectedWorry"
-            app:argType="com.example.worryapp.Worry" />
+            app:argType="com.example.scribble.Worry" />
         <action
             android:id="@+id/action_ongoingWorryFragment_to_endWorryFragment1"
             app:destination="@id/endWorryFragment1" />
@@ -106,12 +106,12 @@
 
     <fragment
         android:id="@+id/endWorryFragment1"
-        android:name="com.example.worryapp.EndWorryFragment1"
+        android:name="com.example.scribble.EndWorryFragment1"
         android:label="fragment_end_worry1"
         tools:layout="@layout/fragment_end_worry1" >
         <argument
             android:name="selectedWorry"
-            app:argType="com.example.worryapp.Worry" />
+            app:argType="com.example.scribble.Worry" />
         <action
             android:id="@+id/action_endWorryFragment1_to_endWorryFragment2"
             app:destination="@id/endWorryFragment2" />
@@ -119,12 +119,12 @@
 
     <fragment
         android:id="@+id/endWorryFragment2"
-        android:name="com.example.worryapp.EndWorryFragment2"
+        android:name="com.example.scribble.EndWorryFragment2"
         android:label="fragment_end_worry2"
         tools:layout="@layout/fragment_end_worry2" >
         <argument
             android:name="selectedWorry"
-            app:argType="com.example.worryapp.Worry" />
+            app:argType="com.example.scribble.Worry" />
         <action
             android:id="@+id/action_endWorryFragment2_to_endWorryFragment3"
             app:destination="@id/endWorryFragment3" />
@@ -132,12 +132,12 @@
 
     <fragment
         android:id="@+id/endWorryFragment3"
-        android:name="com.example.worryapp.EndWorryFragment3"
+        android:name="com.example.scribble.EndWorryFragment3"
         android:label="fragment_end_worry3"
         tools:layout="@layout/fragment_end_worry3" >
         <argument
             android:name="selectedWorry"
-            app:argType="com.example.worryapp.Worry" />
+            app:argType="com.example.scribble.Worry" />
         <action
             android:id="@+id/action_endWorryFragment3_to_finishedWorriesFragment"
             app:destination="@id/finishedWorriesFragment" />
@@ -145,17 +145,17 @@
 
     <dialog
         android:id="@+id/distortionsInfoFragment"
-        android:name="com.example.worryapp.DistortionsInfoFragment"
+        android:name="com.example.scribble.DistortionsInfoFragment"
         android:label="fragment_distortion_info"
         tools:layout="@layout/fragment_distortions_info" />
     <fragment
         android:id="@+id/respondFragment"
-        android:name="com.example.worryapp.RespondFragment"
+        android:name="com.example.scribble.RespondFragment"
         android:label="fragment_respond"
         tools:layout="@layout/fragment_respond" >
         <argument
             android:name="selectedWorry"
-            app:argType="com.example.worryapp.Worry" />
+            app:argType="com.example.scribble.Worry" />
         <action
             android:id="@+id/action_respondFragment_to_worryFragment"
             app:destination="@id/worryFragment" />

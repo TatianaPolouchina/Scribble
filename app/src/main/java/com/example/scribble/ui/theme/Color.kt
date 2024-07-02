@@ -1,4 +1,4 @@
-package com.example.worryapp.ui.theme
+package com.example.scribble.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

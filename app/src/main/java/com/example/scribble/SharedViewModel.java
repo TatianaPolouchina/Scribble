@@ -1,4 +1,4 @@
-package com.example.worryapp;
+package com.example.scribble;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;

@@ -1,4 +1,4 @@
-package com.example.worryapp;
+package com.example.scribble;
 
 import android.os.Bundle;
 
@@ -11,11 +11,17 @@ import androidx.navigation.fragment.NavHostFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
-public class EndWorryFragment3 extends Fragment {
+import com.google.android.material.textfield.TextInputEditText;
+
+import java.util.Objects;
+
+public class NewWorryFragment2 extends Fragment {
+
     private SharedViewModel sharedViewModel;
-    private Worry worry;
+
+    public NewWorryFragment2() {
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -26,27 +32,27 @@ public class EndWorryFragment3 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_end_worry3, container, false);
+        return inflater.inflate(R.layout.fragment_new_worry2, container, false);
+
     }
 
-    // TODO: refactor
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        //update image
-        if (getArguments() != null) {
-            worry = (Worry) getArguments().getSerializable("selectedWorry");
-            if (worry != null) {
-                ImageView image = view.findViewById(R.id.worryCharacter);
-                image.setImageResource(worry.getFinishedImageResId());
-            }
-        }
+        view.findViewById(R.id.skipButton).setOnClickListener(v -> {
+                sharedViewModel.getWorry().setDescription("");
+                NavHostFragment.findNavController(this).navigate
+                        (R.id.action_newWorryFragment2_to_newWorryFragment3);
+        });
 
-        view.findViewById(R.id.closeButton).setOnClickListener(v -> {
-            sharedViewModel.finishWorry(worry);
+        view.findViewById(R.id.next_button).setOnClickListener(v -> {
+            TextInputEditText textInputField = view.findViewById(R.id.textInputField);
+            sharedViewModel.getWorry().setDescription(Objects.requireNonNull
+                    (textInputField.getText()).toString());
+
             NavHostFragment.findNavController(this).navigate
-                    (R.id.action_endWorryFragment3_to_finishedWorriesFragment);
+                    (R.id.action_newWorryFragment2_to_newWorryFragment3);
         });
     }
 }

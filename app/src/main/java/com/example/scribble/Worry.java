@@ -1,6 +1,7 @@
-package com.example.worryapp;
+package com.example.scribble;
 
-import com.example.worryapp.ui.theme.ReminderHelper;
+import com.example.scribble.ui.theme.ReminderHelper;
+import com.example.scribble.R;
 
 import java.io.Serializable;
 import java.util.ArrayList;
