@@ -48,7 +48,6 @@ public class WorryFragment extends Fragment {
         reminderText = view.findViewById(R.id.reminderTextView);
         leftButton = view.findViewById(R.id.leftReminderButton);
         rightButton = view.findViewById(R.id.rightReminderButton);
-
         populateLayout(view);
         addOnClickListeners(view);
     }
@@ -265,8 +264,10 @@ public class WorryFragment extends Fragment {
      * Sets the left button invisible if this is the first reminder, visible otherwise
      */
     private void updateLeftButton() {
-        if (reminderIndex == 0) {
+        if (worry.getResponses().size() == 1) {
             leftButton.setVisibility(View.GONE);
+        } else if (reminderIndex == 0) {
+            leftButton.setVisibility(View.INVISIBLE);
         } else {
             leftButton.setVisibility(View.VISIBLE);
         }
@@ -276,8 +277,10 @@ public class WorryFragment extends Fragment {
      * Sets the right button invisible if there are no more reminders to be shown, visible otherwise
      */
     private void updateRightButton() {
-        if ((reminderIndex + 1) >= worry.getResponses().size()) {
+        if (worry.getResponses().size() == 1) {
             rightButton.setVisibility(View.GONE);
+        } else if ((reminderIndex + 1) >= worry.getResponses().size()) {
+            rightButton.setVisibility(View.INVISIBLE);
         } else {
             rightButton.setVisibility(View.VISIBLE);
         }

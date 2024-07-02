@@ -14,11 +14,13 @@ import android.view.ViewGroup;
 import android.widget.GridLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class NewWorryFragment3 extends Fragment {
 
     private SharedViewModel sharedViewModel;
     private GridLayout selectedDistortionsContainer;
+    private TextView addDistortionLabel;
 
     public NewWorryFragment3() {
     }
@@ -42,6 +44,7 @@ public class NewWorryFragment3 extends Fragment {
 
         ImageButton addDistortionButton = view.findViewById(R.id.add_distortion_Button);
         selectedDistortionsContainer = view.findViewById(R.id.distortionsContainer);
+        addDistortionLabel = view.findViewById(R.id.add_distortion_button_label);
 
         addSelectedDistortions();
 
@@ -102,5 +105,7 @@ public class NewWorryFragment3 extends Fragment {
         imageView.setLayoutParams(params);
 
         selectedDistortionsContainer.addView(imageView);
+        addDistortionLabel.setVisibility(View.GONE);
+
     }
 }

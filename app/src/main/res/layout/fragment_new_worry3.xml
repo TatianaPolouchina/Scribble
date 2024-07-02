@@ -63,41 +63,40 @@
 
     <ImageButton
         android:id="@+id/add_distortion_Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="40dp"
         android:background="@color/white"
         android:src="@drawable/vector_plus_sign"
-        app:tint="@color/darkBlueMain"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/respond_prompt" />
+        app:layout_constraintTop_toBottomOf="@+id/respond_prompt"
+        app:tint="@color/grey" />
 
     <GridLayout
         android:id="@+id/distortionsContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="start"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="28dp"
         android:columnCount="4"
+        android:gravity="start"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/add_distortion_Button"
-        app:layout_constraintTop_toBottomOf="@id/respond_prompt" />
+        app:layout_constraintTop_toBottomOf="@+id/respond_prompt" />
 
 
-<!--    -->
-<!--    <TextView-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="30dp"-->
-<!--        android:layout_marginTop="45dp"-->
-<!--        android:fontFamily="@font/karla_bold"-->
-<!--        android:text="@string/add_distortion_button_label"-->
-<!--        android:textColor="@color/darkPurpleMain"-->
-<!--        android:textSize="16sp"-->
-<!--        app:layout_constraintStart_toEndOf="@id/add_distortion_Button"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/instruction" />-->
+    <TextView
+        android:id="@+id/add_distortion_button_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:fontFamily="@font/karla"
+        android:text="@string/add_distortion_button_label"
+        android:textColor="@color/grey"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/add_distortion_Button"
+        app:layout_constraintStart_toEndOf="@id/add_distortion_Button"
+        app:layout_constraintTop_toTopOf="@+id/add_distortion_Button" />
 
 
     <Button

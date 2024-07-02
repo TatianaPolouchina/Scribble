@@ -65,11 +65,8 @@
 
     <!-- Reminders -->
     <string name="reminder_1">All worries come to an end</string>
-    <string name="reminder_2">"Worrying does not take away tomorrow's troubles. It takes away
-            today's peace" - Randy Armstrong</string>
-    <string name="reminder_3">"Never let the future disturb you. You will meet it, if you have to,
-        with the same weapons of reason which today arm you against the present." - Marcus Aurelius
-    </string>
+    <string name="reminder_2">"Worrying does not take away tomorrow's troubles. It takes away today's peace" - Randy Armstrong</string>
+    <string name="reminder_3">"Never let the future disturb you. You will meet it, if you have to, with the same weapons of reason which today arm you against the present." - Marcus Aurelius</string>
     <string name="reminder_4">"If the problem can be solved why worry? If the problem cannot be solved worrying will do you no good." - Shantideva</string>
 
     <string-array name="reminders">
