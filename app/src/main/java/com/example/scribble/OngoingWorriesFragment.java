@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.scribble.R;
 
@@ -37,11 +38,21 @@ public class OngoingWorriesFragment extends Fragment implements OnItemClickListe
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ((MainActivity) requireActivity()).setStatusBarColor(R.color.darkBlueMain);
+        ((MainActivity) requireActivity()).setStatusBarColor(R.color.lightBlue);
+
         WorryCardAdapter adapter = new WorryCardAdapter(sharedViewModel.getOngoingWorries(), this);
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         recyclerView.setAdapter(adapter);
+
+        TextView worryNumberText = view.findViewById(R.id.tvSecond);
+        int numWorries = sharedViewModel.getOngoingWorries().size();
+        if (numWorries == 1) {
+            worryNumberText.setText(getString(R.string.ongoing_page_subtitle_1_worry));
+        } else {
+            worryNumberText.setText(getString(R.string.ongoing_page_subtitle,
+                    Integer.toString(numWorries)));
+        }
     }
 
     //TODO: comment and finish

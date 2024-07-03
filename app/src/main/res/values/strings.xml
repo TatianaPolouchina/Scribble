@@ -3,13 +3,16 @@
     <string name="app_name">Scribble</string>
 
     <!-- Ongoing Worries Page -->
-    <string name="ongoing_page_title">Ongoing Worries</string>
-    <string name="ongoing_page_subtitle">You have XX ongoing worries</string>
+    <string name="ongoing_page_title">ongoing worries</string>
+    <string name="ongoing_page_subtitle">You have %1$s ongoing worries</string>
+    <string name="ongoing_page_subtitle_1_worry">You have 1 ongoing worry</string>
+
     <string name="worry_button_description">Navigates to worry</string>
 
     <!-- Finished Worries Page-->
-    <string name="finished_page_title">Finished Worries</string>
-    <string name="finished_page_subtitle">You have XX finished worries</string>
+    <string name="finished_page_title">finished worries</string>
+    <string name="finished_page_subtitle">You have %1$s finished worries</string>
+    <string name="finished_page_subtitle_1_worry">You have 1 finished worry</string>
 
     <!-- Bottom Navigation Bar -->
     <string name="ongoing_worries_nav_title">Ongoing Worries</string>
@@ -105,6 +108,7 @@
     <string name="CD_info_2">Recognizing these distortions can help us see situations more clearly and manage our worries more effectively.</string>
     <string name="noNameEnteredWarningText">Please enter a name</string>
     <string name="skip_description_button_text">Skip</string>
+    <string name="left_scribble_content_description">scribble design coming from the left of the screen\n</string>
 
 
 </resources>

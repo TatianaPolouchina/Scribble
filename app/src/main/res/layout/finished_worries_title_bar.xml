@@ -1,70 +1,84 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/rectangle_rounded_bottom_beige"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="90dp"
+        android:layout_marginBottom="15dp"
+        android:src="@drawable/rectangle_rounded_bottom_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/lightOrange" />
+
+    <ImageView
+        android:layout_width="90dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/vector_stars_left"
+        app:layout_constraintBottom_toBottomOf="@+id/tvFirst"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvFirst"
+        app:tint="@color/mediumOrange" />
+
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:src="@drawable/test"
+        app:layout_constraintBottom_toBottomOf="@+id/tvFirst"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvFirst"
+        app:tint="@color/mediumOrange" />
 
     <TextView
         android:id="@+id/tvFirst"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
-        android:fontFamily="@font/karla_bold"
-        android:padding="0dp"
+        android:fontFamily="@font/karla_extra_bold"
+        android:padding="8dp"
         android:text="@string/finished_page_title"
         android:textColor="@color/darkOrange"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/tvSecond"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topPanel"
-        app:layout_constraintVertical_bias="0.6" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="-3dp"
+        android:layout_marginBottom="-3dp"
+        android:src="@drawable/rectangle_rounded_15dp"
+        app:layout_constraintBottom_toBottomOf="@id/tvSecond"
+        app:layout_constraintEnd_toEndOf="@id/tvSecond"
+        app:layout_constraintStart_toStartOf="@id/tvSecond"
+        app:layout_constraintTop_toTopOf="@id/tvSecond"
+        app:tint="@color/mediumOrange" />
 
     <TextView
         android:id="@+id/tvSecond"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/rectangle_rounded_15dp"
         android:fontFamily="@font/karla_bold"
-        android:padding="0dp"
+        android:paddingStart="15dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="15dp"
+        android:paddingBottom="8dp"
         android:text="@string/finished_page_subtitle"
         android:textColor="@color/darkOrange"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomPanel"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/topPanel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/top_finished"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="ImageContrastCheck" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/right_finished"
-        app:layout_constraintBottom_toTopOf="@+id/bottomPanel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="ImageContrastCheck" />
-
-    <ImageView
-        android:id="@+id/bottomPanel"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@drawable/bottom_finished"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
+        app:layout_constraintTop_toBottomOf="@id/tvFirst" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,8 +16,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.scribble.R;
-
 import java.util.List;
 
 public class WorryFragment extends Fragment {
@@ -152,7 +150,7 @@ public class WorryFragment extends Fragment {
 
         worryTitle.setTextColor(getResources().getColor(R.color.lightOrangeMain,
                 requireActivity().getTheme()));
-        background.setImageResource(R.drawable.rectangle_rounded_beige);
+        background.setImageResource(R.drawable.rectangle_rounded_5dp);
         scribble.setVisibility(View.GONE);
         worryCharacter.setImageResource(worry.getFinishedImageResId());
         actionsTextView.setVisibility(View.GONE);

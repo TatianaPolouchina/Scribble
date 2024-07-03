@@ -5,9 +5,12 @@
     <color name="black">#FF000000</color>
     <color name="lightOrange">#FFEEDB</color>
     <color name="lightOrangeMain">#FFB564</color>
+    <color name="mediumOrange">#FFA76D</color>
     <color name="darkOrangeMain">#F59A22</color>
     <color name="darkOrange">#F58B44</color>
     <color name="grey">#878787</color>
+    <color name="lightBlue">#DFE8F0</color>
+    <color name="lightBlue2">#9EB9C2</color>
     <color name="lightBlueMain">#7397A2</color>
     <color name="darkBlueMain">#5C838F</color>
     <color name="white">#FFFFFFFF</color>
