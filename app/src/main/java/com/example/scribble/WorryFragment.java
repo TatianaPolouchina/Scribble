@@ -11,7 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -24,8 +24,8 @@ public class WorryFragment extends Fragment {
     private TextView worryTitle;
     private TextView reminderText;
     private int reminderIndex;
-    private ImageButton leftButton;
-    private ImageButton rightButton;
+    private FrameLayout leftButton;
+    private FrameLayout rightButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

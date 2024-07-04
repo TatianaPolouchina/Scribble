@@ -169,7 +169,7 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/respondButton"
-                style="@style/CustomButton"
+                style="@style/OutlineButton"
                 android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -178,14 +178,13 @@
                 android:stateListAnimator="@anim/nav_default_enter_anim"
                 android:text="@string/worry_respond_button_text"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColorLink="@color/grey"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/actionsTextView" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/finishWorryButton"
-                style="@style/CustomButton"
+                style="@style/OutlineButton"
                 android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -270,28 +269,55 @@
                 app:layout_constraintStart_toEndOf="@id/leftReminderButton"
                 app:layout_constraintTop_toBottomOf="@+id/remindersLabel" />
 
-            <ImageButton
+            <FrameLayout
                 android:id="@+id/leftReminderButton"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:layout_width="50dp"
+                android:layout_height="0dp"
                 android:layout_marginStart="10dp"
-                android:background="@null"
-                android:scaleType="fitXY"
-                android:src="@drawable/left_button"
                 app:layout_constraintBottom_toBottomOf="@id/reminderTextView"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/reminderTextView" />
+                app:layout_constraintTop_toTopOf="@id/reminderTextView">
 
-            <ImageButton
+                <ImageView
+                    android:id="@+id/leftArrowBackgroundImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/rectangle_rounded_outline" />
+
+                <ImageView
+                    android:id="@+id/leftArrowImage"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/vector_triangle_arrow_left" />
+            </FrameLayout>
+
+            <FrameLayout
                 android:id="@+id/rightReminderButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="0dp"
                 android:layout_marginEnd="10dp"
-                android:background="@null"
-                android:src="@drawable/right_button"
                 app:layout_constraintBottom_toBottomOf="@+id/reminderTextView"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/reminderTextView" />
+                app:layout_constraintTop_toTopOf="@+id/reminderTextView">
+
+                <ImageView
+                    android:id="@+id/rightArrowBackgroundImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/rectangle_rounded_outline" />
+
+                <ImageView
+                    android:id="@+id/rightArrowImage"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/vector_triangle_arrow_right" />
+            </FrameLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

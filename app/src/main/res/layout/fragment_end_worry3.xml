@@ -24,7 +24,7 @@
 
     <FrameLayout
         android:id="@+id/frameLayout"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,12 +33,13 @@
         app:layout_constraintVertical_bias="0.15">
 
         <ImageView
-            android:id="@+id/scribble"
+            android:id="@+id/sun"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_gravity="top|end"
             android:scaleType="centerInside"
-            android:src="@drawable/vector_scribble_1" />
+            android:src="@drawable/vector_sun"
+            app:tint="@color/beige" />
 
         <ImageView
             android:id="@+id/worryCharacter"
@@ -64,18 +65,12 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/closeButton"
-        style="@style/CustomButton"
+        style="@style/OutlineButton"
         android:layout_width="@dimen/button_width"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/rectangle_rounded_outline"
-        android:elegantTextHeight="false"
-        android:fontFamily="@font/karla_bold"
         android:text="@string/close_button_text"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/grey"
-        android:textSize="16sp"
+        android:textAppearance="@style/OutlineButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

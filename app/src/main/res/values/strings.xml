@@ -107,7 +107,7 @@
     <string name="CD_info_1">Cognitive distortions are negative thought patterns that lead to worry.</string>
     <string name="CD_info_2">Recognizing these distortions can help us see situations more clearly and manage our worries more effectively.</string>
     <string name="noNameEnteredWarningText">Please enter a name</string>
-    <string name="skip_description_button_text">Skip</string>
+    <string name="skip_button_text">Skip</string>
     <string name="left_scribble_content_description">scribble design coming from the left of the screen\n</string>
 
 

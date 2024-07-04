@@ -104,30 +104,25 @@
             />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/next_button"
+        style="@style/BlueButton"
         android:layout_width="@dimen/button_width"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/darkBlueMain"
-        android:elegantTextHeight="false"
-        android:fontFamily="@font/karla_bold"
+        android:textAppearance="@style/BlueButton"
         android:text="@string/new_worry_button_text"
-        android:textAlignment="center"
-        android:textSize="16sp"
-        android:textColor="@color/white"
+        android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/warningText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:fontFamily="@font/karla"
+        android:textAppearance="@style/subtext"
         android:text="@string/noNameEnteredWarningText"
-        android:textColor="@color/grey"
-        android:textSize="16sp"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

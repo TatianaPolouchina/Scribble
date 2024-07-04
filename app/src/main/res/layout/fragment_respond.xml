@@ -88,19 +88,16 @@
             android:maxLength="150"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/submitButton"
+        style="@style/BlueButton"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/darkBlueMain"
-        android:elegantTextHeight="false"
-        android:fontFamily="@font/karla_bold"
+        android:layout_marginBottom="10dp"
         android:text="@string/submit_button_text"
-        android:textAlignment="center"
-        android:textSize="16sp"
-        android:textColor="@color/white"
+        android:textAppearance="@style/BlueButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

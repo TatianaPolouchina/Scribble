@@ -61,20 +61,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/finish_button"
+        style="@style/OutlineButton"
         android:layout_width="@dimen/button_width"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/darkBlueMain"
-        android:elegantTextHeight="false"
-        android:fontFamily="@font/karla_bold"
+        android:layout_marginBottom="10dp"
         android:text="@string/worry_finished_button"
-        android:textAlignment="center"
-        android:textSize="16sp"
-        android:textColor="@color/white"
+        android:textAppearance="@style/BlueButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
