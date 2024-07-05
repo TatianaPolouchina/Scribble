@@ -1,36 +1,54 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    xmlns:tools="http://schemas.android.com/tools">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraint_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    <include
-        android:id="@+id/worries_title_bar"
-        layout="@layout/ongoing_worries_title_bar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@id/constraint_layout"
-        app:layout_constraintStart_toStartOf="@id/constraint_layout"
-        app:layout_constraintTop_toTopOf="@id/constraint_layout">
-    </include>
+    tools:context=".OngoingWorriesFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        app:layout_constraintBottom_toBottomOf="@id/constraint_layout"
-        app:layout_constraintEnd_toEndOf="@id/constraint_layout"
-        app:layout_constraintStart_toStartOf="@id/constraint_layout"
-        app:layout_constraintTop_toBottomOf="@+id/worries_title_bar"
+        android:layout_height="wrap_content"
+        android:paddingTop="110dp"
+        android:paddingBottom="80dp"
+        android:clipToPadding="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/worry_card_template" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</ScrollView>
+    <include
+        android:id="@+id/worries_title_bar"
+        layout="@layout/ongoing_worries_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/noWorriesText"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no_worries_prompt"
+        android:textAppearance="@style/subtext"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/downArrow"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/vector_arrow_down"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/noWorriesText"
+        app:tint="@color/lightGrey" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

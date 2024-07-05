@@ -13,9 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.example.scribble.R;
 
 public class OngoingWorriesFragment extends Fragment implements OnItemClickListener {
 
@@ -35,6 +34,7 @@ public class OngoingWorriesFragment extends Fragment implements OnItemClickListe
         return inflater.inflate(R.layout.fragment_ongoing_worries, container, false);
     }
 
+    // TODO: refactor
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -52,6 +52,17 @@ public class OngoingWorriesFragment extends Fragment implements OnItemClickListe
         } else {
             worryNumberText.setText(getString(R.string.ongoing_page_subtitle,
                     Integer.toString(numWorries)));
+        }
+
+        int numFinishedWorries = sharedViewModel.getFinishedWorries().size();
+        TextView noWorriesText = view.findViewById(R.id.noWorriesText);
+        ImageView downArrowImage = view.findViewById(R.id.downArrow);
+        if (numWorries == 0 && numFinishedWorries == 0) {
+            noWorriesText.setVisibility(View.VISIBLE);
+            downArrowImage.setVisibility(View.VISIBLE);
+        } else if (numWorries == 0){
+            noWorriesText.setText(R.string.no_ongoing_worries_text);
+            noWorriesText.setVisibility(View.VISIBLE);
         }
     }
 

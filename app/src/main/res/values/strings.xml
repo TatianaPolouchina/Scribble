@@ -6,6 +6,8 @@
     <string name="ongoing_page_title">ongoing worries</string>
     <string name="ongoing_page_subtitle">You have %1$s ongoing worries</string>
     <string name="ongoing_page_subtitle_1_worry">You have 1 ongoing worry</string>
+    <string name="no_worries_prompt">Add a worry to get started</string>
+    <string name="no_ongoing_worries_text">Congrats, zen master</string>
 
     <string name="worry_button_description">Navigates to worry</string>
 
@@ -13,6 +15,7 @@
     <string name="finished_page_title">finished worries</string>
     <string name="finished_page_subtitle">You have %1$s finished worries</string>
     <string name="finished_page_subtitle_1_worry">You have 1 finished worry</string>
+    <string name="no_finished_worries_text">Finished worries will appear here</string>
 
     <!-- Bottom Navigation Bar -->
     <string name="ongoing_worries_nav_title">Ongoing Worries</string>
@@ -109,6 +112,5 @@
     <string name="noNameEnteredWarningText">Please enter a name</string>
     <string name="skip_button_text">Skip</string>
     <string name="left_scribble_content_description">scribble design coming from the left of the screen\n</string>
-
 
 </resources>

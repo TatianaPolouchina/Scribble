@@ -15,8 +15,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.scribble.R;
-
 public class FinishedWorriesFragment extends Fragment implements OnItemClickListener {
 
     private SharedViewModel sharedViewModel;
@@ -51,6 +49,11 @@ public class FinishedWorriesFragment extends Fragment implements OnItemClickList
         } else {
             worryNumberText.setText(getString(R.string.finished_page_subtitle,
                     Integer.toString(numWorries)));
+        }
+
+        TextView noWorriesText = view.findViewById(R.id.noWorriesText);
+        if (numWorries == 0) {
+            noWorriesText.setVisibility(View.VISIBLE);
         }
     }
 
