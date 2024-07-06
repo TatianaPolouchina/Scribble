@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="AppTheme.BottomNavigationView" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="android:background">@color/white</item>
-    </style>
     <style name="OutlineButton" parent="Widget.AppCompat.Button">
         <item name="android:background">@drawable/rectangle_rounded_outline</item>
         <item name="android:textColor">@color/grey</item>
@@ -31,5 +28,15 @@
         <item name="android:textColor">@color/lightGrey</item>
         <item name="fontFamily">@font/karla_bold</item>
     </style>
+    <style name="BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:background">@color/white</item>
+        <item name="itemIconTint">@color/bottom_nav_menu_item</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="itemBackground">@drawable/temp_background</item>
+    </style>
+    <style name="AppTheme.BottomNavigationView" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:background">@color/white</item>
+    </style>
+
 
 </resources>
