@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
@@ -12,11 +13,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridLayout;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.example.scribble.R;
 
 public class NewWorryFragment3 extends Fragment {
 
@@ -44,15 +42,16 @@ public class NewWorryFragment3 extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        ImageButton addDistortionButton = view.findViewById(R.id.add_distortion_Button);
+        ConstraintLayout addDistortionLayout = view.findViewById(R.id.addDistortionLayout);
         selectedDistortionsContainer = view.findViewById(R.id.distortionsContainer);
         addDistortionLabel = view.findViewById(R.id.add_distortion_button_label);
 
         addSelectedDistortions();
 
-        addDistortionButton.setOnClickListener(v ->
+        addDistortionLayout.setOnClickListener(v ->
                 NavHostFragment.findNavController(this).navigate
                         (R.id.action_newWorryFragment3_to_distortionsFragment));
+
 
         view.findViewById(R.id.next_button).setOnClickListener(v ->
                 NavHostFragment.findNavController(this).navigate

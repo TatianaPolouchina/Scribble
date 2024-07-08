@@ -23,25 +23,21 @@
 
     <ImageButton
         android:id="@+id/backButton"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="-15dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
         android:background="@android:color/transparent"
-        android:contentDescription="@string/back_arrow_description"
-        android:src="@drawable/vector_arrow_back"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/newWorryTitle"
-        app:layout_constraintHorizontal_bias="0.1"
+        android:src="@drawable/vector_x"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.01"
         app:tint="@color/darkBlueMain" />
 
         <FrameLayout
             android:id="@+id/frameLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="@dimen/margin_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/newWorryTitle">
@@ -89,13 +85,15 @@
             app:hintEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/respond_prompt">
+            app:layout_constraintTop_toBottomOf="@+id/respond_prompt"
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textInputField"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:hint="@string/new_worry_instruction_1_hint"
+                android:textColorHint="@color/lightGrey"
                 android:maxLength="20"
                 android:textColor="@color/darkBlueMain" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -105,7 +103,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/noNameEnteredWarningText"
-        android:textAppearance="@style/subtext"
+        android:textAppearance="@style/Subtext"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

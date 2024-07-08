@@ -1,5 +1,5 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-    <style name="Base.Theme.Scribble" parent="">
+    <style name="Base.Theme.Scribble" parent="Theme.AppCompat">
         <item name="buttonStyle">@style/MyButton</item>
     </style>
 

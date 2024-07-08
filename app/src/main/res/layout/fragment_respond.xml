@@ -65,13 +65,11 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
         android:layout_width="0dp"
-        android:maxWidth="400dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="25dp"
-        app:boxStrokeColor="@color/grey"
-        app:hintEnabled="false"
+        android:maxWidth="400dp"
         app:counterEnabled="true"
         app:counterMaxLength="150"
         app:layout_constraintEnd_toEndOf="parent"
@@ -82,10 +80,9 @@
             android:id="@+id/textInputField"
             android:layout_width="match_parent"
             android:layout_height="110dp"
-            android:textColor="@color/darkBlueMain"
             android:gravity="top"
-            android:hint="@string/new_worry_instruction_1_hint"
-            android:maxLength="150"/>
+            android:maxLength="150"
+            android:textColor="@color/darkBlueMain" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatButton

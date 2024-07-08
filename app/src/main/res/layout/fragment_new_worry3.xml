@@ -61,51 +61,60 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
 
-    <ImageButton
-        android:id="@+id/add_distortion_Button"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/addDistortionLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="40dp"
-        android:background="@color/white"
-        android:src="@drawable/vector_plus_sign"
+        android:layout_marginTop="25dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/respond_prompt"
-        app:tint="@color/lightGrey" />
+        app:layout_constraintTop_toBottomOf="@+id/respond_prompt">
 
-    <GridLayout
-        android:id="@+id/distortionsContainer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:columnCount="4"
-        android:gravity="start"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toEndOf="@id/add_distortion_Button"
-        app:layout_constraintTop_toBottomOf="@+id/respond_prompt" />
+        <ImageView
+            android:id="@+id/add_distortion_Button"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/white"
+            android:src="@drawable/vector_plus_sign"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/addDistortionLayout"
+            app:tint="@color/lightGrey" />
 
+        <GridLayout
+            android:id="@+id/distortionsContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:animateLayoutChanges="true"
+            android:columnCount="4"
+            android:gravity="start"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toEndOf="@id/add_distortion_Button"
+            app:layout_constraintTop_toTopOf="@+id/addDistortionLayout" />
 
-    <TextView
-        android:id="@+id/add_distortion_button_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:text="@string/add_distortion_button_label"
-        android:textSize="18sp"
-        android:textAppearance="@style/subtext"
-        app:layout_constraintBottom_toBottomOf="@+id/add_distortion_Button"
-        app:layout_constraintStart_toEndOf="@id/add_distortion_Button"
-        app:layout_constraintTop_toTopOf="@+id/add_distortion_Button" />
+        <TextView
+            android:id="@+id/add_distortion_button_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:text="@string/add_distortion_button_label"
+            android:textAppearance="@style/Subtext"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/add_distortion_Button"
+            app:layout_constraintStart_toEndOf="@id/add_distortion_Button"
+            app:layout_constraintTop_toTopOf="@+id/add_distortion_Button" />
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/next_button"
         style="@style/BlueButton"
         android:layout_width="@dimen/button_width"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/BlueButton"
-        android:text="@string/new_worry_button_text"
         android:layout_marginBottom="10dp"
+        android:text="@string/new_worry_button_text"
+        android:textAppearance="@style/BlueButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

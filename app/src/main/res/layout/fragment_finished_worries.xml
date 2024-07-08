@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:visibility="gone"
         android:text="@string/no_finished_worries_text"
-        android:textAppearance="@style/subtext"
+        android:textAppearance="@style/Subtext"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
