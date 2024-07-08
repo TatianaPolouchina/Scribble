@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.scribble.ui.theme.ReminderHelper;
-import com.example.scribble.R;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Objects;
@@ -52,16 +51,16 @@ public class NewWorryFragment1 extends Fragment {
 
         view.findViewById(R.id.next_button).setOnClickListener(v -> {
             //check if named
-           if (!Objects.requireNonNull(textInputField.getText()).toString().isEmpty()) {
-               //update worry title
-               sharedViewModel.getWorry().setTitle(Objects.requireNonNull
-                       (textInputField.getText()).toString());
+            if (!Objects.requireNonNull(textInputField.getText()).toString().isEmpty()) {
+                //update worry title
+                sharedViewModel.getWorry().setTitle(Objects.requireNonNull
+                        (textInputField.getText()).toString());
 
-               NavHostFragment.findNavController(this).navigate
-                       (R.id.action_newWorryFragment1_to_newWorryFragment2);
-           } else {
-               view.findViewById(R.id.warningText).setVisibility(View.VISIBLE);
-           }
+                NavHostFragment.findNavController(this).navigate
+                        (R.id.action_newWorryFragment1_to_newWorryFragment2);
+            } else {
+                view.findViewById(R.id.warningText).setVisibility(View.VISIBLE);
+            }
 
         });
 

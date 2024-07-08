@@ -21,94 +21,91 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-    <FrameLayout
-        android:id="@+id/frameLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newWorryTitle"
-        app:layout_constraintVertical_bias="0.15">
-
-        <ImageView
-            android:id="@+id/scribble"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:scaleType="centerInside"
-            android:src="@drawable/vector_scribble_1" />
-
-        <ImageView
-            android:id="@+id/worryCharacter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@drawable/worry_1" />
-    </FrameLayout>
-
     <TextView
-        android:id="@+id/instruction"
+        android:id="@+id/skipButton"
+        style="@style/subtext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:fontFamily="@font/karla_bold"
-        android:text="@string/new_worry_instruction_2"
-        android:textColor="@color/darkBlueMain"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="15dp"
         android:layout_marginEnd="25dp"
-        android:maxWidth="400dp"
-        app:boxStrokeColor="@color/grey"
-        app:counterEnabled="true"
-        app:counterMaxLength="150"
-        app:hintEnabled="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/instruction">
+        android:text="@string/skip_button_text"
+        android:textAppearance="@style/subtext"
+        app:layout_constraintBottom_toBottomOf="@id/newWorryTitle"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputField"
+        <FrameLayout
+            android:id="@+id/frameLayout"
             android:layout_width="match_parent"
-            android:layout_height="110dp"
-            android:gravity="top"
-            android:hint="@string/new_worry_instruction_1_hint"
-            android:maxLength="150"
-            android:textColor="@color/darkBlueMain" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/newWorryTitle">
+
+            <ImageView
+                android:id="@+id/scribble"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:scaleType="centerInside"
+                android:src="@drawable/vector_scribble_1" />
+
+            <ImageView
+                android:id="@+id/worryCharacter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/worry_1" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/instruction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/karla_bold"
+            android:text="@string/new_worry_instruction_2"
+            android:textColor="@color/darkBlueMain"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="25dp"
+            android:maxWidth="400dp"
+            app:boxStrokeColor="@color/grey"
+            app:counterEnabled="true"
+            app:counterMaxLength="150"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/instruction">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputField"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:gravity="top"
+                android:hint="@string/new_worry_instruction_1_hint"
+                android:maxLength="150"
+                android:textColor="@color/darkBlueMain" />
+        </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/next_button"
         style="@style/BlueButton"
         android:layout_width="@dimen/button_width"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/BlueButton"
-        android:text="@string/new_worry_button_text"
         android:layout_marginBottom="10dp"
+        android:text="@string/new_worry_button_text"
+        android:textAppearance="@style/BlueButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/skipButton"
-        style="@style/subtext"
-        android:text="@string/skip_button_text"
-        android:textAppearance="@style/subtext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

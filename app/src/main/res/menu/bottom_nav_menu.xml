@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/navigation_ongoing_worries"
         android:icon="@drawable/nav_cloud_selector"
         android:title="@string/ongoing_worries_nav_title"
-        android:visible="true" />
+        android:visible="true"
+        app:iconTint="@color/mediumOrange"
+        android:iconTint="@color/mediumOrange" />
 
     <item
         android:id="@+id/navigation_add_worry"
@@ -16,6 +19,7 @@
     <item
         android:id="@+id/navigation_finished_worries"
         android:icon="@drawable/nav_sun_selector"
+
         android:title="@string/finished_worries_nav_title"
         android:visible="true" />
 

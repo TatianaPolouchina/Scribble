@@ -75,11 +75,6 @@
         android:name="com.example.scribble.NewWorryFinishedFragment"
         android:label="NewWorryFinishedFragment"
         tools:layout="@layout/fragment_new_worry_finished">
-        <action
-            android:id="@+id/action_newWorryFinishedFragment_to_ongoingWorriesFragment"
-            app:destination="@id/ongoingWorriesFragment"
-            app:enterAnim="@android:animator/fade_in"
-            app:exitAnim="@android:animator/fade_out" />
     </fragment>
 
     <fragment
@@ -135,12 +130,6 @@
         android:name="com.example.scribble.EndWorryFragment3"
         android:label="fragment_end_worry3"
         tools:layout="@layout/fragment_end_worry3" >
-        <argument
-            android:name="selectedWorry"
-            app:argType="com.example.scribble.Worry" />
-        <action
-            android:id="@+id/action_endWorryFragment3_to_finishedWorriesFragment"
-            app:destination="@id/finishedWorriesFragment" />
     </fragment>
 
     <dialog
