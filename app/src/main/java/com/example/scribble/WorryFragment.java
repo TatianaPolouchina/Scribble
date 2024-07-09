@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
@@ -26,6 +27,7 @@ public class WorryFragment extends Fragment {
     private int reminderIndex;
     private FrameLayout leftButton;
     private FrameLayout rightButton;
+    private SharedViewModel sharedViewModel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,7 @@ public class WorryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
         return inflater.inflate(R.layout.fragment_worry, container, false);
     }
 
@@ -284,6 +287,18 @@ public class WorryFragment extends Fragment {
         } else {
             rightButton.setVisibility(View.VISIBLE);
         }
+    }
+
+    /**
+     * Removes the displayed worry from the list of worries
+     */
+    private void deleteWorry() {
+        if (worry.isFinished()) {
+            sharedViewModel.getFinishedWorries().remove(worry);
+        } else {
+            sharedViewModel.getOngoingWorries().remove(worry);
+        }
+
     }
 
 }
