@@ -150,7 +150,7 @@ public class WorryFragment extends Fragment {
 
         worryTitle.setTextColor(getResources().getColor(R.color.lightOrangeMain,
                 requireActivity().getTheme()));
-        background.setImageResource(R.drawable.rectangle_rounded_5dp);
+        background.setImageResource(R.drawable.rectangle_rounded_10dp_beige);
         scribble.setVisibility(View.GONE);
         worryCharacter.setImageResource(worry.getFinishedImageResId());
         actionsTextView.setVisibility(View.GONE);

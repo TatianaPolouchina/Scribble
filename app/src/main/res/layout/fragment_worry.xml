@@ -54,17 +54,29 @@
                 android:id="@+id/frameLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="290dp"
+                    android:src="@drawable/rectangle_rounded_outline_transparent" />
+
+
                 <ImageView
                     android:id="@+id/worryImageBackground"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
+                    android:layout_height="270dp"
                     android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
                     android:scaleType="centerInside"
-                    android:src="@drawable/rectangle_rounded_purple" />
+                    android:src="@drawable/rectangle_rounded_10dp_blue" />
 
                 <ImageView
                     android:id="@+id/sunAndStars"
@@ -80,7 +92,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:scaleType="centerInside"
-                    android:src="@drawable/vector_scribble_1" />
+                    android:src="@drawable/vector_scribble_1"
+                    app:tint="@color/lightBlue2" />
 
                 <ImageView
                     android:id="@+id/worryCharacter"
@@ -99,7 +112,8 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
-                android:background="@drawable/rectangle_rounded_10dp"
+                android:background="@drawable/rectangle_rounded_10dp_beige"
+                android:backgroundTint="@color/lightOrange"
                 android:fontFamily="@font/karla_bold"
                 android:gravity="center"
                 android:text="@string/better_than_expected_badge_text"
@@ -173,7 +187,7 @@
                 android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/rectangle_rounded_outline"
+                android:background="@drawable/rectangle_rounded_outline_white"
                 android:gravity="center_horizontal"
                 android:stateListAnimator="@anim/nav_default_enter_anim"
                 android:text="@string/worry_respond_button_text"
@@ -188,7 +202,7 @@
                 android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/rectangle_rounded_outline"
+                android:background="@drawable/rectangle_rounded_outline_white"
                 android:gravity="center_horizontal"
                 android:stateListAnimator="@anim/nav_default_enter_anim"
                 android:text="@string/finish_worry_button_text"
@@ -255,7 +269,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="30dp"
-                android:background="@drawable/rectangle_rounded_outline"
+                android:background="@drawable/rectangle_rounded_outline_white"
                 android:fontFamily="@font/karla_bold"
                 android:gravity="center"
                 android:minHeight="130dp"
@@ -283,7 +297,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="fitXY"
-                    android:src="@drawable/rectangle_rounded_outline" />
+                    android:src="@drawable/rectangle_rounded_outline_white" />
 
                 <ImageView
                     android:id="@+id/leftArrowImage"
@@ -308,7 +322,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="fitXY"
-                    android:src="@drawable/rectangle_rounded_outline" />
+                    android:src="@drawable/rectangle_rounded_outline_white" />
 
                 <ImageView
                     android:id="@+id/rightArrowImage"
@@ -322,5 +336,19 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@android:color/transparent"
+        android:padding="8dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/vector_trashcan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toEndOf="@+id/worryNameTitle"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/grey" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
