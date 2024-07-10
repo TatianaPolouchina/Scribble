@@ -4,43 +4,76 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:padding="20dp"
     android:background="@drawable/rectangle_rounded_outline_white"
+    android:paddingStart="30dp"
+    android:paddingTop="50dp"
+    android:paddingEnd="30dp"
+    android:paddingBottom="70dp"
     tools:context=".DeleteWorryFragment">
 
 
-    <ImageView
-        android:id="@+id/trashcanImage"
+    <FrameLayout
+        android:id="@+id/frameLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/vector_trashcan"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/trashcanImage"
+            android:layout_width="80dp"
+            android:layout_height="90dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/vector_trashcan"
+            app:tint="@color/ongoing_vs_finished_color" />
+
+        <ImageView
+            android:id="@+id/scribble"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:src="@drawable/vector_scribble_1"
+            app:tint="@color/lightBlue2" />
+
+        <ImageView
+            android:id="@+id/sunAndStar"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/vector_sun_and_star"
+            app:tint="@color/darkOrange" />
+
+    </FrameLayout>
+
 
     <TextView
         android:id="@+id/deleteWorryPrompt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/karla_extra_bold"
         android:text="@string/deleteWorryPrompt"
         android:textColor="@color/darkBlueMain"
-        android:textSize="16sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/trashcanImage" />
+        app:layout_constraintTop_toBottomOf="@id/frameLayout" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/confirmDeleteButton"
         style="@style/OutlineButton"
-        android:layout_width="@dimen/button_width"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/rectangle_rounded_outline_white"
         android:gravity="center_horizontal"
         android:stateListAnimator="@anim/nav_default_enter_anim"
         android:text="@string/delete_button_text"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/deleteWorryPrompt" />
@@ -48,8 +81,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/karla"
-        android:layout_marginTop="10dp"
         android:text="@string/cancel_delete_button_text"
         android:textColor="@color/grey"
         android:textSize="14sp"

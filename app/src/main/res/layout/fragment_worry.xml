@@ -187,8 +187,6 @@
                 android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/rectangle_rounded_outline_white"
-                android:gravity="center_horizontal"
                 android:stateListAnimator="@anim/nav_default_enter_anim"
                 android:text="@string/worry_respond_button_text"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
@@ -202,8 +200,6 @@
                 android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/rectangle_rounded_outline_white"
-                android:gravity="center_horizontal"
                 android:stateListAnimator="@anim/nav_default_enter_anim"
                 android:text="@string/finish_worry_button_text"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
@@ -338,7 +334,7 @@
     </ScrollView>
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/deleteButton"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:background="@android:color/transparent"

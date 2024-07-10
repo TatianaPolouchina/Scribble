@@ -13,14 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.scribble.R;
-
 import java.util.Objects;
 
 public class DistortionsInfoFragment extends DialogFragment {
-
-    public DistortionsInfoFragment() {
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

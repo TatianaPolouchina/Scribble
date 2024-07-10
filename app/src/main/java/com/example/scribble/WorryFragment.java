@@ -27,7 +27,7 @@ public class WorryFragment extends Fragment {
     private int reminderIndex;
     private FrameLayout leftButton;
     private FrameLayout rightButton;
-    private SharedViewModel sharedViewModel;
+    private DeleteWorryFragment deleteWorryFragment;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,6 @@ public class WorryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
         return inflater.inflate(R.layout.fragment_worry, container, false);
     }
 
@@ -56,6 +55,7 @@ public class WorryFragment extends Fragment {
     }
 
     // TODO: refactor
+
     /**
      * Replaces all titles and information with the corresponding data from the Worry
      *
@@ -85,6 +85,11 @@ public class WorryFragment extends Fragment {
      * @param view The view containing the worry fragment views
      */
     private void addOnClickListeners(@NonNull View view) {
+        view.findViewById(R.id.deleteButton).setOnClickListener(v -> {
+            deleteWorryFragment = new DeleteWorryFragment(worry);
+            deleteWorryFragment.show(getParentFragmentManager(), "overlay_dialog_fragment");
+        });
+
         view.findViewById(R.id.finishWorryButton).setOnClickListener(v -> {
             Bundle bundle = new Bundle();
             bundle.putSerializable("selectedWorry", worry);
@@ -287,18 +292,6 @@ public class WorryFragment extends Fragment {
         } else {
             rightButton.setVisibility(View.VISIBLE);
         }
-    }
-
-    /**
-     * Removes the displayed worry from the list of worries
-     */
-    private void deleteWorry() {
-        if (worry.isFinished()) {
-            sharedViewModel.getFinishedWorries().remove(worry);
-        } else {
-            sharedViewModel.getOngoingWorries().remove(worry);
-        }
-
     }
 
 }
