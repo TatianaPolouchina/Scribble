@@ -64,5 +64,10 @@ public class NewWorryFragment1 extends Fragment {
 
         });
 
+        //TODO: back button functionality
+//        view.findViewById(R.id.backButton).setOnClickListener(v -> {
+//
+//        });
+
     }
 }

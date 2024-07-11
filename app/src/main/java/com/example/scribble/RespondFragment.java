@@ -7,12 +7,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
-import com.example.scribble.R;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Objects;
@@ -51,6 +52,13 @@ public class RespondFragment extends Fragment {
             bundle.putSerializable("selectedWorry", worry);
             NavHostFragment.findNavController(this).navigate
                     (R.id.action_respondFragment_to_worryFragment, bundle);
+
+            new Handler().postDelayed(() -> {
+                if (getContext() != null) {
+                    Toast.makeText(getContext(), R.string.response_saved_text, Toast.LENGTH_SHORT).show();
+                }
+            }, 300); // 2000 milliseconds delay
+
         });
     }
 }

@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Objects;
 
@@ -45,8 +46,13 @@ public class DeleteWorryFragment extends DialogFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         updateColours(view);
+        addOnClickListeners(view);
+    }
+
+    private void addOnClickListeners(@NonNull View view) {
         view.findViewById(R.id.confirmDeleteButton).setOnClickListener(v -> {
             deleteWorry();
+            Toast.makeText(getContext(), R.string.worry_deleted_toast_text, Toast.LENGTH_SHORT).show();
             dismiss();
             if (worry.isFinished()) {
                 NavHostFragment.findNavController(DeleteWorryFragment.this).navigate
@@ -56,6 +62,7 @@ public class DeleteWorryFragment extends DialogFragment {
                         (R.id.action_worryFragment_to_ongoingWorriesFragment);
             }
         });
+        view.findViewById(R.id.cancelButton).setOnClickListener(v -> dismiss());
     }
 
     @NonNull

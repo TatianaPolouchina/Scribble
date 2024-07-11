@@ -84,10 +84,13 @@
     </string-array>
 
     <!-- Delete Worry Fragment-->
-    <string name="deleteWorryPrompt">Delete this worry?</string>
+    <string name="delete_worry_prompt">Delete this worry?</string>
     <string name="delete_button_text">Delete</string>
     <string name="cancel_delete_button_text">Cancel</string>
+    <string name="worry_deleted_toast_text">Worry Deleted</string>
 
+    <!-- Respond to worry-->
+    <string name="response_saved_text">Response Saved</string>
 
     <!-- TODO: organize strings -->
     <string name="worry_finished_button">Finish</string>

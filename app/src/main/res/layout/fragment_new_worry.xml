@@ -33,70 +33,60 @@
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/darkBlueMain" />
 
-        <FrameLayout
-            android:id="@+id/frameLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_title"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/newWorryTitle">
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/newWorryTitle">
 
-            <ImageView
-                android:id="@+id/scribble"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:scaleType="centerInside"
-                android:src="@drawable/vector_scribble_1" />
-
-            <ImageView
-                android:id="@+id/worryCharacter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:src="@drawable/worry_1" />
-        </FrameLayout>
-
-        <TextView
-            android:id="@+id/respond_prompt"
+        <ImageView
+            android:id="@+id/scribble"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:fontFamily="@font/karla_bold"
-            android:text="@string/new_worry_instruction_1"
-            android:textColor="@color/darkBlueMain"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+            android:layout_gravity="center"
+            android:scaleType="centerInside"
+            android:src="@drawable/vector_scribble_1" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout"
-            android:layout_width="0dp"
+        <ImageView
+            android:id="@+id/worryCharacter"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="25dp"
-            android:maxWidth="400dp"
-            app:boxStrokeColor="@color/grey"
-            app:counterEnabled="true"
-            app:counterMaxLength="20"
-            app:hintEnabled="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/respond_prompt"
-            >
+            android:layout_gravity="center"
+            android:src="@drawable/worry_1" />
+    </FrameLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textInputField"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:hint="@string/new_worry_instruction_1_hint"
-                android:textColorHint="@color/lightGrey"
-                android:maxLength="20"
-                android:textColor="@color/darkBlueMain" />
-        </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        android:id="@+id/respond_prompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/karla_bold"
+        android:text="@string/new_worry_instruction_1"
+        android:textColor="@color/darkBlueMain"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        style="@style/TextInputLayout"
+        app:counterEnabled="true"
+        app:counterMaxLength="20"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/respond_prompt">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputField"
+            style="@style/SmallTextInputEditText"
+            android:hint="@string/new_worry_instruction_1_hint"
+            android:maxLength="20" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/warningText"
