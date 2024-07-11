@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
@@ -12,12 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.example.scribble.R;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Objects;
 
-public class EndWorryFragment2 extends Fragment {
+public class EndWorryFragment2 extends TextInputFragment {
 
     private Worry worry;
 
@@ -36,6 +34,7 @@ public class EndWorryFragment2 extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        TextInputEditText textInputField = view.findViewById(R.id.textInputField);
 
         if (getArguments() != null) {
             worry = (Worry) getArguments().getSerializable("selectedWorry");
@@ -52,11 +51,13 @@ public class EndWorryFragment2 extends Fragment {
 
         view.findViewById(R.id.finishWorryButton).setOnClickListener(v -> {
             // Update how the worry ended
-            TextInputEditText textInputField = view.findViewById(R.id.textInputField);
             worry.setHowItEnded(Objects.requireNonNull
                     (textInputField.getText()).toString());
             nextFragment();
         });
+
+        textInputField.requestFocus();
+        showKeyboard(textInputField);
     }
 
     /**

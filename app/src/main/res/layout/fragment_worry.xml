@@ -124,20 +124,34 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/frameLayout" />
 
+
+            <TextView
+                android:id="@+id/descriptionTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/karla_bold"
+                android:text="Description"
+                android:textColor="@color/grey"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/betterThanExpectedBadge" />
+
             <TextView
                 android:id="@+id/worryDescription"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginRight="30dp"
                 android:fontFamily="@font/karla_bold"
                 android:text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam."
-                android:textColor="@color/grey"
+                android:textColor="@color/darkBlueMain"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/betterThanExpectedBadge" />
+                app:layout_constraintTop_toBottomOf="@+id/descriptionTitle" />
 
 
             <TextView
@@ -158,7 +172,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginRight="30dp"
                 android:fontFamily="@font/karla_bold"
                 android:text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit"
@@ -272,7 +286,7 @@
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 android:text="Reminder..... "
-                android:textColor="@color/grey"
+                android:textColor="@color/darkGrey"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/rightReminderButton"

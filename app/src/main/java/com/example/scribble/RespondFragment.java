@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import android.os.Handler;
@@ -18,7 +17,7 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Objects;
 
-public class RespondFragment extends Fragment {
+public class RespondFragment extends TextInputFragment {
     private Worry worry;
 
     @Override
@@ -32,6 +31,7 @@ public class RespondFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_respond, container, false);
     }
 
+    // TODO: refactor
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -42,12 +42,19 @@ public class RespondFragment extends Fragment {
                 image.setImageResource(worry.getOngoingImageResId());
             }
         }
+        setUpSubmitButton(view);
 
+        TextInputEditText textInput = view.findViewById(R.id.textInputField);
+        textInput.requestFocus();
+        showKeyboard(textInput);
+    }
+
+    private void setUpSubmitButton(@NonNull View view) {
         view.findViewById(R.id.submitButton).setOnClickListener(v -> {
             TextInputEditText textInputField = view.findViewById(R.id.textInputField);
             worry.addResponse(Objects.requireNonNull
                     (textInputField.getText()).toString());
-            
+
             Bundle bundle = new Bundle();
             bundle.putSerializable("selectedWorry", worry);
             NavHostFragment.findNavController(this).navigate
@@ -57,7 +64,7 @@ public class RespondFragment extends Fragment {
                 if (getContext() != null) {
                     Toast.makeText(getContext(), R.string.response_saved_text, Toast.LENGTH_SHORT).show();
                 }
-            }, 300); // 2000 milliseconds delay
+            }, 200);
 
         });
     }

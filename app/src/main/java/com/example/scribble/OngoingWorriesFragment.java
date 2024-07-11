@@ -16,6 +16,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 public class OngoingWorriesFragment extends Fragment implements OnItemClickListener {
 
     private SharedViewModel sharedViewModel;
@@ -62,6 +64,12 @@ public class OngoingWorriesFragment extends Fragment implements OnItemClickListe
             noWorriesText.setText(R.string.no_ongoing_worries_text);
             noWorriesText.setVisibility(View.VISIBLE);
         }
+
+
+        BottomNavigationView bottomNav = requireActivity().findViewById(R.id.bottom_navigation);
+        if (bottomNav.getSelectedItemId() != R.id.navigation_ongoing_worries) {
+            bottomNav.setSelectedItemId(R.id.navigation_ongoing_worries);
+        }
     }
 
     //TODO: comment and finish
@@ -69,7 +77,6 @@ public class OngoingWorriesFragment extends Fragment implements OnItemClickListe
     @Override
     public void onItemClick(int position) {
         Worry selectedWorry = sharedViewModel.getOngoingWorries().get(position);
-        ((MainActivity) requireActivity()).setStatusBarColor(R.color.white);
 
         Bundle bundle = new Bundle();
         bundle.putSerializable("selectedWorry", selectedWorry);

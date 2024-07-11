@@ -43,7 +43,6 @@ public class WorryFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         worryTitle = view.findViewById(R.id.worryNameTitle);
         distortionsContainer = view.findViewById(R.id.distortionsContainer);
         reminderText = view.findViewById(R.id.reminderTextView);
@@ -51,6 +50,8 @@ public class WorryFragment extends Fragment {
         rightButton = view.findViewById(R.id.rightReminderButton);
         populateLayout(view);
         addOnClickListeners(view);
+        ((MainActivity) requireActivity()).setStatusBarColor(R.color.white);
+
     }
 
     // TODO: refactor
@@ -126,6 +127,7 @@ public class WorryFragment extends Fragment {
     private void setVisibility(@NonNull View view, TextView worryDescription) {
         if (worry.getDescription().isEmpty()) {
             worryDescription.setVisibility(View.GONE);
+            view.findViewById(R.id.descriptionTitle).setVisibility(View.GONE);
         }
         if (distortionsContainer.getChildCount() == 0) {
             view.findViewById(R.id.cognitiveDistortionsLabel).setVisibility(View.GONE);
@@ -149,12 +151,14 @@ public class WorryFragment extends Fragment {
         ImageView background = view.findViewById(R.id.worryImageBackground);
         ImageView scribble = view.findViewById(R.id.scribble);
         ImageView worryCharacter = view.findViewById(R.id.worryCharacter);
-        TextView actionsTextView = view.findViewById(R.id.actionsTextView);
         Button respondButton = view.findViewById(R.id.respondButton);
         Button finishWorryButton = view.findViewById(R.id.finishWorryButton);
+        TextView descriptionTextView = view.findViewById(R.id.worryDescription);
+        TextView actionsTextView = view.findViewById(R.id.actionsTextView);
         TextView howItEndedTitle = view.findViewById(R.id.howItEndedTitle);
         TextView howItEndedDescription = view.findViewById(R.id.howItEndedDescription);
 
+        descriptionTextView.setTextColor(getResources().getColor(R.color.darkGrey, requireActivity().getTheme()));
         worryTitle.setTextColor(getResources().getColor(R.color.mediumOrange,
                 requireActivity().getTheme()));
         background.setImageResource(R.drawable.rectangle_rounded_10dp_beige);

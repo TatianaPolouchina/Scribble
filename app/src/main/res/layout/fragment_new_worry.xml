@@ -11,7 +11,7 @@
         android:id="@+id/newWorryTitle"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/karla_bold"
         android:text="@string/new_worry_page_title"
         android:textAlignment="center"
@@ -23,15 +23,14 @@
 
     <ImageButton
         android:id="@+id/backButton"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="10dp"
         android:background="@android:color/transparent"
         android:src="@drawable/vector_x"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/darkBlueMain" />
+        app:tint="@color/grey" />
 
     <FrameLayout
         android:id="@+id/frameLayout"

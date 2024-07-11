@@ -75,12 +75,46 @@
     <string name="reminder_2">"Worrying does not take away tomorrow's troubles. It takes away today's peace" - Randy Armstrong</string>
     <string name="reminder_3">"Never let the future disturb you. You will meet it, if you have to, with the same weapons of reason which today arm you against the present." - Marcus Aurelius</string>
     <string name="reminder_4">"If the problem can be solved why worry? If the problem cannot be solved worrying will do you no good." - Shantideva</string>
+    <string name="reminder_5">"Trust yourself. You’ve survived a lot, and you’ll survive whatever is coming." - Robert Tew</string>
+    <string name="reminder_6">"Life Is Like Riding a Bicycle. To Keep Your Balance You Must Keep Moving." - Albert Einstein</string>
+    <string name="reminder_7">"Doing the best at this moment puts you in the best place for the next moment." - Oprah Winfrey</string>
+    <string name="reminder_8">"Let fear be a counselor and not a jailer" - Tony Robbins</string>
+    <string name="reminder_9">"You don't have to control your thoughts. You just have to stop letting them control you." - Dan Millman</string>
+    <string name="reminder_10">Do not fight your negative emotions. Observe and befriend them." - Haemin Smith</string>
+    <string name="reminder_11">"Talk to yourself like you would to someone you love/" - Brené Brown</string>
+    <string name="reminder_12">"Rule No. 1 is, don't sweat the small stuff. Rule No. 2 is, it's all small stuff." - Robert Eliot</string>
+    <string name="reminder_13">"Instead of worrying about what you cannot control, shift your energy to what you can create" - Roy T. Bennett</string>
+    <string name="reminder_14">"Everything you want is on the other side of fear" - Jack Canfield</string>
+    <string name="reminder_15">"Breathe, darling. This is just a chapter. It's not your whole story." - S.C. Lourie</string>
+    <string name="reminder_16">"A problem is a chance for you to do your best." - Duke Ellington</string>
+    <string name="reminder_17">"Almost everything will work again if you unplug it for a few minutes, including you." - Anne Lamott</string>
+    <string name="reminder_18">"Nothing can bring you peace but yourself." - Ralph Waldo Emerson</string>
+    <string name="reminder_19">"Your mind will answer most questions if you learn to relax and wait for the answer." - William S. Burroughs</string>
+    <string name="reminder_20">"Remember, today is the tomorrow you worried about yesterday." - Dale Carnegie</string>
+    <string name="reminder_21">"The time to relax is when you don't have time for it" - Sydney J. Harris</string>
 
     <string-array name="reminders">
         <item>@string/reminder_1</item>
         <item>@string/reminder_2</item>
         <item>@string/reminder_3</item>
         <item>@string/reminder_4</item>
+        <item>@string/reminder_5</item>
+        <item>@string/reminder_6</item>
+        <item>@string/reminder_7</item>
+        <item>@string/reminder_8</item>
+        <item>@string/reminder_9</item>
+        <item>@string/reminder_10</item>
+        <item>@string/reminder_11</item>
+        <item>@string/reminder_12</item>
+        <item>@string/reminder_13</item>
+        <item>@string/reminder_14</item>
+        <item>@string/reminder_15</item>
+        <item>@string/reminder_16</item>
+        <item>@string/reminder_17</item>
+        <item>@string/reminder_18</item>
+        <item>@string/reminder_19</item>
+        <item>@string/reminder_20</item>
+        <item>@string/reminder_21</item>
     </string-array>
 
     <!-- Delete Worry Fragment-->
