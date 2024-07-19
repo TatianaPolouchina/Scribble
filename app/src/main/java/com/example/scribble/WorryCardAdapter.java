@@ -9,14 +9,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.scribble.R;
-
 import java.util.List;
 
 public class WorryCardAdapter extends RecyclerView.Adapter<WorryCardAdapter.ViewHolder> {
 
-    private List<Worry> worryItems;
-    private OnItemClickListener listener;
+    private final List<Worry> worryItems;
+    private final OnItemClickListener listener;
 
 
     public WorryCardAdapter(List<Worry> worryItems, OnItemClickListener listener) {
@@ -62,8 +60,8 @@ public class WorryCardAdapter extends RecyclerView.Adapter<WorryCardAdapter.View
     // TODO: finish comments
     // ViewHolder class to hold the views
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView textView;
-        public ImageView image;
+        public final TextView textView;
+        public final ImageView image;
 
         public ViewHolder(View worryView) {
             super(worryView);

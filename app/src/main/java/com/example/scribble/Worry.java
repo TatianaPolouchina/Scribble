@@ -1,11 +1,13 @@
 package com.example.scribble;
 
-import com.example.scribble.ui.theme.ReminderHelper;
-import com.example.scribble.R;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Worry implements Serializable {
 
@@ -27,17 +29,61 @@ public class Worry implements Serializable {
     private String howItEnded; // description of how the worry ended
     public boolean finished;
     private final List<String> responses;
-    // TODO: replace with a String taken from strings.xml (for translation purposes)
-    private String preloadedResponse = "All worries come to an end";
-    private ReminderHelper reminderHelper;
 
-    public Worry(ReminderHelper reminderHelper) {
+    public Worry(StringHelper stringHelper) {
         this.title = "";
-        this.ongoingImageResId = R.drawable.worry_1;
-        this.finishedImageResId = R.drawable.worry_1_finished_ombre;
+        this.ongoingImageResId = randomWorry();
+        this.finishedImageResId = ongoingImageResId;
         this.responses = new ArrayList<>();
-        this.reminderHelper = reminderHelper;
-        addResponse(reminderHelper.getRandomReminder());
+        addResponse(stringHelper.getRandomReminder());
+    }
+
+    public int randomWorry() {
+        int[] worries = {R.drawable.worry_1_blu};
+        Random random = new Random();
+        int randomInt = random.nextInt(worries.length);
+        return worries[randomInt];
+    }
+
+    /***
+     * Parses the Worry into a JSON object
+     *
+     * @return this as a JSON object
+     */
+    public JSONObject toJSON() throws JSONException {
+        JSONObject worryJSON = new JSONObject();
+        worryJSON.put("title", title);
+        worryJSON.put("ongoingImageResId", ongoingImageResId);
+        worryJSON.put("finishedImageResId", finishedImageResId);
+        worryJSON.put("description", description);
+        worryJSON.put("overgeneralizing", overgeneralizing);
+        worryJSON.put("mindReading", mindReading);
+        worryJSON.put("fortuneTelling", fortuneTelling);
+        worryJSON.put("catastrophizing", catastrophizing);
+        worryJSON.put("allOrNothing", allOrNothing);
+        worryJSON.put("negMentalFilter", negMentalFilter);
+        worryJSON.put("disqualifyPositive", disqualifyPositive);
+        worryJSON.put("personalization", personalization);
+        worryJSON.put("emotionalReasoning", emotionalReasoning);
+        worryJSON.put("labelling", labelling);
+        worryJSON.put("betterThanExpected", betterThanExpected);
+        worryJSON.put("howItEnded", howItEnded);
+        worryJSON.put("finished", finished);
+        worryJSON.put("responses", responsesToJson());
+        return worryJSON;
+    }
+
+    /***
+     * Parses the Worry responses into a JSON object
+     *
+     * @return worry responses as a JSONArray object
+     */
+    private JSONArray responsesToJson() {
+        JSONArray json = new JSONArray();
+        for (String response : responses) {
+            json.put(response);
+        }
+        return json;
     }
 
     /**

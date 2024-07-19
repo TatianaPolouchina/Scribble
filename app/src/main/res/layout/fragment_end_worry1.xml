@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context="com.example.scribble.EndWorryFragment1">
+    tools:context="com.example.scribble.fragments.EndWorryFragment1">
 
     <TextView
         android:id="@+id/respondTitle"
@@ -42,10 +42,10 @@
 
         <ImageView
             android:id="@+id/worryCharacter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/worry_size"
+            android:layout_height="@dimen/worry_size"
             android:layout_gravity="center"
-            android:src="@drawable/worry_1" />
+            android:src="@drawable/worry_2" />
     </FrameLayout>
 
     <TextView

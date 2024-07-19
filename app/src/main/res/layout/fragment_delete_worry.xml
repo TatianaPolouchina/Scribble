@@ -9,7 +9,7 @@
     android:paddingTop="50dp"
     android:paddingEnd="30dp"
     android:paddingBottom="70dp"
-    tools:context=".DeleteWorryFragment">
+    tools:context=".fragments.DeleteWorryFragment">
 
 
     <FrameLayout

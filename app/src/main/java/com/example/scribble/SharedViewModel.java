@@ -3,6 +3,10 @@ package com.example.scribble;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.scribble.persistence.JsonWriter;
+
+import org.json.JSONException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -10,12 +14,16 @@ import java.util.Objects;
 // Viewmodel to share new Worry data among fragments when creating a new Worry
 public class SharedViewModel extends ViewModel {
 
-    private MutableLiveData<Worry> worry = new MutableLiveData<>();
+    private final MutableLiveData<Worry> worry = new MutableLiveData<>();
 
     private final MutableLiveData<List<Worry>> ongoingWorries = new MutableLiveData<>(new ArrayList<>());
     private final MutableLiveData<List<Worry>> finishedWorries = new MutableLiveData<>(new ArrayList<>());
 
-
+    //TODO: comment and fix
+    public void save() throws JSONException {
+        JsonWriter jsonWriter = new JsonWriter();
+        jsonWriter.write((ArrayList<Worry>) Objects.requireNonNull(ongoingWorries.getValue()));
+    }
     public void setWorry(Worry worry) {
         this.worry.setValue(worry);
     }
@@ -32,6 +40,7 @@ public class SharedViewModel extends ViewModel {
     // Saves the current worry object to the beginning of the list of Worries
     public void saveWorry() {
         Objects.requireNonNull(this.ongoingWorries.getValue()).add(0, worry.getValue());
+        //save();
     }
 
     public List<Worry> getOngoingWorries() {

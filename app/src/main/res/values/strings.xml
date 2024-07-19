@@ -60,15 +60,34 @@
     <string name="Distortion10Description">Assigning labels to yourself or others</string>
     <string name="worry_1_description">worry icon</string>
 
+    <!-- Distortions Info Page -->
+    <string name="CD_info_1">Cognitive distortions are negative thought patterns that lead to worry.</string>
+    <string name="CD_info_2">Recognizing these distortions can help us see situations more clearly and manage our worries more effectively.</string>
+
     <!-- New Worry Page -->
     <string name="new_worry_page_title">New Worry</string>
     <string name="new_worry_instruction_1">Give your worry a name</string>
-    <string name="new_worry_instruction_1_hint">ex. Math Test</string>
+    <string name="new_worry_instruction_1_hint_1">ex. Math Test</string>
+    <string name="new_worry_instruction_1_hint_2">ex. My health</string>
+    <string name="new_worry_instruction_1_hint_3">ex. Finances</string>
+    <string name="new_worry_instruction_1_hint_4">ex. Work performance</string>
+
+    <string-array name="new_worry_instruction_1_hints">
+        <item>@string/new_worry_instruction_1_hint_1</item>
+        <item>@string/new_worry_instruction_1_hint_2</item>
+        <item>@string/new_worry_instruction_1_hint_3</item>
+        <item>@string/new_worry_instruction_1_hint_4</item>
+    </string-array>
+
+    <string name="no_name_entered_warning_text">Please enter a name</string>
     <string name="new_worry_instruction_2">Describe your worry</string>
     <string name="new_worry_instruction_2_hint">I\'m worried that…</string>
     <string name="new_worry_button_text">Next</string>
     <string name="new_worry_distortions_prompt">Is this a distorted thought?</string>
     <string name="add_distortion_button_label">Add distortions</string>
+    <string name="worry_created_message">Comforting Message</string>
+    <string name="worry_finished_button">Finish</string>
+
 
     <!-- Reminders -->
     <string name="reminder_1">All worries come to an end</string>
@@ -124,17 +143,12 @@
     <string name="worry_deleted_toast_text">Worry Deleted</string>
 
     <!-- Respond to worry-->
+    <string name="respond_page_title">Respond</string>
+    <string name="respond_prompt">What do you want to tell this worry?</string>
     <string name="response_saved_text">Response Saved</string>
 
-    <!-- TODO: organize strings -->
-    <string name="worry_finished_button">Finish</string>
-    <string name="options_title">Actions</string>
-    <string name="finish_worry_button_text">Finish Worry</string>
-    <string name="worry_respond_button_text">Respond</string>
-    <string name="cognitive_distortions_label">Cognitive Distortions</string>
-    <string name="reminders_label">Reminders</string>
+    <!-- Finish worry fragments-->
     <string name="finish_worry_title">Finish Worry</string>
-    <string name="end_worry_button_text">Finish Worry</string>
     <string name="no_button_text">No</string>
     <string name="yes_button_text">Yes</string>
     <string name="finish_worry_question">Was it as bad as you feared?</string>
@@ -142,19 +156,25 @@
     <string name="worry_ended_message">Yay!</string>
     <string name="close_button_text">Close</string>
     <string name="worry_ended_subtitle">This worry is over</string>
-    <string name="worry_created_message">Comforting Message</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Worry fragment-->
     <string name="better_than_expected_badge_text">This worry went better than expected!</string>
     <string name="how_it_ended_label">How It Ended</string>
-    <string name="respond_page_title">Respond</string>
-    <string name="respond_prompt">What do you want to tell this worry?</string>
+    <string name="options_title">Actions</string>
+    <string name="finish_worry_button_text">Finish Worry</string>
+    <string name="worry_respond_button_text">Respond</string>
+    <string name="cognitive_distortions_label">Cognitive Distortions</string>
+    <string name="reminders_label">Reminders</string>
+    <string name="end_worry_button_text">Finish Worry</string>
+
+    <!-- Buttons-->
     <string name="submit_button_text">Submit</string>
-    <string name="CD_info_1">Cognitive distortions are negative thought patterns that lead to worry.</string>
-    <string name="CD_info_2">Recognizing these distortions can help us see situations more clearly and manage our worries more effectively.</string>
-    <string name="no_name_entered_warning_text">Please enter a name</string>
     <string name="skip_button_text">Skip</string>
+
+    <!-- Content descriptions-->
     <string name="left_scribble_content_description">scribble design coming from the left of the screen\n</string>
 
+
+    <!-- TODO: organize strings -->
 
 </resources>
