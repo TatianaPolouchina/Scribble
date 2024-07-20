@@ -12,8 +12,7 @@ import java.util.Random;
 public class Worry implements Serializable {
 
     private String title;
-    private final int ongoingImageResId;
-    private final int finishedImageResId;
+    private final WorryImage worryImage;
     private String description;
     private boolean overgeneralizing;
     private boolean mindReading;
@@ -30,19 +29,11 @@ public class Worry implements Serializable {
     public boolean finished;
     private final List<String> responses;
 
-    public Worry(StringHelper stringHelper) {
+    public Worry(StringHelper stringHelper, WorryImageHelper worryImageHelper) {
         this.title = "";
-        this.ongoingImageResId = randomWorry();
-        this.finishedImageResId = ongoingImageResId;
+        this.worryImage = worryImageHelper.getRandomImage();
         this.responses = new ArrayList<>();
         addResponse(stringHelper.getRandomReminder());
-    }
-
-    public int randomWorry() {
-        int[] worries = {R.drawable.worry_1_blu};
-        Random random = new Random();
-        int randomInt = random.nextInt(worries.length);
-        return worries[randomInt];
     }
 
     /***
@@ -53,8 +44,7 @@ public class Worry implements Serializable {
     public JSONObject toJSON() throws JSONException {
         JSONObject worryJSON = new JSONObject();
         worryJSON.put("title", title);
-        worryJSON.put("ongoingImageResId", ongoingImageResId);
-        worryJSON.put("finishedImageResId", finishedImageResId);
+        // TODO: save image
         worryJSON.put("description", description);
         worryJSON.put("overgeneralizing", overgeneralizing);
         worryJSON.put("mindReading", mindReading);
@@ -104,7 +94,11 @@ public class Worry implements Serializable {
     }
 
     public int getOngoingImageResId() {
-        return ongoingImageResId;
+        return worryImage.getOngoingImageResId();
+    }
+
+    public int getFinishedImageResId() {
+        return worryImage.getFinishedImageResId();
     }
 
     public void setDescription(String description) {
@@ -209,10 +203,6 @@ public class Worry implements Serializable {
 
     public void setHowItEnded(String howItEnded) {
         this.howItEnded = howItEnded;
-    }
-
-    public int getFinishedImageResId() {
-        return finishedImageResId;
     }
 
     public void setFinished() {

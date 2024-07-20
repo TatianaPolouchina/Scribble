@@ -19,6 +19,7 @@ import com.example.scribble.R;
 import com.example.scribble.SharedViewModel;
 import com.example.scribble.Worry;
 import com.example.scribble.StringHelper;
+import com.example.scribble.WorryImageHelper;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Objects;
@@ -26,6 +27,7 @@ import java.util.Objects;
 public class NewWorryFragment1 extends TextInputFragment {
     private SharedViewModel sharedViewModel;
     private StringHelper stringHelper;
+    private WorryImageHelper worryImageHelper;
     private TextInputEditText textInputField;
 
     public NewWorryFragment1() {
@@ -36,7 +38,11 @@ public class NewWorryFragment1 extends TextInputFragment {
         super.onCreate(savedInstanceState);
 
         sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
+
+        //TODO: should these be initialized here? (ensure they are only created once)
         this.stringHelper = new StringHelper(requireContext());
+        this.worryImageHelper = new WorryImageHelper();
+
     }
 
     @Override
@@ -50,7 +56,7 @@ public class NewWorryFragment1 extends TextInputFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ((MainActivity) requireActivity()).setStatusBarColor(R.color.white);
-        sharedViewModel.setWorry(new Worry(stringHelper));
+        sharedViewModel.setWorry(new Worry(stringHelper, worryImageHelper));
 
         ImageView worryImage = view.findViewById(R.id.worryCharacter);
         worryImage.setImageResource(sharedViewModel.getWorry().getOngoingImageResId());
