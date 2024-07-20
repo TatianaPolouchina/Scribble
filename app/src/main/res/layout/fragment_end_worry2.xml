@@ -35,7 +35,7 @@
 
     <FrameLayout
         android:id="@+id/frameLayout"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_title"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +45,7 @@
         <ImageView
             android:id="@+id/scribble"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:layout_gravity="center"
             android:scaleType="centerInside"
             android:src="@drawable/vector_scribble_1" />
@@ -62,7 +62,7 @@
         android:id="@+id/question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="@dimen/top_margin"
         android:fontFamily="@font/karla_bold"
         android:text="@string/finish_worry_prompt_2"
         android:textColor="@color/grey"
@@ -74,6 +74,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
         style="@style/TextInputLayout"
+        android:layout_marginTop="10dp"
         app:counterEnabled="true"
         app:counterMaxLength="150"
         app:layout_constraintEnd_toEndOf="parent"

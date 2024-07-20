@@ -43,10 +43,11 @@
         <ImageView
             android:id="@+id/worryCharacter"
             android:layout_width="@dimen/worry_size"
-            android:layout_height="180dp"
+            android:layout_height="200dp"
             android:layout_gravity="center"
             android:src="@drawable/worry_2" />
     </FrameLayout>
+
 
     <TextView
         android:id="@+id/question"

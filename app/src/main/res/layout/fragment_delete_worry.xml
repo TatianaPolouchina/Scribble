@@ -72,6 +72,7 @@
         android:gravity="center_horizontal"
         android:stateListAnimator="@anim/nav_default_enter_anim"
         android:text="@string/delete_button_text"
+        android:elevation="@dimen/button_elevation"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"

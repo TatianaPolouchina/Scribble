@@ -61,7 +61,7 @@
         android:id="@+id/instruction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="@dimen/top_margin"
         android:fontFamily="@font/karla_bold"
         android:text="@string/new_worry_instruction_2"
         android:textColor="@color/darkBlueMain"
@@ -83,7 +83,6 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textInputField"
             style="@style/LargeTextInputEditText"
-            android:gravity="top"
             android:hint="@string/new_worry_instruction_2_hint"
             android:maxLength="150" />
     </com.google.android.material.textfield.TextInputLayout>
