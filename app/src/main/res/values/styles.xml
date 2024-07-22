@@ -65,5 +65,16 @@
         <item name="android:layout_width">match_parent</item>
     </style>
 
+    <style name="scribbleImageSize">
+        <item name="android:layout_width">220dp</item>
+        <item name="android:layout_height">220dp</item>
+    </style>
+
+    <style name="scribbleImage" parent="scribbleImageSize">
+        <item name="android:tint">#F8F7F2</item>
+        <item name="android:src">@drawable/scribble</item>
+
+    </style>
+
 
 </resources>

@@ -10,7 +10,7 @@
     <dimen name="distortion_subtitle_margin_top">4dp</dimen>
     <dimen name="button_elevation">2dp</dimen>
     <dimen name="button_width">320dp</dimen>
-    <dimen name="margin_title">50dp</dimen>
+    <dimen name="margin_title">30dp</dimen>
     <dimen name="worry_size">150dp</dimen>
 
 
