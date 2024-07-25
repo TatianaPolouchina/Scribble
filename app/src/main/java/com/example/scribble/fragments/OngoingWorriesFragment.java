@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -44,7 +45,6 @@ public class OngoingWorriesFragment extends Fragment implements OnItemClickListe
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ((MainActivity) requireActivity()).setStatusBarColor(R.color.lightBlue);
 
         WorryCardAdapter adapter = new WorryCardAdapter(sharedViewModel.getOngoingWorries(), this);
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
@@ -71,11 +71,24 @@ public class OngoingWorriesFragment extends Fragment implements OnItemClickListe
             noWorriesText.setVisibility(View.VISIBLE);
         }
 
+        selectMenuItem();
+    }
 
+    /***
+     * Checks the ongoing worry menu item if it is not selected
+     */
+    private void selectMenuItem() {
         BottomNavigationView bottomNav = requireActivity().findViewById(R.id.bottom_navigation);
-        if (bottomNav.getSelectedItemId() != R.id.navigation_ongoing_worries) {
-            bottomNav.setSelectedItemId(R.id.navigation_ongoing_worries);
+        MenuItem toSelect = bottomNav.getMenu().findItem(R.id.navigation_ongoing_worries);
+        if (bottomNav.getMenu().findItem(bottomNav.getSelectedItemId()) != toSelect) {
+            toSelect.setChecked(true);
         }
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        ((MainActivity) requireActivity()).setStatusBarColor(R.color.lightBlue);
     }
 
     //TODO: comment and finish

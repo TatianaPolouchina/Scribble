@@ -37,17 +37,25 @@
         tools:layout="@layout/fragment_ongoing_worries">
         <action
             android:id="@+id/action_ongoingWorriesFragment_to_worryFragment"
-            app:destination="@id/worryFragment" />
+            app:destination="@id/worryFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/empty_transition"
+            app:popEnterAnim="@anim/empty_transition"
+            app:popExitAnim="@anim/fade_out" />
     </fragment>
 
     <fragment
         android:id="@+id/finishedWorriesFragment"
         android:name="com.example.scribble.fragments.FinishedWorriesFragment"
         android:label="FinishedWorriesFragment"
-        tools:layout="@layout/fragment_finished_worries" >
+        tools:layout="@layout/fragment_finished_worries">
         <action
             android:id="@+id/action_finishedWorriesFragment_to_worryFragment"
-            app:destination="@id/worryFragment" />
+            app:destination="@id/worryFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/empty_transition"
+            app:popEnterAnim="@anim/empty_transition"
+            app:popExitAnim="@anim/fade_out" />
     </fragment>
 
     <fragment
@@ -75,6 +83,13 @@
         android:name="com.example.scribble.fragments.NewWorryFinishedFragment"
         android:label="NewWorryFinishedFragment"
         tools:layout="@layout/fragment_new_worry_finished">
+        <action
+            android:id="@+id/action_newWorryFinishedFragment_to_ongoingWorriesFragment"
+            app:destination="@id/ongoingWorriesFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/empty_transition"
+            app:popEnterAnim="@anim/empty_transition"
+            app:popExitAnim="@anim/fade_out" />
     </fragment>
 
     <fragment
@@ -87,23 +102,39 @@
             app:argType="com.example.scribble.Worry" />
         <action
             android:id="@+id/action_ongoingWorryFragment_to_endWorryFragment1"
-            app:destination="@id/endWorryFragment1" />
+            app:destination="@id/endWorryFragment1"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/empty_transition"
+            app:popEnterAnim="@anim/empty_transition"
+            app:popExitAnim="@anim/fade_out" />
         <action
             android:id="@+id/action_worryFragment_to_respondFragment"
-            app:destination="@id/respondFragment" />
+            app:destination="@id/respondFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/empty_transition"
+            app:popEnterAnim="@anim/empty_transition"
+            app:popExitAnim="@anim/fade_out" />
         <action
             android:id="@+id/action_worryFragment_to_ongoingWorriesFragment"
-            app:destination="@id/ongoingWorriesFragment" />
+            app:destination="@id/ongoingWorriesFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/empty_transition"
+            app:popEnterAnim="@anim/empty_transition"
+            app:popExitAnim="@anim/fade_out" />
         <action
             android:id="@+id/action_worryFragment_to_finishedWorriesFragment"
-            app:destination="@id/finishedWorriesFragment" />
+            app:destination="@id/finishedWorriesFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/empty_transition"
+            app:popEnterAnim="@anim/empty_transition"
+            app:popExitAnim="@anim/fade_out" />
     </fragment>
 
     <fragment
         android:id="@+id/endWorryFragment1"
         android:name="com.example.scribble.fragments.EndWorryFragment1"
         android:label="fragment_end_worry1"
-        tools:layout="@layout/fragment_end_worry1" >
+        tools:layout="@layout/fragment_end_worry1">
         <argument
             android:name="selectedWorry"
             app:argType="com.example.scribble.Worry" />
@@ -116,7 +147,7 @@
         android:id="@+id/endWorryFragment2"
         android:name="com.example.scribble.fragments.EndWorryFragment2"
         android:label="fragment_end_worry2"
-        tools:layout="@layout/fragment_end_worry2" >
+        tools:layout="@layout/fragment_end_worry2">
         <argument
             android:name="selectedWorry"
             app:argType="com.example.scribble.Worry" />
@@ -129,7 +160,14 @@
         android:id="@+id/endWorryFragment3"
         android:name="com.example.scribble.fragments.EndWorryFragment3"
         android:label="fragment_end_worry3"
-        tools:layout="@layout/fragment_end_worry3" >
+        tools:layout="@layout/fragment_end_worry3">
+        <action
+            android:id="@+id/action_endWorryFragment3_to_finishedWorriesFragment"
+            app:destination="@id/finishedWorriesFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/empty_transition"
+            app:popEnterAnim="@anim/empty_transition"
+            app:popExitAnim="@anim/fade_out" />
     </fragment>
 
     <dialog
@@ -141,13 +179,17 @@
         android:id="@+id/respondFragment"
         android:name="com.example.scribble.fragments.RespondFragment"
         android:label="fragment_respond"
-        tools:layout="@layout/fragment_respond" >
+        tools:layout="@layout/fragment_respond">
         <argument
             android:name="selectedWorry"
             app:argType="com.example.scribble.Worry" />
         <action
             android:id="@+id/action_respondFragment_to_worryFragment"
-            app:destination="@id/worryFragment" />
+            app:destination="@id/worryFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/empty_transition"
+            app:popEnterAnim="@anim/empty_transition"
+            app:popExitAnim="@anim/fade_out" />
     </fragment>
 
 

@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -42,7 +43,6 @@ public class FinishedWorriesFragment extends Fragment implements OnItemClickList
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ((MainActivity) requireActivity()).setStatusBarColor(R.color.lightOrange);
         WorryCardAdapter adapter = new WorryCardAdapter(sharedViewModel.getFinishedWorries(), this);
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
@@ -50,10 +50,25 @@ public class FinishedWorriesFragment extends Fragment implements OnItemClickList
 
         updateNoWorryText(view);
 
+        selectMenuItem();
+
+    }
+
+    /***
+     * Checks the finished worry menu item if it is not selected
+     */
+    private void selectMenuItem() {
         BottomNavigationView bottomNav = requireActivity().findViewById(R.id.bottom_navigation);
-        if (bottomNav.getSelectedItemId() != R.id.navigation_finished_worries) {
-            bottomNav.setSelectedItemId(R.id.navigation_finished_worries);
+        MenuItem toSelect = bottomNav.getMenu().findItem(R.id.navigation_finished_worries);
+        if (bottomNav.getMenu().findItem(bottomNav.getSelectedItemId()) != toSelect) {
+            toSelect.setChecked(true);
         }
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        ((MainActivity) requireActivity()).setStatusBarColor(R.color.lightOrange);
     }
 
     /***

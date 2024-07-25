@@ -61,11 +61,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/addDistortionLayout"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/respond_prompt">
+        app:layout_constraintTop_toBottomOf="@+id/respond_prompt"
+        app:layout_constraintBottom_toTopOf="@id/next_button">
 
         <ImageView
             android:id="@+id/add_distortion_Button"
@@ -78,17 +79,24 @@
             app:layout_constraintTop_toTopOf="@+id/addDistortionLayout"
             app:tint="@color/lightGrey" />
 
-        <GridLayout
-            android:id="@+id/distortionsContainer"
+        <ScrollView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:animateLayoutChanges="true"
-            android:columnCount="4"
-            android:gravity="start"
-            android:orientation="horizontal"
+            android:layout_height="match_parent"
             app:layout_constraintStart_toEndOf="@id/add_distortion_Button"
-            app:layout_constraintTop_toTopOf="@+id/addDistortionLayout" />
+            app:layout_constraintTop_toTopOf="@+id/addDistortionLayout"
+            android:layout_marginBottom="20dp">
+
+            <GridLayout
+                android:id="@+id/distortionsContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:animateLayoutChanges="true"
+                android:columnCount="4"
+                android:gravity="start"
+                android:orientation="horizontal" />
+
+        </ScrollView>
 
         <TextView
             android:id="@+id/add_distortion_button_label"

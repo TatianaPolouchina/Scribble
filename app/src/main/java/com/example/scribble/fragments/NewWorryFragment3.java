@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.scribble.R;
@@ -75,40 +76,38 @@ public class NewWorryFragment3 extends Fragment {
     private void addSelectedDistortions() {
         Worry worry = sharedViewModel.getWorry();
         if (worry.isOvergeneralizing()) {
-            addPhotoToGridLayout(R.drawable.vector_cd_circles);
+            addCDtoLayout(R.drawable.vector_cd_circles);
         }
         if (worry.isMindReading()) {
-            addPhotoToGridLayout(R.drawable.vector_cd_brain);
+            addCDtoLayout(R.drawable.vector_cd_brain);
         }
         if (worry.isFortuneTelling()) {
-            addPhotoToGridLayout(R.drawable.vector_cd_crystal_ball);
+            addCDtoLayout(R.drawable.vector_cd_crystal_ball);
         }
         if (worry.isCatastrophizing()) {
-            addPhotoToGridLayout(R.drawable.vector_cd_explosion);
+            addCDtoLayout(R.drawable.vector_cd_explosion);
         }
         if (worry.isAllOrNothing()) {
-            addPhotoToGridLayout(R.drawable.vector_cd_cross_out_circle);
+            addCDtoLayout(R.drawable.vector_cd_cross_out_circle);
         }
         if (worry.isNegMentalFilter()) {
-            addPhotoToGridLayout(R.drawable.vector_cd_magnifying_glass);
+            addCDtoLayout(R.drawable.vector_cd_magnifying_glass);
         }
         if (worry.isDisqualifyPositive()) {
-            addPhotoToGridLayout(R.drawable.vector_cd_crossed_out_sun);
+            addCDtoLayout(R.drawable.vector_cd_crossed_out_sun);
         }
         if (worry.isPersonalization()) {
-            addPhotoToGridLayout(R.drawable.vector_cd_mirror);
+            addCDtoLayout(R.drawable.vector_cd_mirror);
         }
         if (worry.isEmotionalReasoning()) {
-            addPhotoToGridLayout(R.drawable.vector_cd_heart);
+            addCDtoLayout(R.drawable.vector_cd_heart);
         }
         if (worry.isLabelling()) {
-            addPhotoToGridLayout(R.drawable.vector_cd_label);
+            addCDtoLayout(R.drawable.vector_cd_label);
         }
     }
 
-
-    // TODO: comment
-    private void addPhotoToGridLayout(int id) {
+    private void addCDtoLayout(int id) {
         ImageView imageView = new ImageView(getContext());
         imageView.setImageResource(id);
         imageView.setPadding(8, 8, 8, 8);

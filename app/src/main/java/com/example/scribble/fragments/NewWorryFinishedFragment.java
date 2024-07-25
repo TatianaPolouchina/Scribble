@@ -11,9 +11,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import androidx.navigation.fragment.NavHostFragment;
+
 import com.example.scribble.R;
 import com.example.scribble.SharedViewModel;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class NewWorryFinishedFragment extends Fragment {
 
@@ -39,9 +40,9 @@ public class NewWorryFinishedFragment extends Fragment {
         worryImage.setImageResource(sharedViewModel.getWorry().getOngoingImageResId());
 
         view.findViewById(R.id.finish_button).setOnClickListener(v -> {
-            BottomNavigationView bottomNav = requireActivity().findViewById(R.id.bottom_navigation);
-            bottomNav.setSelectedItemId(R.id.navigation_ongoing_worries);
             sharedViewModel.saveWorry();
+            NavHostFragment.findNavController(this).navigate
+                    (R.id.action_newWorryFinishedFragment_to_ongoingWorriesFragment);
         });
 
     }

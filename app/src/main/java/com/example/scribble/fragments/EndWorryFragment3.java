@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +20,6 @@ import android.widget.VideoView;
 import com.example.scribble.R;
 import com.example.scribble.SharedViewModel;
 import com.example.scribble.Worry;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class EndWorryFragment3 extends Fragment {
     private SharedViewModel sharedViewModel;
@@ -59,8 +59,8 @@ public class EndWorryFragment3 extends Fragment {
 
         view.findViewById(R.id.closeButton).setOnClickListener(v -> {
             sharedViewModel.finishWorry(worry);
-            BottomNavigationView bottomNav = requireActivity().findViewById(R.id.bottom_navigation);
-            bottomNav.setSelectedItemId(R.id.navigation_finished_worries);
+            NavHostFragment.findNavController(this).navigate
+                    (R.id.action_endWorryFragment3_to_finishedWorriesFragment);
         });
     }
 

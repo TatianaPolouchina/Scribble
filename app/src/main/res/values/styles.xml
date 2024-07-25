@@ -73,8 +73,6 @@
     <style name="scribbleImage" parent="scribbleImageSize">
         <item name="android:tint">#F8F7F2</item>
         <item name="android:src">@drawable/scribble</item>
-
     </style>
-
 
 </resources>

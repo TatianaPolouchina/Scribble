@@ -43,7 +43,6 @@ public class WorryFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_worry, container, false);
     }
 
-    // TODO: refactor
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -206,47 +205,53 @@ public class WorryFragment extends Fragment {
      */
     private void addSelectedDistortions() {
         if (worry.isOvergeneralizing()) {
-            addPhotoToLinearLayout(R.drawable.vector_cd_circles);
+            addCDtoLayout(R.drawable.vector_cd_circles, R.string.Distortion1Name);
         }
         if (worry.isMindReading()) {
-            addPhotoToLinearLayout(R.drawable.vector_cd_brain);
+            addCDtoLayout(R.drawable.vector_cd_brain, R.string.Distortion2Name);
         }
         if (worry.isFortuneTelling()) {
-            addPhotoToLinearLayout(R.drawable.vector_cd_crystal_ball);
+            addCDtoLayout(R.drawable.vector_cd_crystal_ball, R.string.Distortion3Name);
         }
         if (worry.isCatastrophizing()) {
-            addPhotoToLinearLayout(R.drawable.vector_cd_explosion);
+            addCDtoLayout(R.drawable.vector_cd_explosion, R.string.Distortion4Name);
         }
         if (worry.isAllOrNothing()) {
-            addPhotoToLinearLayout(R.drawable.vector_cd_cross_out_circle);
+            addCDtoLayout(R.drawable.vector_cd_cross_out_circle, R.string.Distortion5NameFormatted);
         }
         if (worry.isNegMentalFilter()) {
-            addPhotoToLinearLayout(R.drawable.vector_cd_magnifying_glass);
+            addCDtoLayout(R.drawable.vector_cd_magnifying_glass, R.string.Distortion6NameFormatted);
         }
         if (worry.isDisqualifyPositive()) {
-            addPhotoToLinearLayout(R.drawable.vector_cd_crossed_out_sun);
+            addCDtoLayout(R.drawable.vector_cd_crossed_out_sun, R.string.Distortion7NameFormatted);
         }
         if (worry.isPersonalization()) {
-            addPhotoToLinearLayout(R.drawable.vector_cd_mirror);
+            addCDtoLayout(R.drawable.vector_cd_mirror, R.string.Distortion8Name);
         }
         if (worry.isEmotionalReasoning()) {
-            addPhotoToLinearLayout(R.drawable.vector_cd_heart);
+            addCDtoLayout(R.drawable.vector_cd_heart, R.string.Distortion9NameFormatted);
         }
         if (worry.isLabelling()) {
-            addPhotoToLinearLayout(R.drawable.vector_cd_label);
+            addCDtoLayout(R.drawable.vector_cd_label, R.string.Distortion10Name);
         }
     }
 
-    // TODO: comment
-    private void addPhotoToLinearLayout(int id) {
-        ImageView imageView = new ImageView(getContext());
-        imageView.setImageResource(id);
-        imageView.setPadding(15, 10, 15, 10);
 
-        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(220, 220);
-        imageView.setLayoutParams(params);
-
-        distortionsContainer.addView(imageView);
+    /***
+     * Formats and adds the drawable to the distortionsContainer
+     *
+     * @param imageId the id of the distortion's drawable
+     *
+     * @param titleId the id of the distortion's name
+     */
+    private void addCDtoLayout(int imageId, int titleId) {
+        LayoutInflater inflater = LayoutInflater.from(getContext());
+        LinearLayout cdLayout = (LinearLayout) inflater.inflate(R.layout.cognitive_distortion, distortionsContainer, false);
+        ImageView imageView = cdLayout.findViewById(R.id.cdImageSelector);
+        TextView textView = cdLayout.findViewById(R.id.cdLabel);
+        imageView.setImageResource(imageId);
+        textView.setText(titleId);
+        distortionsContainer.addView(cdLayout);
     }
 
     /**

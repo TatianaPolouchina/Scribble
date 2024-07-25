@@ -60,6 +60,12 @@
     <string name="Distortion10Description">Assigning labels to yourself or others</string>
     <string name="worry_1_description">worry icon</string>
 
+    <!-- Formatted Cognitive Distortions Labels -->
+    <string name="Distortion5NameFormatted">All/Nothing\nThinking</string>
+    <string name="Distortion6NameFormatted">Negative\nFiltering</string>
+    <string name="Distortion7NameFormatted">Disqualifying\nthe Positive</string>
+    <string name="Distortion9NameFormatted">Emotional\nReasoning</string>
+
     <!-- Distortions Info Page -->
     <string name="CD_info_1">Cognitive distortions are negative thought patterns that lead to worry.</string>
     <string name="CD_info_2">Recognizing these distortions can help us see situations more clearly and manage our worries more effectively.</string>
@@ -173,7 +179,6 @@
 
     <!-- Content descriptions-->
     <string name="left_scribble_content_description">scribble design coming from the left of the screen\n</string>
-
 
     <!-- TODO: organize strings -->
 

@@ -9,8 +9,8 @@ import android.view.WindowManager;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.navigation.NavController;
+import androidx.navigation.NavOptions;
 import androidx.navigation.fragment.NavHostFragment;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,11 +18,9 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
 
     @Override
-    // TODO: refactor
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         NavHostFragment navHostFragment = (NavHostFragment)
                 getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
         assert navHostFragment != null;
@@ -52,17 +50,28 @@ public class MainActivity extends AppCompatActivity {
      */
     private boolean onItemSelectedListener(MenuItem item) {
         int id = item.getItemId();
+
         if (id == R.id.navigation_ongoing_worries) {
             navController.navigate(R.id.ongoingWorriesFragment);
             return true;
         } else if (id == R.id.navigation_add_worry) {
-            navController.navigate(R.id.newWorryFragment1);
+            navigateWithFade(R.id.newWorryFragment1);
             return true;
         } else if (id == R.id.navigation_finished_worries) {
             navController.navigate(R.id.finishedWorriesFragment);
             return true;
         }
         return false;
+    }
+
+    //TODO: comment
+    public void navigateWithFade(int fragmentId) {
+        navController.navigate(fragmentId, null, new NavOptions.Builder()
+                .setEnterAnim(R.anim.fade_in)
+                .setExitAnim(R.anim.empty_transition)
+                .setPopEnterAnim(R.anim.empty_transition)
+                .setPopExitAnim(R.anim.fade_out)
+                .build());
     }
 
     /**
