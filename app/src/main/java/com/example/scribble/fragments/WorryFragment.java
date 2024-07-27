@@ -2,9 +2,11 @@ package com.example.scribble.fragments;
 
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
@@ -21,6 +23,7 @@ import com.example.scribble.R;
 import com.example.scribble.Worry;
 
 import java.util.List;
+import java.util.Objects;
 
 public class WorryFragment extends Fragment {
     private Worry worry;
@@ -54,7 +57,29 @@ public class WorryFragment extends Fragment {
         populateLayout(view);
         addOnClickListeners(view);
         ((MainActivity) requireActivity()).setStatusBarColor(R.color.white);
+        handleBackPress();
+    }
 
+    /***
+     * Enables back press only to return to ongoingWorriesFragment or finishedWorriesFragment
+     */
+    public void handleBackPress() {
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                NavController navController = NavHostFragment.findNavController
+                        (WorryFragment.this);
+
+                int previousFragmentId = Objects.requireNonNull
+                        (navController.getPreviousBackStackEntry()).getDestination().getId();
+
+                if (previousFragmentId == R.id.ongoingWorriesFragment ||
+                        previousFragmentId == R.id.finishedWorriesFragment) {
+                    navController.popBackStack();
+                }
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), callback);
     }
 
     // TODO: refactor

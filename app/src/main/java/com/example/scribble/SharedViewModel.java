@@ -11,6 +11,7 @@ import org.json.JSONException;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -63,15 +64,17 @@ public class SharedViewModel extends ViewModel {
             jsonWriter.close();
         } catch (FileNotFoundException e) {
             // nothing happens
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
+        } catch (JSONException | IOException e) {
             throw new RuntimeException(e);
         }
     }
 
     public List<Worry> getOngoingWorries() {
-        return ongoingWorries.getValue();
+        if (this.ongoingWorries == null) {
+            this.ongoingWorries = new MutableLiveData<>();
+            this.ongoingWorries.setValue(new ArrayList<>());
+        }
+        return this.ongoingWorries.getValue();
     }
 
     public void setOngoingWorries(List<Worry> ongoingWorries) {
@@ -82,7 +85,12 @@ public class SharedViewModel extends ViewModel {
     }
 
     public List<Worry> getFinishedWorries() {
-        return finishedWorries.getValue();
+        if (this.finishedWorries == null) {
+            this.finishedWorries = new MutableLiveData<>();
+            this.finishedWorries.setValue(new ArrayList<>());
+
+        }
+        return this.finishedWorries.getValue();
     }
 
     public void setFinishedWorries(List<Worry> finishedWorries) {

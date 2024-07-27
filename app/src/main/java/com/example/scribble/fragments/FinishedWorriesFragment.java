@@ -2,10 +2,12 @@ package com.example.scribble.fragments;
 
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,6 +25,8 @@ import com.example.scribble.SharedViewModel;
 import com.example.scribble.Worry;
 import com.example.scribble.WorryCardAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.Objects;
 
 public class FinishedWorriesFragment extends Fragment implements OnItemClickListener {
 
@@ -51,7 +55,26 @@ public class FinishedWorriesFragment extends Fragment implements OnItemClickList
         updateNoWorryText(view);
 
         selectMenuItem();
+        handleBackPress();
+    }
 
+    /***
+     * Enables back press only to return to ongoingWorriesFragment
+     */
+    public void handleBackPress() {
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                NavController navController = NavHostFragment.findNavController
+                        (FinishedWorriesFragment.this);
+                int previousFragmentId = Objects.requireNonNull
+                        (navController.getPreviousBackStackEntry()).getDestination().getId();
+                if (previousFragmentId == R.id.ongoingWorriesFragment) {
+                    navController.popBackStack();
+                }
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), callback);
     }
 
     /***

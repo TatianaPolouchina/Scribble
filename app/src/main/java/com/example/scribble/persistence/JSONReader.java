@@ -1,7 +1,5 @@
 package com.example.scribble.persistence;
 
-import android.content.Context;
-
 import com.example.scribble.Worry;
 import com.example.scribble.WorryImage;
 
@@ -16,26 +14,30 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-//TODO: fix comments and comment all
 public class JSONReader {
-    private final String source;
-    private final Context context;
+    private final File source;
     private final JSONObject jsonData;
 
-    // EFFECTS: constructs reader to read from source file
-    public JSONReader(String source, Context context) throws JSONException {
+    /***
+     * constructs reader to read from source file
+     *
+     * @param source file to be read from
+     * @throws JSONException if there is an error parsing the JSON data
+     */
+    public JSONReader(File source) throws JSONException {
         this.source = source;
-        this.context = context;
         String jsonString = readFromFile();
         this.jsonData = new JSONObject(jsonString);
     }
 
-
+    /***
+     * Returns the source file's contents as a String
+     *
+     * @return file contents as a String
+     */
     public String readFromFile() {
-        File file = new File(context.getFilesDir(), source);
         StringBuilder text = new StringBuilder();
-
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(source))) {
             String line;
             while ((line = br.readLine()) != null) {
                 text.append(line);
@@ -44,32 +46,53 @@ public class JSONReader {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return text.toString();
     }
 
     //TODO: comment
+
+    /***
+     * Returns the list of ongoing worries from the source file
+     *
+     * @return list of all ongoing worries
+     * @throws JSONException if there is an error parsing the JSON data
+     */
     public List<Worry> readOngoingWorries() throws JSONException {
         JSONArray jsonOngoingWorries = jsonData.getJSONArray("ongoingWorries");
         return parseWorries(jsonOngoingWorries);
     }
 
+    /***
+     * Returns the list of finished worries from the source file
+     *
+     * @return list of all finished worries
+     * @throws JSONException if there is an error parsing the JSON data
+     */
     public List<Worry> readFinishedWorries() throws JSONException {
-        JSONArray jsonfinishedWorries = jsonData.getJSONArray("finishedWorries");
-        return parseWorries(jsonfinishedWorries);
+        JSONArray JSONFinishedWorries = jsonData.getJSONArray("finishedWorries");
+        return parseWorries(JSONFinishedWorries);
     }
 
-    //TODO: comment
+    /***
+     * Converts and returns the array of JSONObjects into an array of type Worry
+     * @param worryListJSON JSONArray of worries
+     * @return ArrayList of worries
+     * @throws JSONException if there is an error parsing the JSON data
+     */
     public List<Worry> parseWorries(JSONArray worryListJSON) throws JSONException {
         List<Worry> worries = new ArrayList<>();
-
         for (int i = 0; i < worryListJSON.length(); i++) {
             worries.add(parseWorry(worryListJSON.getJSONObject(i)));
         }
         return worries;
     }
 
-    //TODO: comment
+    /***
+     * Returns the Worry contained in the JSONObject
+     * @param json JSONObject containing the Worry
+     * @return Worry object if there is an error parsing the JSON data
+     * @throws JSONException
+     */
     public Worry parseWorry(JSONObject json) throws JSONException {
         Worry worry = new Worry();
         worry.setTitle(json.getString("title"));
@@ -94,6 +117,12 @@ public class JSONReader {
         return worry;
     }
 
+    /***
+     * Converts and returns the array of JSONObjects into an array of type String
+     * @param json JSONArray of worries
+     * @return ArrayList of responses as Strings
+     * @throws JSONException if there is an error parsing the JSON data
+     */
     private List<String> getResponses(JSONObject json) throws JSONException {
         JSONArray jsonArray = json.getJSONArray("responses");
         List<String> responses = new ArrayList<>();
