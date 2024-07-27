@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
 import android.os.Handler;
@@ -14,17 +15,20 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.scribble.R;
+import com.example.scribble.SharedViewModel;
 import com.example.scribble.Worry;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Objects;
 
+//TODO: add comments to all
 public class RespondFragment extends TextInputFragment {
     private Worry worry;
-
+    private SharedViewModel sharedViewModel;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
     }
 
     @Override
@@ -56,6 +60,7 @@ public class RespondFragment extends TextInputFragment {
             TextInputEditText textInputField = view.findViewById(R.id.textInputField);
             worry.addResponse(Objects.requireNonNull
                     (textInputField.getText()).toString());
+            sharedViewModel.saveData(getContext());
 
             Bundle bundle = new Bundle();
             bundle.putSerializable("selectedWorry", worry);

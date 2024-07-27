@@ -58,7 +58,7 @@ public class EndWorryFragment3 extends Fragment {
         fadeToFinishedWorry(view);
 
         view.findViewById(R.id.closeButton).setOnClickListener(v -> {
-            sharedViewModel.finishWorry(worry);
+            sharedViewModel.finishWorry(worry, getContext());
             NavHostFragment.findNavController(this).navigate
                     (R.id.action_endWorryFragment3_to_finishedWorriesFragment);
         });

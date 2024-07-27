@@ -104,6 +104,7 @@ public class DeleteWorryFragment extends DialogFragment {
         } else {
             sharedViewModel.getOngoingWorries().remove(worry);
         }
+        sharedViewModel.saveData(getContext());
     }
 
 }

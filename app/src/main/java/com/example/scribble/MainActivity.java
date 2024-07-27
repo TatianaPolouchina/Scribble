@@ -1,6 +1,7 @@
 package com.example.scribble;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -8,15 +9,25 @@ import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.NavOptions;
 import androidx.navigation.fragment.NavHostFragment;
+
+import com.example.scribble.persistence.JSONReader;
+import com.example.scribble.persistence.JSONWriter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import org.json.JSONException;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private NavController navController;
     private BottomNavigationView bottomNavigationView;
+    private static final String JSON_STORE = "data.json";
 
+    //TODO: refactor
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +37,27 @@ public class MainActivity extends AppCompatActivity {
         assert navHostFragment != null;
         navController = navHostFragment.getNavController();
         setUpBottomNavMenu();
+
+        SharedViewModel sharedViewModel = new ViewModelProvider(this).get(SharedViewModel.class);
+
+        try {
+            JSONReader jsonReader = new JSONReader(JSON_STORE, this);
+            List<Worry> ongoingWorries = jsonReader.readOngoingWorries();
+            List<Worry> finishedWorries = jsonReader.readFinishedWorries();
+
+            Log.d("SharedViewModel", "Ongoing Worries: " + ongoingWorries);
+            Log.d("SharedViewModel", "Finished Worries: " + finishedWorries);
+
+            sharedViewModel.setOngoingWorries(ongoingWorries);
+            sharedViewModel.setFinishedWorries(finishedWorries);
+
+            // Check if the values are set
+            Log.d("SharedViewModel", "Ongoing Worries in ViewModel: " + sharedViewModel.getOngoingWorries());
+            Log.d("SharedViewModel", "Finished Worries in ViewModel: " + sharedViewModel.getFinishedWorries());
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     // Creates the bottom navigation menu
@@ -84,4 +116,5 @@ public class MainActivity extends AppCompatActivity {
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.setStatusBarColor(ContextCompat.getColor(this, colourId));
     }
+
 }

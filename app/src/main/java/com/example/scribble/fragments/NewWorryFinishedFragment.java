@@ -40,7 +40,7 @@ public class NewWorryFinishedFragment extends Fragment {
         worryImage.setImageResource(sharedViewModel.getWorry().getOngoingImageResId());
 
         view.findViewById(R.id.finish_button).setOnClickListener(v -> {
-            sharedViewModel.saveWorry();
+            sharedViewModel.saveWorry(getContext());
             NavHostFragment.findNavController(this).navigate
                     (R.id.action_newWorryFinishedFragment_to_ongoingWorriesFragment);
         });

@@ -7,12 +7,10 @@ import org.json.JSONObject;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class Worry implements Serializable {
-
     private String title;
-    private final WorryImage worryImage;
+    private WorryImage worryImage;
     private String description;
     private boolean overgeneralizing;
     private boolean mindReading;
@@ -27,13 +25,19 @@ public class Worry implements Serializable {
     private boolean betterThanExpected; // true if the worry ended up being better than expected
     private String howItEnded; // description of how the worry ended
     public boolean finished;
-    private final List<String> responses;
+    private List<String> responses;
 
     public Worry(StringHelper stringHelper, WorryImageHelper worryImageHelper) {
         this.title = "";
+        this.howItEnded = "";
         this.worryImage = worryImageHelper.getRandomImage();
         this.responses = new ArrayList<>();
         addResponse(stringHelper.getRandomReminder());
+    }
+
+    //TODO: comment
+    // Only to be used when loading in worries, not creating new ones
+    public Worry() {
     }
 
     /***
@@ -44,7 +48,8 @@ public class Worry implements Serializable {
     public JSONObject toJSON() throws JSONException {
         JSONObject worryJSON = new JSONObject();
         worryJSON.put("title", title);
-        // TODO: save image
+        worryJSON.put("ongoingImageID", worryImage.getOngoingImageResId());
+        worryJSON.put("finishedImageID", worryImage.getFinishedImageResId());
         worryJSON.put("description", description);
         worryJSON.put("overgeneralizing", overgeneralizing);
         worryJSON.put("mindReading", mindReading);
@@ -91,6 +96,10 @@ public class Worry implements Serializable {
 
     public String getTitle() {
         return title;
+    }
+
+    public void setWorryImage(WorryImage image) {
+        this.worryImage = image;
     }
 
     public int getOngoingImageResId() {
@@ -205,9 +214,14 @@ public class Worry implements Serializable {
         this.howItEnded = howItEnded;
     }
 
-    public void setFinished() {
+    public void finish() {
         this.finished = true;
     }
+
+    public void setFinished(boolean finished) {
+        this.finished = finished;
+    }
+
 
     public boolean isFinished() {
         return finished;
@@ -215,5 +229,9 @@ public class Worry implements Serializable {
 
     public List<String> getResponses() {
         return responses;
+    }
+
+    public void setResponses(List<String> responses) {
+        this.responses = responses;
     }
 }
