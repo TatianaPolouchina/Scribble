@@ -2,6 +2,7 @@ package com.example.scribble.persistence;
 
 import com.example.scribble.Worry;
 import com.example.scribble.WorryImage;
+import com.example.scribble.WorryImageHelper;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -48,6 +49,23 @@ public class JSONReader {
         }
         return text.toString();
     }
+
+    public WorryImageHelper readWorryImageHelper() throws JSONException {
+        WorryImageHelper worryImageHelper = new WorryImageHelper();
+        worryImageHelper.setIndexList(readIndexList());
+        return worryImageHelper;
+    }
+
+    //TODO: comment
+    public List<Integer> readIndexList() throws JSONException {
+        List<Integer> indexList = new ArrayList<>();
+        JSONArray indexListArray = jsonData.getJSONArray("worryImageIndexList");
+        for (int i = 0; i < indexListArray.length(); i++) {
+            indexList.add(indexListArray.getInt(i));
+        }
+        return indexList;
+    }
+
 
     //TODO: comment
 

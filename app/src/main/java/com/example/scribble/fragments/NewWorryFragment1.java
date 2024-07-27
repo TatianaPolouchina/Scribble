@@ -41,7 +41,7 @@ public class NewWorryFragment1 extends TextInputFragment {
 
         //TODO: should these be initialized here? (ensure they are only created once)
         this.stringHelper = new StringHelper(requireContext());
-        this.worryImageHelper = new WorryImageHelper();
+        this.worryImageHelper = sharedViewModel.getWorryImageHelper();
 
     }
 

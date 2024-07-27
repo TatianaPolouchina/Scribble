@@ -12,6 +12,7 @@ import java.util.Random;
 //TODO: comment class
 public class WorryImageHelper {
     private final List<WorryImage> imageList;
+    private List<Integer> indexList;
 
     public WorryImageHelper() {
         WorryImage img1 = new WorryImage(R.drawable.worry_1_red, R.drawable.worry_1_finished_red);
@@ -75,17 +76,42 @@ public class WorryImageHelper {
                 img20, img21, img22, img23, img24, img25, img26, img27, img28, img29, img30, img31,
                 img32, img33, img34, img35, img36, img37, img38, img39, img40, img41, img42,
                 img43, img44, img45, img46, img47, img48));
+
+        refreshIndexList();
     }
 
     /***
-     * Returns a random WorryImage pair
+     * Populates the indexList with all possible indexes
+     */
+    private void refreshIndexList() {
+        indexList = new ArrayList<>();
+        for (int n = 0; n < imageList.size(); n++) {
+            indexList.add(n);
+        }
+    }
+
+    /***
+     * Returns a random WorryImage pair, and removes the index of that pair from the indexList
      *
      * @return WorryImage pairing
      */
     public WorryImage getRandomImage() {
+        if (indexList.isEmpty()) {
+            refreshIndexList();
+        }
         Random random = new Random();
-        int randomInt = random.nextInt(imageList.size());
-        return imageList.get(randomInt);
+        int randomInt = random.nextInt(indexList.size());
+        int randomImageIndex = indexList.get(randomInt);
+        WorryImage image = imageList.get(randomImageIndex);
+        indexList.remove(randomInt);
+        return image;
     }
 
+    public List<Integer> getIndexList() {
+        return this.indexList;
+    }
+
+    public void setIndexList(List<Integer> indexList) {
+        this.indexList = indexList;
+    }
 }

@@ -23,6 +23,7 @@ public class SharedViewModel extends ViewModel {
     private MutableLiveData<List<Worry>> finishedWorries;
     private static final String JSON_STORE = "data.json";
     private JSONWriter jsonWriter;
+    private WorryImageHelper worryImageHelper;
 
     //TODO: comment and fix
     public void setWorry(Worry worry) {
@@ -60,7 +61,7 @@ public class SharedViewModel extends ViewModel {
 
         try {
             jsonWriter.open();
-            jsonWriter.write(ongoingWorries.getValue(), finishedWorries.getValue());
+            jsonWriter.write(ongoingWorries.getValue(), finishedWorries.getValue(), worryImageHelper);
             jsonWriter.close();
         } catch (FileNotFoundException e) {
             // nothing happens
@@ -112,5 +113,16 @@ public class SharedViewModel extends ViewModel {
         }
         worry.finish();
         saveData(context);
+    }
+
+    public void setWorryImageHelper(WorryImageHelper worryImageHelper) {
+        this.worryImageHelper = worryImageHelper;
+    }
+
+    public WorryImageHelper getWorryImageHelper() {
+        if (this.worryImageHelper == null) {
+            this.worryImageHelper = new WorryImageHelper();
+        }
+        return worryImageHelper;
     }
 }

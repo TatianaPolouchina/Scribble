@@ -62,12 +62,14 @@ public class MainActivity extends AppCompatActivity {
         JSONReader jsonReader = new JSONReader(file);
         List<Worry> ongoingWorries = jsonReader.readOngoingWorries();
         List<Worry> finishedWorries = jsonReader.readFinishedWorries();
+        WorryImageHelper worryImageHelper = jsonReader.readWorryImageHelper();
 
         Log.d("SharedViewModel", "Ongoing Worries: " + ongoingWorries);
         Log.d("SharedViewModel", "Finished Worries: " + finishedWorries);
 
         sharedViewModel.setOngoingWorries(ongoingWorries);
         sharedViewModel.setFinishedWorries(finishedWorries);
+        sharedViewModel.setWorryImageHelper(worryImageHelper);
 
         Log.d("SharedViewModel", "Ongoing Worries in ViewModel: " + sharedViewModel.getOngoingWorries());
         Log.d("SharedViewModel", "Finished Worries in ViewModel: " + sharedViewModel.getFinishedWorries());

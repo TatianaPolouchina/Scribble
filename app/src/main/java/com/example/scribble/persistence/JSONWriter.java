@@ -3,6 +3,7 @@ package com.example.scribble.persistence;
 import android.content.Context;
 
 import com.example.scribble.Worry;
+import com.example.scribble.WorryImageHelper;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,14 +38,18 @@ public class JSONWriter {
      *
      * @throws JSONException
      */
-    public void write(List<Worry> ongoingWorries, List<Worry> finishedWorries) throws JSONException {
+    public void write(List<Worry> ongoingWorries, List<Worry> finishedWorries,
+                      WorryImageHelper imageHelper) throws JSONException {
         JSONObject json = new JSONObject();
         JSONArray ongoingWorriesJSON = worryListToJSON(ongoingWorries);
         JSONArray finishedWorriesJSON = worryListToJSON(finishedWorries);
+        JSONArray worryImageIndexList = imageHelperToJSON(imageHelper);
         json.put("ongoingWorries", ongoingWorriesJSON);
         json.put("finishedWorries", finishedWorriesJSON);
+        json.put("worryImageIndexList", worryImageIndexList);
         saveToFile(json.toString());
     }
+
 
     //TODO: comment
     public JSONArray worryListToJSON(List<Worry> ongoingWorries) throws JSONException {
@@ -53,6 +58,14 @@ public class JSONWriter {
             jsonArray.put(worry.toJSON());
         }
         return jsonArray;
+    }
+
+    protected JSONArray imageHelperToJSON(WorryImageHelper imageHelper) {
+        JSONArray indexListJSON = new JSONArray();
+        for (Integer element: imageHelper.getIndexList()) {
+            indexListJSON.put(element);
+        }
+        return indexListJSON;
     }
 
     // MODIFIES: this
