@@ -50,9 +50,13 @@ public class JSONReader {
         return text.toString();
     }
 
-    public WorryImageHelper readWorryImageHelper() throws JSONException {
+    public WorryImageHelper readWorryImageHelper() {
         WorryImageHelper worryImageHelper = new WorryImageHelper();
-        worryImageHelper.setIndexList(readIndexList());
+        try {
+            worryImageHelper.setIndexList(readIndexList());
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
         return worryImageHelper;
     }
 
@@ -75,8 +79,13 @@ public class JSONReader {
      * @return list of all ongoing worries
      * @throws JSONException if there is an error parsing the JSON data
      */
-    public List<Worry> readOngoingWorries() throws JSONException {
-        JSONArray jsonOngoingWorries = jsonData.getJSONArray("ongoingWorries");
+    public List<Worry> readOngoingWorries() {
+        JSONArray jsonOngoingWorries = null;
+        try {
+            jsonOngoingWorries = jsonData.getJSONArray("ongoingWorries");
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
         return parseWorries(jsonOngoingWorries);
     }
 
@@ -86,8 +95,13 @@ public class JSONReader {
      * @return list of all finished worries
      * @throws JSONException if there is an error parsing the JSON data
      */
-    public List<Worry> readFinishedWorries() throws JSONException {
-        JSONArray JSONFinishedWorries = jsonData.getJSONArray("finishedWorries");
+    public List<Worry> readFinishedWorries() {
+        JSONArray JSONFinishedWorries = null;
+        try {
+            JSONFinishedWorries = jsonData.getJSONArray("finishedWorries");
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
         return parseWorries(JSONFinishedWorries);
     }
 
@@ -97,10 +111,14 @@ public class JSONReader {
      * @return ArrayList of worries
      * @throws JSONException if there is an error parsing the JSON data
      */
-    public List<Worry> parseWorries(JSONArray worryListJSON) throws JSONException {
+    public List<Worry> parseWorries(JSONArray worryListJSON) {
         List<Worry> worries = new ArrayList<>();
         for (int i = 0; i < worryListJSON.length(); i++) {
-            worries.add(parseWorry(worryListJSON.getJSONObject(i)));
+            try {
+                worries.add(parseWorry(worryListJSON.getJSONObject(i)));
+            } catch (JSONException e) {
+                throw new RuntimeException(e);
+            }
         }
         return worries;
     }

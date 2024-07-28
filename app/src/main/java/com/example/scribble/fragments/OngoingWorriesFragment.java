@@ -45,11 +45,34 @@ public class OngoingWorriesFragment extends Fragment implements OnItemClickListe
         return inflater.inflate(R.layout.fragment_ongoing_worries, container, false);
     }
 
-    // TODO: refactor
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        sharedViewModel.getOngoingWorriesLiveData().observe(getViewLifecycleOwner(), worries ->
+                updateOngoingWorryUI(view));
+        sharedViewModel.getFinishedWorriesLiveData().observe(getViewLifecycleOwner(), worries ->
+                updateFinishedWorryUI(view));
+        selectMenuItem();
+        handleBackPress();
+    }
 
+    //TODO: refactor
+    private void updateFinishedWorryUI(@NonNull View view) {
+        int numWorries = sharedViewModel.getOngoingWorries().size();
+        int numFinishedWorries = sharedViewModel.getFinishedWorries().size();
+        TextView noWorriesText = view.findViewById(R.id.noWorriesText);
+        ImageView downArrowImage = view.findViewById(R.id.downArrow);
+        if (numWorries == 0 && numFinishedWorries == 0) {
+            noWorriesText.setVisibility(View.VISIBLE);
+            downArrowImage.setVisibility(View.VISIBLE);
+        } else if (numWorries == 0){
+            noWorriesText.setText(R.string.no_ongoing_worries_text);
+            noWorriesText.setVisibility(View.VISIBLE);
+        }
+    }
+
+    //TODO: refactor
+    private void updateOngoingWorryUI(@NonNull View view) {
         WorryCardAdapter adapter = new WorryCardAdapter(sharedViewModel.getOngoingWorries(), this);
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
@@ -63,20 +86,6 @@ public class OngoingWorriesFragment extends Fragment implements OnItemClickListe
             worryNumberText.setText(getString(R.string.ongoing_page_subtitle,
                     Integer.toString(numWorries)));
         }
-
-        int numFinishedWorries = sharedViewModel.getFinishedWorries().size();
-        TextView noWorriesText = view.findViewById(R.id.noWorriesText);
-        ImageView downArrowImage = view.findViewById(R.id.downArrow);
-        if (numWorries == 0 && numFinishedWorries == 0) {
-            noWorriesText.setVisibility(View.VISIBLE);
-            downArrowImage.setVisibility(View.VISIBLE);
-        } else if (numWorries == 0){
-            noWorriesText.setText(R.string.no_ongoing_worries_text);
-            noWorriesText.setVisibility(View.VISIBLE);
-        }
-
-        selectMenuItem();
-        handleBackPress();
     }
 
     /***

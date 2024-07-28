@@ -25,6 +25,14 @@ public class SharedViewModel extends ViewModel {
     private JSONWriter jsonWriter;
     private WorryImageHelper worryImageHelper;
 
+    public SharedViewModel() {
+        super();
+        this.ongoingWorries = new MutableLiveData<>();
+        this.ongoingWorries.setValue(new ArrayList<>());
+        this.finishedWorries = new MutableLiveData<>();
+        this.finishedWorries.setValue(new ArrayList<>());
+    }
+
     //TODO: comment and fix
     public void setWorry(Worry worry) {
         this.worry.setValue(worry);
@@ -48,6 +56,7 @@ public class SharedViewModel extends ViewModel {
 
         if (this.ongoingWorries == null) {
             ongoingWorries = new MutableLiveData<>();
+            ongoingWorries.setValue(new ArrayList<>());
         }
         Objects.requireNonNull(this.ongoingWorries.getValue()).add(0, worry.getValue());
         saveData(context);
@@ -58,7 +67,6 @@ public class SharedViewModel extends ViewModel {
         if (this.jsonWriter == null) {
             jsonWriter = new JSONWriter(JSON_STORE, context);
         }
-
         try {
             jsonWriter.open();
             jsonWriter.write(ongoingWorries.getValue(), finishedWorries.getValue(), worryImageHelper);
@@ -71,33 +79,26 @@ public class SharedViewModel extends ViewModel {
     }
 
     public List<Worry> getOngoingWorries() {
-        if (this.ongoingWorries == null) {
-            this.ongoingWorries = new MutableLiveData<>();
-            this.ongoingWorries.setValue(new ArrayList<>());
-        }
         return this.ongoingWorries.getValue();
     }
 
+    public MutableLiveData<List<Worry>> getOngoingWorriesLiveData() {
+        return this.ongoingWorries;
+    }
+
     public void setOngoingWorries(List<Worry> ongoingWorries) {
-        if (this.ongoingWorries == null) {
-            this.ongoingWorries = new MutableLiveData<>();
-        }
         this.ongoingWorries.setValue(ongoingWorries);
     }
 
     public List<Worry> getFinishedWorries() {
-        if (this.finishedWorries == null) {
-            this.finishedWorries = new MutableLiveData<>();
-            this.finishedWorries.setValue(new ArrayList<>());
-
-        }
         return this.finishedWorries.getValue();
     }
 
+    public MutableLiveData<List<Worry>> getFinishedWorriesLiveData() {
+        return this.finishedWorries;
+    }
+
     public void setFinishedWorries(List<Worry> finishedWorries) {
-        if (this.finishedWorries == null) {
-            this.finishedWorries = new MutableLiveData<>();
-        }
         this.finishedWorries.setValue(finishedWorries);
     }
 

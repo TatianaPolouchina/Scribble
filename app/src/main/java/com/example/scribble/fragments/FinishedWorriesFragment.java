@@ -47,15 +47,20 @@ public class FinishedWorriesFragment extends Fragment implements OnItemClickList
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        sharedViewModel.getFinishedWorriesLiveData().observe(getViewLifecycleOwner(), worries ->
+                updateUI(view));
+        selectMenuItem();
+        handleBackPress();
+    }
+
+    //TODO: comment
+    private void updateUI(@NonNull View view) {
         WorryCardAdapter adapter = new WorryCardAdapter(sharedViewModel.getFinishedWorries(), this);
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         recyclerView.setAdapter(adapter);
-
         updateNoWorryText(view);
-
-        selectMenuItem();
-        handleBackPress();
     }
 
     /***

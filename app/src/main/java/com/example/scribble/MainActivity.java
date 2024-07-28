@@ -1,6 +1,8 @@
 package com.example.scribble;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,12 +24,15 @@ import org.json.JSONException;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 //TODO: comment methods
 public class MainActivity extends AppCompatActivity {
     private NavController navController;
     private BottomNavigationView bottomNavigationView;
     private static final String JSON_STORE = "data.json";
+    private File dataFile;
 
     //TODO: refactor
     @Override
@@ -40,7 +45,47 @@ public class MainActivity extends AppCompatActivity {
         navController = navHostFragment.getNavController();
         setUpBottomNavMenu();
         SharedViewModel sharedViewModel = new ViewModelProvider(this).get(SharedViewModel.class);
-        loadFiles(sharedViewModel);
+
+
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        Handler handler = new Handler(Looper.getMainLooper());
+
+        //NEW:
+        // TODO: refactor
+        executor.execute(() -> {
+            boolean newFile = loadFile();
+            JSONReader jsonReader = null;
+
+            if (newFile) {
+                try {
+                    jsonReader = new JSONReader(dataFile);
+                    List<Worry> ongoingWorries = jsonReader.readOngoingWorries();
+                    List<Worry> finishedWorries = jsonReader.readFinishedWorries();
+                    WorryImageHelper worryImageHelper = jsonReader.readWorryImageHelper();
+                    handler.post(() -> {
+                        sharedViewModel.setOngoingWorries(ongoingWorries);
+                        sharedViewModel.setFinishedWorries(finishedWorries);
+                        sharedViewModel.setWorryImageHelper(worryImageHelper);
+                    });
+                } catch (JSONException ignored) {
+                }
+            }
+        });
+    }
+
+    // TODO: comment
+    // Returns true if a new file was created
+    private boolean loadFile() {
+        dataFile = new File(getFilesDir(), JSON_STORE);
+        if (!dataFile.exists()) {
+            try {
+                dataFile.createNewFile();
+                return true;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return false;
     }
 
     private void loadFiles(SharedViewModel sharedViewModel) {
@@ -48,7 +93,8 @@ public class MainActivity extends AppCompatActivity {
         if (file.exists()) {
             try {
                 loadData(file, sharedViewModel);
-            } catch (JSONException ignored) {}
+            } catch (JSONException ignored) {
+            }
         } else {
             try {
                 file.createNewFile();
@@ -57,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
 
     private static void loadData(File file, SharedViewModel sharedViewModel) throws JSONException {
         JSONReader jsonReader = new JSONReader(file);
