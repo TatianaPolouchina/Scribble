@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
 import android.os.Handler;
@@ -15,7 +14,6 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.scribble.R;
-import com.example.scribble.SharedViewModel;
 import com.example.scribble.Worry;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -49,8 +47,10 @@ public class RespondFragment extends WorryActionFragment {
         setUpSubmitButton(view);
 
         TextInputEditText textInput = view.findViewById(R.id.textInputField);
-        textInput.requestFocus();
-        showKeyboard(textInput);
+        if (tallScreen()) {
+            textInput.requestFocus();
+            showKeyboard(textInput);
+        }
     }
 
     private void setUpSubmitButton(@NonNull View view) {

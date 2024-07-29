@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
@@ -13,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.scribble.R;
-import com.example.scribble.SharedViewModel;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Objects;
@@ -42,8 +40,10 @@ public class NewWorryFragment2 extends WorryActionFragment {
         ImageView worryImage = view.findViewById(R.id.worryCharacter);
 
         worryImage.setImageResource(sharedViewModel.getWorry().getOngoingImageResId());
-        textInputField.requestFocus();
-        showKeyboard(textInputField);
+        if (tallScreen()) {
+            textInputField.requestFocus();
+            showKeyboard(textInputField);
+        }
         addOnClickListeners(view, textInputField);
     }
 

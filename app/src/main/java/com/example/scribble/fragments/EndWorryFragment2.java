@@ -35,10 +35,13 @@ public class EndWorryFragment2 extends WorryActionFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        TextInputEditText textInputField = view.findViewById(R.id.textInputField);
-        addOnClickListeners(view, textInputField);
-        textInputField.requestFocus();
-        showKeyboard(textInputField);
+        TextInputEditText textInput = view.findViewById(R.id.textInputField);
+        addOnClickListeners(view, textInput);
+
+        if (tallScreen()) {
+            textInput.requestFocus();
+            showKeyboard(textInput);
+        }
 
         if (getArguments() != null) {
             worry = (Worry) getArguments().getSerializable("selectedWorry");

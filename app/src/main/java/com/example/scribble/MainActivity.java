@@ -1,13 +1,10 @@
 package com.example.scribble;
 
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -55,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         // TODO: refactor
         executor.execute(() -> {
             boolean newFile = loadFile();
-            JSONReader jsonReader = null;
+            JSONReader jsonReader;
 
             if (!newFile) {
                 try {
@@ -70,48 +67,6 @@ public class MainActivity extends AppCompatActivity {
                     });
                 } catch (JSONException ignored) {
                 }
-            }
-        });
-        checkScreenSize2(sharedViewModel);
-    }
-
-    private void checkScreenSize(SharedViewModel sharedViewModel) {
-        final View rootView = findViewById(android.R.id.content);
-        rootView.getViewTreeObserver().addOnGlobalLayoutListener(() -> {
-            Rect r = new Rect();
-            rootView.getWindowVisibleDisplayFrame(r);
-            int screenHeight = rootView.getRootView().getHeight();
-            int keypadHeight = screenHeight - r.bottom;
-            if (screenHeight - keypadHeight < 1500) {
-                sharedViewModel.setSmallScreenSize(true);
-            }
-        });
-    }
-
-    //TODO: fix
-    private void checkScreenSize2(SharedViewModel sharedViewModel) {
-        final View rootView = findViewById(android.R.id.content);
-        rootView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                Rect r = new Rect();
-                rootView.getWindowVisibleDisplayFrame(r);
-                int screenHeight = rootView.getRootView().getHeight();
-                int visibleHeight = r.bottom - r.top;
-                int keypadHeight = screenHeight - visibleHeight;
-
-                // Define your threshold value
-                int thresholdHeight = 1500; // Adjust this value as necessary
-
-                // Use the threshold to determine the screen size
-                if (screenHeight - keypadHeight < thresholdHeight) {
-                    sharedViewModel.setSmallScreenSize(true);
-                } else {
-                    sharedViewModel.setSmallScreenSize(false);
-                }
-
-                // Remove the listener to avoid multiple calls
-                rootView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
             }
         });
     }
@@ -130,40 +85,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         return false;
-    }
-
-    private void loadFiles(SharedViewModel sharedViewModel) {
-        File file = new File(getFilesDir(), JSON_STORE);
-        if (file.exists()) {
-            try {
-                loadData(file, sharedViewModel);
-            } catch (JSONException ignored) {
-            }
-        } else {
-            try {
-                file.createNewFile();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-    }
-
-
-    private static void loadData(File file, SharedViewModel sharedViewModel) throws JSONException {
-        JSONReader jsonReader = new JSONReader(file);
-        List<Worry> ongoingWorries = jsonReader.readOngoingWorries();
-        List<Worry> finishedWorries = jsonReader.readFinishedWorries();
-        WorryImageHelper worryImageHelper = jsonReader.readWorryImageHelper();
-
-        Log.d("SharedViewModel", "Ongoing Worries: " + ongoingWorries);
-        Log.d("SharedViewModel", "Finished Worries: " + finishedWorries);
-
-        sharedViewModel.setOngoingWorries(ongoingWorries);
-        sharedViewModel.setFinishedWorries(finishedWorries);
-        sharedViewModel.setWorryImageHelper(worryImageHelper);
-
-        Log.d("SharedViewModel", "Ongoing Worries in ViewModel: " + sharedViewModel.getOngoingWorries());
-        Log.d("SharedViewModel", "Finished Worries in ViewModel: " + sharedViewModel.getFinishedWorries());
     }
 
     // Creates the bottom navigation menu

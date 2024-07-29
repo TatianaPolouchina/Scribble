@@ -7,90 +7,123 @@
     android:background="@color/white"
     tools:context="com.example.scribble.fragments.EndWorryFragment3">
 
-    <TextView
-        android:id="@+id/respondTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/karla_bold"
-        android:text="@string/finish_worry_title"
-        android:textAlignment="center"
-        android:textColor="@color/grey"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <FrameLayout
-        android:id="@+id/worryImageLayout"
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_title"
-        android:background="@android:color/transparent"
+        android:scrollbars="none"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/respondTitle">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <RelativeLayout style="@style/scribbleImageSize">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="100dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/newWorryTitle">
 
-            <VideoView
-                android:id="@+id/animation"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:foregroundTint="#F8F7F2"
-                android:padding="0dp"
-                android:visibility="invisible" />
-        </RelativeLayout>
-
-
-        <FrameLayout
-            android:id="@+id/placeholder"
-            style="@style/scribbleImageSize">
-
-            <ImageView
-                style="@style/scribbleImageSize"
-                android:background="@color/white" />
-
-            <ImageView
-                android:id="@+id/scribble"
-                style="@style/scribbleImage" />
-        </FrameLayout>
-
-        <ImageView
-            android:id="@+id/finishedWorryCharacter"
-            android:layout_width="@dimen/worry_size"
-            android:layout_height="200dp"
-            android:layout_gravity="center"
-            android:src="@drawable/worry_2" />
-
-        <ImageView
-            android:id="@+id/worryCharacter"
-            android:layout_width="@dimen/worry_size"
-            android:layout_height="200dp"
-            android:layout_gravity="center"
-            android:src="@drawable/worry_2" />
-
-    </FrameLayout>
+            <TextView
+                android:id="@+id/respondTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/karla_bold"
+                android:text="@string/finish_worry_title"
+                android:textAlignment="center"
+                android:textColor="@color/grey"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
-    <TextView
-        android:id="@+id/instruction"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:fontFamily="@font/karla_bold"
-        android:text="@string/worry_ended_message"
-        android:textColor="@color/lightOrangeMain"
-        android:textSize="48sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/worryImageLayout" />
+            <FrameLayout
+                android:id="@+id/worryImageLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_title"
+                android:background="@android:color/transparent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/respondTitle">
 
+                <RelativeLayout style="@style/scribbleImageSize">
+
+                    <VideoView
+                        android:id="@+id/animation"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:foregroundTint="#F8F7F2"
+                        android:padding="0dp"
+                        android:visibility="invisible" />
+                </RelativeLayout>
+
+
+                <FrameLayout
+                    android:id="@+id/placeholder"
+                    style="@style/scribbleImageSize">
+
+                    <ImageView
+                        style="@style/scribbleImageSize"
+                        android:background="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/scribble"
+                        style="@style/scribbleImage" />
+                </FrameLayout>
+
+                <ImageView
+                    android:id="@+id/finishedWorryCharacter"
+                    android:layout_width="@dimen/worry_size"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/worry_2" />
+
+                <ImageView
+                    android:id="@+id/worryCharacter"
+                    android:layout_width="@dimen/worry_size"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/worry_2" />
+
+            </FrameLayout>
+
+
+            <TextView
+                android:id="@+id/instruction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/karla_bold"
+                android:text="@string/worry_ended_message"
+                android:textColor="@color/lightOrangeMain"
+                android:textSize="48sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/worryImageLayout" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/karla_bold"
+                android:text="@string/worry_ended_subtitle"
+                android:textColor="#9A9A9A"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/instruction" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/closeButton"
@@ -103,18 +136,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:fontFamily="@font/karla_bold"
-        android:text="@string/worry_ended_subtitle"
-        android:textColor="#9A9A9A"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/instruction" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

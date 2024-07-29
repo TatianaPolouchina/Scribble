@@ -7,95 +7,118 @@
     android:background="@color/white"
     tools:context="com.example.scribble.fragments.EndWorryFragment1">
 
-    <TextView
-        android:id="@+id/respondTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/karla_bold"
-        android:text="@string/finish_worry_title"
-        android:textAlignment="center"
-        android:textColor="@color/grey"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <FrameLayout
-        android:id="@+id/worryImageLayout"
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_title"
-
+        android:scrollbars="none"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/respondTitle">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/scribble"
-            android:layout_gravity="center"
-            android:scaleType="centerCrop"
-            style="@style/scribbleImage" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="100dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/newWorryTitle">
 
-        <ImageView
-            android:id="@+id/worryCharacter"
-            android:layout_width="@dimen/worry_size"
-            android:layout_height="@dimen/worry_size"
-            android:layout_gravity="center"
-            android:src="@drawable/worry_2" />
-    </FrameLayout>
-
-    <TextView
-        android:id="@+id/instruction"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/top_margin"
-        android:fontFamily="@font/karla_bold"
-        android:text="@string/finish_worry_question"
-        android:textColor="@color/grey"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/worryImageLayout" />
+            <TextView
+                android:id="@+id/respondTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/karla_bold"
+                android:text="@string/finish_worry_title"
+                android:textAlignment="center"
+                android:textColor="@color/grey"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/yesButton"
-        style="@style/OutlineButton"
-        android:layout_width="@dimen/button_width"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="15dp"
-        android:background="@drawable/rectangle_rounded_outline_white"
-        android:elevation="@dimen/button_elevation"
-        android:gravity="center_horizontal"
-        android:stateListAnimator="@anim/nav_default_enter_anim"
-        android:text="@string/yes_button_text"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColorLink="@color/grey"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/instruction" />
+            <FrameLayout
+                android:id="@+id/worryImageLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_title"
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/noButton"
-        style="@style/OutlineButton"
-        android:layout_width="@dimen/button_width"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="15dp"
-        android:background="@drawable/rectangle_rounded_outline_white"
-        android:elevation="@dimen/button_elevation"
-        android:gravity="center_horizontal"
-        android:stateListAnimator="@anim/nav_default_enter_anim"
-        android:text="@string/no_button_text"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColorLink="@color/grey"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/yesButton" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/respondTitle">
+
+                <ImageView
+                    android:id="@+id/scribble"
+                    style="@style/scribbleImage"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop" />
+
+                <ImageView
+                    android:id="@+id/worryCharacter"
+                    android:layout_width="@dimen/worry_size"
+                    android:layout_height="@dimen/worry_size"
+                    android:layout_gravity="center"
+                    android:src="@drawable/worry_2" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/instruction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/top_margin"
+                android:fontFamily="@font/karla_bold"
+                android:text="@string/finish_worry_question"
+                android:textColor="@color/grey"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/worryImageLayout" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/yesButton"
+                style="@style/OutlineButton"
+                android:layout_width="@dimen/button_width"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/rectangle_rounded_outline_white"
+                android:elevation="@dimen/button_elevation"
+                android:gravity="center_horizontal"
+                android:stateListAnimator="@anim/nav_default_enter_anim"
+                android:text="@string/yes_button_text"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColorLink="@color/grey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/instruction" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/noButton"
+                style="@style/OutlineButton"
+                android:layout_width="@dimen/button_width"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/rectangle_rounded_outline_white"
+                android:elevation="@dimen/button_elevation"
+                android:gravity="center_horizontal"
+                android:stateListAnimator="@anim/nav_default_enter_anim"
+                android:text="@string/no_button_text"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColorLink="@color/grey"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/yesButton" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,11 +1,9 @@
 package com.example.scribble.fragments;
 
-import android.graphics.Rect;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
@@ -17,7 +15,6 @@ import android.widget.ImageView;
 
 import com.example.scribble.MainActivity;
 import com.example.scribble.R;
-import com.example.scribble.SharedViewModel;
 import com.example.scribble.Worry;
 import com.example.scribble.StringHelper;
 import com.example.scribble.WorryImageHelper;
@@ -36,6 +33,7 @@ public class NewWorryFragment1 extends WorryActionFragment {
         //TODO: should these be initialized here? (ensure they are only created once)
         this.stringHelper = new StringHelper(requireContext());
         this.worryImageHelper = sharedViewModel.getWorryImageHelper();
+
     }
 
     @Override
@@ -50,17 +48,20 @@ public class NewWorryFragment1 extends WorryActionFragment {
         super.onViewCreated(view, savedInstanceState);
         ((MainActivity) requireActivity()).setStatusBarColor(R.color.white);
         sharedViewModel.setWorry(new Worry(stringHelper, worryImageHelper));
+        textInputField = view.findViewById(R.id.textInputField);
 
         ImageView worryImage = view.findViewById(R.id.worryCharacter);
         worryImage.setImageResource(sharedViewModel.getWorry().getOngoingImageResId());
 
         addOnClickListeners(view);
-        displayKeyboard(view);
+
+        if (tallScreen()) {
+            displayKeyboard();
+        }
     }
 
     // TODO: comment
-    private void displayKeyboard(@NonNull View view) {
-        textInputField = view.findViewById(R.id.textInputField);
+    private void displayKeyboard() {
         textInputField.requestFocus();
         showKeyboard(textInputField);
         textInputField.setHint(stringHelper.getRandomHint());
