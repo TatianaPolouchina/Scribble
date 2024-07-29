@@ -7,94 +7,114 @@
     android:background="@color/white"
     tools:context="com.example.scribble.fragments.NewWorryFragment1">
 
-    <TextView
-        android:id="@+id/newWorryTitle"
+    <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/karla_bold"
-        android:text="@string/new_worry_page_title"
-        android:textAlignment="center"
-        android:textColor="@color/darkBlueMain"
-        android:textSize="20sp"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/backButton"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="10dp"
-        android:background="@android:color/transparent"
-        android:src="@drawable/vector_x"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/grey" />
+        android:scrollbars="none">
 
-    <FrameLayout
-        android:id="@+id/frameLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/newWorryTitle">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/newWorryTitle"
+            android:paddingBottom="100dp">
 
-        <ImageView
-            android:id="@+id/scribble"
-            style="@style/scribbleImage"
-            android:layout_gravity="center"
-            app:tint="@color/lightBlue2" />
+            <TextView
+                android:id="@+id/newWorryTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/karla_bold"
+                android:text="@string/new_worry_page_title"
+                android:textAlignment="center"
+                android:textColor="@color/darkBlueMain"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/worryCharacter"
-            android:layout_width="@dimen/worry_size"
-            android:layout_height="@dimen/worry_size"
-            android:layout_gravity="center"
-            android:src="@drawable/worry_2" />
-    </FrameLayout>
+            <ImageButton
+                android:id="@+id/backButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="10dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/vector_x"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/grey" />
 
-    <TextView
-        android:id="@+id/respond_prompt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/top_margin"
-        android:fontFamily="@font/karla_bold"
-        android:text="@string/new_worry_instruction_1"
-        android:textColor="@color/darkBlueMain"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+            <FrameLayout
+                android:id="@+id/worryImageLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/newWorryTitle">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
-        style="@style/TextInputLayout"
-        app:counterEnabled="true"
-        app:counterMaxLength="20"
-        app:hintEnabled="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/respond_prompt">
+                <ImageView
+                    android:id="@+id/scribble"
+                    style="@style/scribbleImage"
+                    android:layout_gravity="center"
+                    app:tint="@color/lightBlue2" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputField"
-            style="@style/SmallTextInputEditText"
-            android:hint="@string/new_worry_instruction_1_hint_1"
-            android:maxLength="20" />
-    </com.google.android.material.textfield.TextInputLayout>
+                <ImageView
+                    android:id="@+id/worryCharacter"
+                    android:layout_width="@dimen/worry_size"
+                    android:layout_height="@dimen/worry_size"
+                    android:layout_gravity="center"
+                    android:src="@drawable/worry_2" />
+            </FrameLayout>
 
-    <TextView
-        android:id="@+id/warningText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/no_name_entered_warning_text"
-        android:textAppearance="@style/Subtext"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+            <TextView
+                android:id="@+id/instruction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/top_margin"
+                android:fontFamily="@font/karla_bold"
+                android:text="@string/new_worry_instruction_1"
+                android:textColor="@color/darkBlueMain"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/worryImageLayout" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout"
+                style="@style/TextInputLayout"
+                app:counterEnabled="true"
+                app:counterMaxLength="20"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/instruction">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textInputField"
+                    style="@style/SmallTextInputEditText"
+                    android:hint="@string/new_worry_instruction_1_hint_1"
+                    android:maxLength="20" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/warningText"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="@string/no_name_entered_warning_text"-->
+    <!--        android:textAppearance="@style/Subtext"-->
+    <!--        android:visibility="gone"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />-->
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/next_button"

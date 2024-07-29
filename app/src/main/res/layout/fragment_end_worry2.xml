@@ -34,7 +34,7 @@
         app:layout_constraintTop_toTopOf="@id/endWorryPageTitle" />
 
     <FrameLayout
-        android:id="@+id/frameLayout"
+        android:id="@+id/worryImageLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_title"
@@ -57,7 +57,7 @@
     </FrameLayout>
 
     <TextView
-        android:id="@+id/question"
+        android:id="@+id/instruction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/top_margin"
@@ -67,7 +67,7 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/worryImageLayout" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
@@ -77,7 +77,7 @@
         app:counterMaxLength="150"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/question">
+        app:layout_constraintTop_toBottomOf="@+id/instruction">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textInputField"

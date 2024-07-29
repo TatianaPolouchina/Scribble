@@ -23,7 +23,7 @@
 
 
     <FrameLayout
-        android:id="@+id/frameLayout"
+        android:id="@+id/worryImageLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_title"
@@ -46,7 +46,7 @@
     </FrameLayout>
 
     <TextView
-        android:id="@+id/respond_prompt"
+        android:id="@+id/instruction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/top_margin"
@@ -56,7 +56,7 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/worryImageLayout" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/addDistortionLayout"
@@ -64,8 +64,8 @@
         android:layout_height="0dp"
         android:layout_marginStart="-35dp"
         android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="@+id/respond_prompt"
-        app:layout_constraintTop_toBottomOf="@+id/respond_prompt">
+        app:layout_constraintStart_toStartOf="@+id/instruction"
+        app:layout_constraintTop_toBottomOf="@+id/instruction">
 
         <ImageView
             android:id="@+id/add_distortion_Button"

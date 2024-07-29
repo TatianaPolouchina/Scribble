@@ -15,7 +15,7 @@ import android.widget.ImageView;
 import com.example.scribble.R;
 import com.example.scribble.Worry;
 
-public class EndWorryFragment1 extends Fragment {
+public class EndWorryFragment1 extends WorryActionFragment {
 
     private Worry worry;
 

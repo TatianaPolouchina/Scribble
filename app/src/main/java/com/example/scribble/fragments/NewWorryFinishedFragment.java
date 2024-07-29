@@ -16,14 +16,11 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.example.scribble.R;
 import com.example.scribble.SharedViewModel;
 
-public class NewWorryFinishedFragment extends Fragment {
-
-    private SharedViewModel sharedViewModel;
+public class NewWorryFinishedFragment extends WorryActionFragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
     }
 
     @Override

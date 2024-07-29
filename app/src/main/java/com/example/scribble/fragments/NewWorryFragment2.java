@@ -18,9 +18,7 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Objects;
 
-public class NewWorryFragment2 extends TextInputFragment {
-
-    private SharedViewModel sharedViewModel;
+public class NewWorryFragment2 extends WorryActionFragment {
 
     public NewWorryFragment2() {
     }
@@ -28,7 +26,6 @@ public class NewWorryFragment2 extends TextInputFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
     }
 
     @Override

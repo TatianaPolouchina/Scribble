@@ -22,8 +22,7 @@ import com.example.scribble.R;
 import com.example.scribble.SharedViewModel;
 import com.example.scribble.Worry;
 
-public class EndWorryFragment3 extends Fragment {
-    private SharedViewModel sharedViewModel;
+public class EndWorryFragment3 extends WorryActionFragment {
     private Worry worry;
     private ImageView ongoingWorryImage;
     private ImageView finishedWorryImage;
@@ -31,7 +30,6 @@ public class EndWorryFragment3 extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
     }
 
     @Override

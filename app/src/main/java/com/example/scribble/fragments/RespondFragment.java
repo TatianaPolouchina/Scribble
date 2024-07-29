@@ -22,13 +22,11 @@ import com.google.android.material.textfield.TextInputEditText;
 import java.util.Objects;
 
 //TODO: add comments to all
-public class RespondFragment extends TextInputFragment {
+public class RespondFragment extends WorryActionFragment {
     private Worry worry;
-    private SharedViewModel sharedViewModel;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
     }
 
     @Override

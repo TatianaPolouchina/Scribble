@@ -17,7 +17,7 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Objects;
 
-public class EndWorryFragment2 extends TextInputFragment {
+public class EndWorryFragment2 extends WorryActionFragment {
 
     private Worry worry;
 

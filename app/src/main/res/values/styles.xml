@@ -37,7 +37,7 @@
     </style>
 
     <style name="TextInputLayout">
-        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_width">@dimen/textbox_width</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginStart">25dp</item>
         <item name="android:layout_marginTop">15dp</item>

@@ -21,9 +21,8 @@ import com.example.scribble.R;
 import com.example.scribble.SharedViewModel;
 import com.example.scribble.Worry;
 
-public class NewWorryFragment3 extends Fragment {
+public class NewWorryFragment3 extends WorryActionFragment {
 
-    private SharedViewModel sharedViewModel;
     private GridLayout selectedDistortionsContainer;
     private TextView addDistortionLabel;
 
@@ -33,7 +32,6 @@ public class NewWorryFragment3 extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
     }
 
     @Override

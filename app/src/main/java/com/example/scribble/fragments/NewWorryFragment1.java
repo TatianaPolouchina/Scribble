@@ -1,5 +1,6 @@
 package com.example.scribble.fragments;
 
+import android.graphics.Rect;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -24,25 +25,17 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Objects;
 
-public class NewWorryFragment1 extends TextInputFragment {
-    private SharedViewModel sharedViewModel;
+public class NewWorryFragment1 extends WorryActionFragment {
     private StringHelper stringHelper;
     private WorryImageHelper worryImageHelper;
     private TextInputEditText textInputField;
 
-    public NewWorryFragment1() {
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
-
         //TODO: should these be initialized here? (ensure they are only created once)
         this.stringHelper = new StringHelper(requireContext());
         this.worryImageHelper = sharedViewModel.getWorryImageHelper();
-
     }
 
     @Override
@@ -61,9 +54,8 @@ public class NewWorryFragment1 extends TextInputFragment {
         ImageView worryImage = view.findViewById(R.id.worryCharacter);
         worryImage.setImageResource(sharedViewModel.getWorry().getOngoingImageResId());
 
-        displayKeyboard(view);
-
         addOnClickListeners(view);
+        displayKeyboard(view);
     }
 
     // TODO: comment
@@ -83,7 +75,7 @@ public class NewWorryFragment1 extends TextInputFragment {
                 NavHostFragment.findNavController(this).navigate
                         (R.id.action_newWorryFragment1_to_newWorryFragment2);
             } else {
-                view.findViewById(R.id.warningText).setVisibility(View.VISIBLE);
+                //view.findViewById(R.id.warningText).setVisibility(View.VISIBLE);
             }
         });
 

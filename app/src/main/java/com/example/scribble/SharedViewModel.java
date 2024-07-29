@@ -1,6 +1,8 @@
 package com.example.scribble;
 
 import android.content.Context;
+import android.graphics.Rect;
+import android.view.View;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -24,6 +26,7 @@ public class SharedViewModel extends ViewModel {
     private static final String JSON_STORE = "data.json";
     private JSONWriter jsonWriter;
     private WorryImageHelper worryImageHelper;
+    private boolean smallScreenSize;
 
     public SharedViewModel() {
         super();
@@ -31,6 +34,7 @@ public class SharedViewModel extends ViewModel {
         this.ongoingWorries.setValue(new ArrayList<>());
         this.finishedWorries = new MutableLiveData<>();
         this.finishedWorries.setValue(new ArrayList<>());
+        smallScreenSize = false;
     }
 
     //TODO: comment and fix
@@ -126,4 +130,13 @@ public class SharedViewModel extends ViewModel {
         }
         return worryImageHelper;
     }
+
+    public boolean getSmallScreenSize() {
+        return smallScreenSize;
+    }
+
+    public void setSmallScreenSize(boolean smallScreenSize) {
+        this.smallScreenSize = smallScreenSize;
+    }
+
 }

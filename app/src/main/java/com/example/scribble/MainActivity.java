@@ -1,11 +1,13 @@
 package com.example.scribble;
 
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -46,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
         setUpBottomNavMenu();
         SharedViewModel sharedViewModel = new ViewModelProvider(this).get(SharedViewModel.class);
 
-
         ExecutorService executor = Executors.newSingleThreadExecutor();
         Handler handler = new Handler(Looper.getMainLooper());
 
@@ -56,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
             boolean newFile = loadFile();
             JSONReader jsonReader = null;
 
-            if (newFile) {
+            if (!newFile) {
                 try {
                     jsonReader = new JSONReader(dataFile);
                     List<Worry> ongoingWorries = jsonReader.readOngoingWorries();
@@ -71,7 +72,50 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        checkScreenSize2(sharedViewModel);
     }
+
+    private void checkScreenSize(SharedViewModel sharedViewModel) {
+        final View rootView = findViewById(android.R.id.content);
+        rootView.getViewTreeObserver().addOnGlobalLayoutListener(() -> {
+            Rect r = new Rect();
+            rootView.getWindowVisibleDisplayFrame(r);
+            int screenHeight = rootView.getRootView().getHeight();
+            int keypadHeight = screenHeight - r.bottom;
+            if (screenHeight - keypadHeight < 1500) {
+                sharedViewModel.setSmallScreenSize(true);
+            }
+        });
+    }
+
+    //TODO: fix
+    private void checkScreenSize2(SharedViewModel sharedViewModel) {
+        final View rootView = findViewById(android.R.id.content);
+        rootView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                Rect r = new Rect();
+                rootView.getWindowVisibleDisplayFrame(r);
+                int screenHeight = rootView.getRootView().getHeight();
+                int visibleHeight = r.bottom - r.top;
+                int keypadHeight = screenHeight - visibleHeight;
+
+                // Define your threshold value
+                int thresholdHeight = 1500; // Adjust this value as necessary
+
+                // Use the threshold to determine the screen size
+                if (screenHeight - keypadHeight < thresholdHeight) {
+                    sharedViewModel.setSmallScreenSize(true);
+                } else {
+                    sharedViewModel.setSmallScreenSize(false);
+                }
+
+                // Remove the listener to avoid multiple calls
+                rootView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+            }
+        });
+    }
+
 
     // TODO: comment
     // Returns true if a new file was created

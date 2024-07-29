@@ -1,19 +1,16 @@
 <resources>
-    <dimen name="text_margin">16dp</dimen>
-
-    --- Distortions Page ---
     <dimen name="distortion_diameter">60dp</dimen>
     <dimen name="distortion_title_size">16sp</dimen>
     <dimen name="distortion_subtitle_size">12sp</dimen>
     <dimen name="distortion_layout_margin">20dp</dimen>
     <dimen name="distortion_padding">10dp</dimen>
     <dimen name="distortion_subtitle_margin_top">4dp</dimen>
+
+    <dimen name="text_margin">16dp</dimen>
     <dimen name="button_elevation">2dp</dimen>
     <dimen name="button_width">320dp</dimen>
     <dimen name="margin_title">30dp</dimen>
     <dimen name="worry_size">150dp</dimen>
-
-
     <dimen name="top_margin">15dp</dimen>
-
+    <dimen name="textbox_width">350dp</dimen>
 </resources>

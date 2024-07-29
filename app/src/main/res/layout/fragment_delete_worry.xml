@@ -13,7 +13,7 @@
 
 
     <FrameLayout
-        android:id="@+id/frameLayout"
+        android:id="@+id/worryImageLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,7 +61,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/frameLayout" />
+        app:layout_constraintTop_toBottomOf="@id/worryImageLayout" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/confirmDeleteButton"
