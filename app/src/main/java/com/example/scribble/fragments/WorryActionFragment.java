@@ -59,6 +59,20 @@ public abstract class WorryActionFragment extends Fragment {
         return requireView().getRootView().getHeight();
     }
 
+    /***
+     * Returns the screen height in pixels
+     * @return Screen height in pixels
+     */
+    protected int getScreenWidth() {
+        Rect r = new Rect();
+        requireView().getWindowVisibleDisplayFrame(r);
+        return requireView().getRootView().getWidth();
+    }
+
+    protected boolean wideScreen() {
+        return getScreenWidth() >= 1080;
+    }
+
     protected boolean tallScreen() {
         return getScreenHeight() >= 2300;
     }

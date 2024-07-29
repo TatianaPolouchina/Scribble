@@ -48,6 +48,10 @@ public class NewWorryFragment3 extends WorryActionFragment {
 
         addSelectedDistortions();
         addOnClickListeners(view);
+
+        if (!wideScreen()) {
+            selectedDistortionsContainer.setColumnCount(3);
+        }
     }
 
     // TODO: comment
