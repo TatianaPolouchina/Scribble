@@ -179,7 +179,5 @@
 
     <!-- Content descriptions-->
     <string name="left_scribble_content_description">scribble design coming from the left of the screen\n</string>
-
-    <!-- TODO: organize strings -->
-
+    
 </resources>

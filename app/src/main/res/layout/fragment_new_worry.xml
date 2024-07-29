@@ -106,17 +106,6 @@
 
     </ScrollView>
 
-    <!--    <TextView-->
-    <!--        android:id="@+id/warningText"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:text="@string/no_name_entered_warning_text"-->
-    <!--        android:textAppearance="@style/Subtext"-->
-    <!--        android:visibility="gone"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />-->
-
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/next_button"
         style="@style/BlueButton"

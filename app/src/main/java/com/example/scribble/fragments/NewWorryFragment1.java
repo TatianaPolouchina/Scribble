@@ -1,5 +1,6 @@
 package com.example.scribble.fragments;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -18,6 +19,7 @@ import com.example.scribble.R;
 import com.example.scribble.Worry;
 import com.example.scribble.StringHelper;
 import com.example.scribble.WorryImageHelper;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Objects;
@@ -68,6 +70,7 @@ public class NewWorryFragment1 extends WorryActionFragment {
     }
 
     // TODO: comment
+    @SuppressLint("ShowToast")
     private void addOnClickListeners(@NonNull View view) {
         view.findViewById(R.id.next_button).setOnClickListener(v -> {
             if (!Objects.requireNonNull(textInputField.getText()).toString().isEmpty()) {
@@ -76,7 +79,9 @@ public class NewWorryFragment1 extends WorryActionFragment {
                 NavHostFragment.findNavController(this).navigate
                         (R.id.action_newWorryFragment1_to_newWorryFragment2);
             } else {
-                //view.findViewById(R.id.warningText).setVisibility(View.VISIBLE);
+                Snackbar snackbar = Snackbar.make(view, R.string.no_name_entered_warning_text, 1500);
+                snackbar.setBackgroundTint(requireContext().getColor(R.color.lightBlue));
+                snackbar.show();
             }
         });
 

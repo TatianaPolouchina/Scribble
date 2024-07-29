@@ -48,16 +48,18 @@ public class OngoingWorriesFragment extends Fragment implements OnItemClickListe
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        sharedViewModel.getOngoingWorriesLiveData().observe(getViewLifecycleOwner(), worries ->
-                updateOngoingWorryUI(view));
+        sharedViewModel.getOngoingWorriesLiveData().observe(getViewLifecycleOwner(), worries -> {
+            setupRecyclerView(view);
+            setupWorryNumberText(view);
+        });
         sharedViewModel.getFinishedWorriesLiveData().observe(getViewLifecycleOwner(), worries ->
-                updateFinishedWorryUI(view));
+                updateNoWorryText(view));
         selectMenuItem();
         handleBackPress();
     }
 
     //TODO: refactor
-    private void updateFinishedWorryUI(@NonNull View view) {
+    private void updateNoWorryText(@NonNull View view) {
         int numWorries = sharedViewModel.getOngoingWorries().size();
         int numFinishedWorries = sharedViewModel.getFinishedWorries().size();
         TextView noWorriesText = view.findViewById(R.id.noWorriesText);
@@ -65,19 +67,18 @@ public class OngoingWorriesFragment extends Fragment implements OnItemClickListe
         if (numWorries == 0 && numFinishedWorries == 0) {
             noWorriesText.setVisibility(View.VISIBLE);
             downArrowImage.setVisibility(View.VISIBLE);
-        } else if (numWorries == 0){
+        } else if (numWorries == 0) {
             noWorriesText.setText(R.string.no_ongoing_worries_text);
             noWorriesText.setVisibility(View.VISIBLE);
+            downArrowImage.setVisibility(View.GONE);
+        } else {
+            noWorriesText.setVisibility(View.GONE);
+            downArrowImage.setVisibility(View.GONE);
         }
     }
 
     //TODO: refactor
-    private void updateOngoingWorryUI(@NonNull View view) {
-        WorryCardAdapter adapter = new WorryCardAdapter(sharedViewModel.getOngoingWorries(), this);
-        RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
-        recyclerView.setAdapter(adapter);
-
+    private void setupWorryNumberText(@NonNull View view) {
         TextView worryNumberText = view.findViewById(R.id.tvSecond);
         int numWorries = sharedViewModel.getOngoingWorries().size();
         if (numWorries == 1) {
@@ -86,6 +87,13 @@ public class OngoingWorriesFragment extends Fragment implements OnItemClickListe
             worryNumberText.setText(getString(R.string.ongoing_page_subtitle,
                     Integer.toString(numWorries)));
         }
+    }
+
+    private void setupRecyclerView(@NonNull View view) {
+        WorryCardAdapter adapter = new WorryCardAdapter(sharedViewModel.getOngoingWorries(), this);
+        RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        recyclerView.setAdapter(adapter);
     }
 
     /***
