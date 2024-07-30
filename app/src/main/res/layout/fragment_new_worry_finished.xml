@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     android:background="@color/white"
-    tools:context="com.example.scribble.fragments.NewWorryFragment3">
+    tools:context="com.example.scribble.fragments.NewWorryFinishedFragment">
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -62,18 +63,40 @@
                     android:src="@drawable/worry_2" />
             </FrameLayout>
 
+
             <TextView
-                android:id="@+id/instruction"
+                android:id="@+id/worryOverMessage1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/rectangle_rounded_15dp"
                 android:fontFamily="@font/karla_bold"
-                android:paddingTop="120dp"
-                android:text="@string/worry_created_message"
+                android:gravity="center_horizontal"
+                android:paddingStart="15dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="15dp"
+                android:paddingBottom="8dp"
+                android:text="@string/worry_created_message_1"
                 android:textColor="@color/darkBlueMain"
-                android:textSize="32sp"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/worryImageLayout" />
+
+
+            <TextView
+                android:id="@+id/worryOverMessage2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/karla_bold"
+                android:gravity="center_horizontal"
+                android:text="@string/worry_created_message_2"
+                android:textColor="@color/darkBlueMain"
+                android:textSize="36sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/worryOverMessage1" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

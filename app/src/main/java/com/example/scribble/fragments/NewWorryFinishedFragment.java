@@ -8,13 +8,10 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.scribble.R;
-import com.example.scribble.SharedViewModel;
 
 public class NewWorryFinishedFragment extends WorryActionFragment {
 
@@ -41,6 +38,5 @@ public class NewWorryFinishedFragment extends WorryActionFragment {
             NavHostFragment.findNavController(this).navigate
                     (R.id.action_newWorryFinishedFragment_to_ongoingWorriesFragment);
         });
-
     }
 }

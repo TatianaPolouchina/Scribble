@@ -96,12 +96,12 @@
 
 
             <TextView
-                android:id="@+id/instruction"
+                android:id="@+id/worryFinishedMessage1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:fontFamily="@font/karla_bold"
-                android:text="@string/worry_ended_message"
+                android:text="@string/worry_ended_message_1"
                 android:textColor="@color/lightOrangeMain"
                 android:textSize="48sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -109,17 +109,18 @@
                 app:layout_constraintTop_toBottomOf="@+id/worryImageLayout" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/worryFinishedMessage2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:fontFamily="@font/karla_bold"
-                android:text="@string/worry_ended_subtitle"
+                android:gravity="center_horizontal"
+                android:text="@string/worry_ended_subtitle_1"
                 android:textColor="#9A9A9A"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/instruction" />
+                app:layout_constraintTop_toBottomOf="@+id/worryFinishedMessage1" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

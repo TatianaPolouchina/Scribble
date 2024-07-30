@@ -1,6 +1,7 @@
 package com.example.scribble;
 
 import android.content.Context;
+import android.widget.Toast;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -59,6 +60,7 @@ public class SharedViewModel extends ViewModel {
             ongoingWorries.setValue(new ArrayList<>());
         }
         Objects.requireNonNull(this.ongoingWorries.getValue()).add(0, worry.getValue());
+        Toast.makeText(context, R.string.worry_saved_toast, Toast.LENGTH_SHORT).show();
         saveData(context);
     }
 

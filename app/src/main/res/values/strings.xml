@@ -91,9 +91,10 @@
     <string name="new_worry_button_text">Next</string>
     <string name="new_worry_distortions_prompt">Is this a distorted thought?</string>
     <string name="add_distortion_button_label">Add distortions</string>
-    <string name="worry_created_message">Comforting Message</string>
+    <string name="worry_created_message_1">Worry created</string>
+    <string name="worry_created_message_2">Now,\nLet it go</string>
     <string name="worry_finished_button">Finish</string>
-
+    <string name="worry_saved_toast">"Worry saved</string>
 
     <!-- Reminders -->
     <string name="reminder_1">All worries come to an end</string>
@@ -159,9 +160,11 @@
     <string name="yes_button_text">Yes</string>
     <string name="finish_worry_question">Was it as bad as you feared?</string>
     <string name="finish_worry_prompt_2">How did it end?</string>
-    <string name="worry_ended_message">Yay!</string>
+    <string name="worry_ended_message_1">Yay!</string>
+    <string name="worry_ended_subtitle_1">This worry is over</string>
+    <string name="worry_ended_message_2">Phew,</string>
+    <string name="worry_ended_subtitle_2">This worry wasn\'t so\nscary after all</string>
     <string name="close_button_text">Close</string>
-    <string name="worry_ended_subtitle">This worry is over</string>
 
     <!-- Worry fragment-->
     <string name="better_than_expected_badge_text">This worry went better than expected!</string>
@@ -179,5 +182,5 @@
 
     <!-- Content descriptions-->
     <string name="left_scribble_content_description">scribble design coming from the left of the screen\n</string>
-    
+
 </resources>

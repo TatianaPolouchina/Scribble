@@ -8,19 +8,19 @@ import android.os.Bundle;
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.example.scribble.R;
-import com.example.scribble.SharedViewModel;
 import com.example.scribble.Worry;
+
+import java.util.Random;
 
 public class EndWorryFragment3 extends WorryActionFragment {
     private Worry worry;
@@ -54,6 +54,8 @@ public class EndWorryFragment3 extends WorryActionFragment {
             }
         }
 
+        randomizeMessage(view);
+
         fadeToFinishedWorry(view);
 
         view.findViewById(R.id.closeButton).setOnClickListener(v -> {
@@ -63,6 +65,25 @@ public class EndWorryFragment3 extends WorryActionFragment {
         });
 
         handleBackPress();
+    }
+
+    /***
+     * Randomly assigns the finished worry one of two messages. message 2 can only be assigned if
+     * the worry had betterThanExpected set to true
+     * @param view view containing the messages
+     */
+    public void randomizeMessage(View view) {
+        TextView worryMessage = view.findViewById(R.id.worryFinishedMessage1);
+        TextView worrySubtitle = view.findViewById(R.id.worryFinishedMessage2);
+
+        Random random = new Random();
+        if (random.nextBoolean() && worry.isBetterThanExpected()) {
+            worryMessage.setText(R.string.worry_ended_message_2);
+            worrySubtitle.setText(R.string.worry_ended_subtitle_2);
+        } else {
+            worryMessage.setText(R.string.worry_ended_message_1);
+            worrySubtitle.setText(R.string.worry_ended_subtitle_1);
+        }
     }
 
     /***

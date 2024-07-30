@@ -54,8 +54,13 @@ public class OngoingWorriesFragment extends Fragment implements OnItemClickListe
         });
         sharedViewModel.getFinishedWorriesLiveData().observe(getViewLifecycleOwner(), worries ->
                 updateNoWorryText(view));
-        selectMenuItem();
         handleBackPress();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        selectMenuItem();
     }
 
     //TODO: refactor
