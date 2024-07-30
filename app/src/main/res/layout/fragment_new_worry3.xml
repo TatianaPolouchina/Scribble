@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@android:color/white"
     tools:context="com.example.scribble.fragments.NewWorryFragment3">
 
     <ScrollView
@@ -58,7 +58,7 @@
                     android:layout_width="@dimen/worry_size"
                     android:layout_height="@dimen/worry_size"
                     android:layout_gravity="center"
-                    android:src="@drawable/worry_2" />
+                    android:src="@drawable/worry_1_blu" />
             </FrameLayout>
 
             <TextView
@@ -88,7 +88,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginTop="20dp"
-                    android:background="@color/white"
+                    android:background="@android:color/white"
                     android:src="@drawable/vector_plus_sign"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/addDistortionLayout"

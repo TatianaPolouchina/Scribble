@@ -3,7 +3,7 @@
     <item android:state_selected="true">
         <layer-list>
             <item android:drawable="@drawable/vector_cd_magnifying_glass" />
-            <item android:drawable="@drawable/circle_purple" />
+            <item android:drawable="@drawable/circle_dark_blue" />
         </layer-list>
     </item>
     <!-- Default state -->

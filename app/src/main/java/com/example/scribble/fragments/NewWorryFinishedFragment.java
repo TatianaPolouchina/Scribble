@@ -13,7 +13,7 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.scribble.R;
 
-public class NewWorryFinishedFragment extends WorryActionFragment {
+public class NewWorryFinishedFragment extends BaseFragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

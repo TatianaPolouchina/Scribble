@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@android:color/white"
     tools:context="com.example.scribble.fragments.EndWorryFragment2">
 
     <ScrollView
@@ -70,7 +70,7 @@
                     android:layout_width="@dimen/worry_size"
                     android:layout_height="@dimen/worry_size"
                     android:layout_gravity="center"
-                    android:src="@drawable/worry_2" />
+                    android:src="@drawable/worry_1_blu" />
             </FrameLayout>
 
             <TextView

@@ -5,8 +5,6 @@ import android.os.Bundle;
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -22,21 +20,18 @@ import android.widget.TextView;
 import com.example.scribble.MainActivity;
 import com.example.scribble.OnItemClickListener;
 import com.example.scribble.R;
-import com.example.scribble.SharedViewModel;
 import com.example.scribble.Worry;
 import com.example.scribble.WorryCardAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Objects;
 
-public class OngoingWorriesFragment extends Fragment implements OnItemClickListener {
+public class OngoingWorriesFragment extends BaseFragment implements OnItemClickListener {
 
-    private SharedViewModel sharedViewModel;
-
+    //TODO: comment all
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
     }
 
     @Override
@@ -60,19 +55,20 @@ public class OngoingWorriesFragment extends Fragment implements OnItemClickListe
     @Override
     public void onResume() {
         super.onResume();
+        ((MainActivity) requireActivity()).setStatusBarColor(R.color.lightBlue);
         selectMenuItem();
     }
 
-    //TODO: refactor
     private void updateNoWorryText(@NonNull View view) {
-        int numWorries = sharedViewModel.getOngoingWorries().size();
-        int numFinishedWorries = sharedViewModel.getFinishedWorries().size();
+        int numOngoing = sharedViewModel.getOngoingWorries().size();
+        int numFinished = sharedViewModel.getFinishedWorries().size();
         TextView noWorriesText = view.findViewById(R.id.noWorriesText);
         ImageView downArrowImage = view.findViewById(R.id.downArrow);
-        if (numWorries == 0 && numFinishedWorries == 0) {
+
+        if (numOngoing == 0 && numFinished == 0) {
             noWorriesText.setVisibility(View.VISIBLE);
             downArrowImage.setVisibility(View.VISIBLE);
-        } else if (numWorries == 0) {
+        } else if (numOngoing == 0) {
             noWorriesText.setText(R.string.no_ongoing_worries_text);
             noWorriesText.setVisibility(View.VISIBLE);
             downArrowImage.setVisibility(View.GONE);
@@ -82,7 +78,6 @@ public class OngoingWorriesFragment extends Fragment implements OnItemClickListe
         }
     }
 
-    //TODO: refactor
     private void setupWorryNumberText(@NonNull View view) {
         TextView worryNumberText = view.findViewById(R.id.tvSecond);
         int numWorries = sharedViewModel.getOngoingWorries().size();
@@ -129,12 +124,6 @@ public class OngoingWorriesFragment extends Fragment implements OnItemClickListe
         if (bottomNav.getMenu().findItem(bottomNav.getSelectedItemId()) != toSelect) {
             toSelect.setChecked(true);
         }
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        ((MainActivity) requireActivity()).setStatusBarColor(R.color.lightBlue);
     }
 
     //TODO: comment and finish

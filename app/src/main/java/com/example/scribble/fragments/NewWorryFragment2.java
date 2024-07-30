@@ -12,11 +12,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.scribble.R;
+import com.example.scribble.Utils;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Objects;
 
-public class NewWorryFragment2 extends WorryActionFragment {
+public class NewWorryFragment2 extends BaseFragment {
 
     public NewWorryFragment2() {
     }
@@ -40,9 +41,9 @@ public class NewWorryFragment2 extends WorryActionFragment {
         ImageView worryImage = view.findViewById(R.id.worryCharacter);
 
         worryImage.setImageResource(sharedViewModel.getWorry().getOngoingImageResId());
-        if (tallScreen()) {
+        if (Utils.screenUtils.tallScreen(view)) {
             textInputField.requestFocus();
-            showKeyboard(textInputField);
+            Utils.KeyboardUtils.showKeyboard(requireActivity(), textInputField);
         }
         addOnClickListeners(view, textInputField);
     }

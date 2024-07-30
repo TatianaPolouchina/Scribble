@@ -28,7 +28,7 @@
     <ImageView
         android:layout_width="100dp"
         android:layout_height="70dp"
-        android:src="@drawable/test"
+        android:src="@drawable/vector_sun_right"
         app:layout_constraintBottom_toBottomOf="@+id/tvFirst"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tvFirst"

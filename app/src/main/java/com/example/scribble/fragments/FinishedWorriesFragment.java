@@ -5,8 +5,6 @@ import android.os.Bundle;
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -21,20 +19,17 @@ import android.widget.TextView;
 import com.example.scribble.MainActivity;
 import com.example.scribble.OnItemClickListener;
 import com.example.scribble.R;
-import com.example.scribble.SharedViewModel;
 import com.example.scribble.Worry;
 import com.example.scribble.WorryCardAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Objects;
 
-public class FinishedWorriesFragment extends Fragment implements OnItemClickListener {
+public class FinishedWorriesFragment extends BaseFragment implements OnItemClickListener {
 
-    private SharedViewModel sharedViewModel;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
     }
 
     @Override
@@ -43,11 +38,9 @@ public class FinishedWorriesFragment extends Fragment implements OnItemClickList
         return inflater.inflate(R.layout.fragment_finished_worries, container, false);
     }
 
-    // TODO: refactor
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         sharedViewModel.getFinishedWorriesLiveData().observe(getViewLifecycleOwner(), worries ->
                 updateUI(view));
         handleBackPress();

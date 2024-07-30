@@ -14,7 +14,7 @@
         <item name="android:background">@drawable/rectangle_rounded_10dp_blue</item>
         <item name="height">10dp</item>
         <item name="android:backgroundTint">@color/darkBlueMain</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">16sp</item>
         <item name="android:fontFamily">@font/karla_bold</item>
         <item name="android:textAlignment">center</item>
@@ -27,13 +27,13 @@
     </style>
 
     <style name="BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
-        <item name="android:background">@color/white</item>
+        <item name="android:background">@android:color/white</item>
         <item name="android:layout_alignParentBottom">true</item>
-        <item name="itemBackground">@drawable/temp_background</item>
+        <item name="itemBackground">@drawable/selector_menu_item_background</item>
     </style>
 
     <style name="AppTheme.BottomNavigationView" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="android:background">@color/white</item>
+        <item name="android:background">@android:color/white</item>
     </style>
 
     <style name="TextInputLayout">

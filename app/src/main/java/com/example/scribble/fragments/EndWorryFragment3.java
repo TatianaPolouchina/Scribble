@@ -22,7 +22,7 @@ import com.example.scribble.Worry;
 
 import java.util.Random;
 
-public class EndWorryFragment3 extends WorryActionFragment {
+public class EndWorryFragment3 extends BaseFragment {
     private Worry worry;
     private ImageView ongoingWorryImage;
     private ImageView finishedWorryImage;
@@ -38,33 +38,35 @@ public class EndWorryFragment3 extends WorryActionFragment {
         return inflater.inflate(R.layout.fragment_end_worry3, container, false);
     }
 
-    // TODO: refactor
+    // TODO: comment all
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ongoingWorryImage = view.findViewById(R.id.worryCharacter);
         finishedWorryImage = view.findViewById(R.id.finishedWorryCharacter);
+        setupWorry();
+        randomizeMessage(view);
+        fadeToFinishedWorry(view);
+        addOnCLickListeners(view);
+        handleBackPress();
+    }
 
-        //update image
+    private void setupWorry() {
         if (getArguments() != null) {
             worry = (Worry) getArguments().getSerializable("selectedWorry");
-            if (worry != null) {
-                ongoingWorryImage.setImageResource(worry.getOngoingImageResId());
-                finishedWorryImage.setImageResource(worry.getFinishedImageResId());
-            }
         }
+        if (worry != null) {
+            ongoingWorryImage.setImageResource(worry.getOngoingImageResId());
+            finishedWorryImage.setImageResource(worry.getFinishedImageResId());
+        }
+    }
 
-        randomizeMessage(view);
-
-        fadeToFinishedWorry(view);
-
+    private void addOnCLickListeners(@NonNull View view) {
         view.findViewById(R.id.closeButton).setOnClickListener(v -> {
             sharedViewModel.finishWorry(worry, getContext());
             NavHostFragment.findNavController(this).navigate
                     (R.id.action_endWorryFragment3_to_finishedWorriesFragment);
         });
-
-        handleBackPress();
     }
 
     /***

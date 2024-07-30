@@ -16,6 +16,7 @@ import android.widget.ImageView;
 
 import com.example.scribble.MainActivity;
 import com.example.scribble.R;
+import com.example.scribble.Utils;
 import com.example.scribble.Worry;
 import com.example.scribble.StringHelper;
 import com.example.scribble.WorryImageHelper;
@@ -24,7 +25,7 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Objects;
 
-public class NewWorryFragment1 extends WorryActionFragment {
+public class NewWorryFragment1 extends BaseFragment {
     private StringHelper stringHelper;
     private WorryImageHelper worryImageHelper;
     private TextInputEditText textInputField;
@@ -45,27 +46,28 @@ public class NewWorryFragment1 extends WorryActionFragment {
     }
 
     @Override
-    // TODO: refactor
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ((MainActivity) requireActivity()).setStatusBarColor(R.color.white);
-        sharedViewModel.setWorry(new Worry(stringHelper, worryImageHelper));
         textInputField = view.findViewById(R.id.textInputField);
-
-        ImageView worryImage = view.findViewById(R.id.worryCharacter);
-        worryImage.setImageResource(sharedViewModel.getWorry().getOngoingImageResId());
-
+        ((MainActivity) requireActivity()).setStatusBarColor(R.color.white);
+        setupWorry(view);
         addOnClickListeners(view);
-
-        if (tallScreen()) {
+        if (Utils.screenUtils.tallScreen(view)) {
             displayKeyboard();
         }
+    }
+
+    private void setupWorry(@NonNull View view) {
+        sharedViewModel.setWorry(new Worry(stringHelper, worryImageHelper));
+        ImageView worryImage = view.findViewById(R.id.worryCharacter);
+        worryImage.setImageResource(sharedViewModel.getWorry().getOngoingImageResId());
     }
 
     // TODO: comment
     private void displayKeyboard() {
         textInputField.requestFocus();
-        showKeyboard(textInputField);
+        Utils.KeyboardUtils.showKeyboard(requireActivity(), textInputField);
+        //showKeyboard(textInputField);
         textInputField.setHint(stringHelper.getRandomHint());
     }
 

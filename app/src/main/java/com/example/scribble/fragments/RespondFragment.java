@@ -14,13 +14,14 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.scribble.R;
+import com.example.scribble.Utils;
 import com.example.scribble.Worry;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Objects;
 
 //TODO: add comments to all
-public class RespondFragment extends WorryActionFragment {
+public class RespondFragment extends BaseFragment {
     private Worry worry;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,10 +34,15 @@ public class RespondFragment extends WorryActionFragment {
         return inflater.inflate(R.layout.fragment_respond, container, false);
     }
 
-    // TODO: refactor
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        setupWorry(view);
+        setUpSubmitButton(view);
+        setupKeyboard(view);
+    }
+
+    private void setupWorry(@NonNull View view) {
         if (getArguments() != null) {
             worry = (Worry) getArguments().getSerializable("selectedWorry");
             if (worry != null) {
@@ -44,12 +50,13 @@ public class RespondFragment extends WorryActionFragment {
                 image.setImageResource(worry.getOngoingImageResId());
             }
         }
-        setUpSubmitButton(view);
+    }
 
+    private void setupKeyboard(@NonNull View view) {
         TextInputEditText textInput = view.findViewById(R.id.textInputField);
-        if (tallScreen()) {
+        if (Utils.screenUtils.tallScreen(view)) {
             textInput.requestFocus();
-            showKeyboard(textInput);
+            Utils.KeyboardUtils.showKeyboard(requireActivity(), textInput);
         }
     }
 

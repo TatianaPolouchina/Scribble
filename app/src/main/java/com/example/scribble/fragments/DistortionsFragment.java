@@ -4,8 +4,6 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
@@ -14,19 +12,16 @@ import android.view.ViewGroup;
 
 import com.example.scribble.MainActivity;
 import com.example.scribble.R;
-import com.example.scribble.SharedViewModel;
 import com.example.scribble.Utils;
 import com.example.scribble.Worry;
 
-public class DistortionsFragment extends Fragment {
+public class DistortionsFragment extends BaseFragment {
 
-    private SharedViewModel sharedViewModel;
     private DistortionsInfoFragment infoFragment;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
         return inflater.inflate(R.layout.fragment_distortions_page, container, false);
     }
 

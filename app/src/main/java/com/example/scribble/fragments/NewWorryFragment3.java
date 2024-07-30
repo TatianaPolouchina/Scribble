@@ -15,9 +15,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.scribble.R;
+import com.example.scribble.Utils;
 import com.example.scribble.Worry;
 
-public class NewWorryFragment3 extends WorryActionFragment {
+public class NewWorryFragment3 extends BaseFragment {
 
     private GridLayout selectedDistortionsContainer;
     private TextView addDistortionLabel;
@@ -36,20 +37,16 @@ public class NewWorryFragment3 extends WorryActionFragment {
         return inflater.inflate(R.layout.fragment_new_worry3, container, false);
     }
 
-    // TODO refactor method
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         selectedDistortionsContainer = view.findViewById(R.id.distortionsContainer);
         addDistortionLabel = view.findViewById(R.id.add_distortion_button_label);
-
         ImageView worryImage = view.findViewById(R.id.worryCharacter);
         worryImage.setImageResource(sharedViewModel.getWorry().getOngoingImageResId());
-
         addSelectedDistortions();
         addOnClickListeners(view);
-
-        if (!wideScreen()) {
+        if (!Utils.screenUtils.wideScreen(view)) {
             selectedDistortionsContainer.setColumnCount(3);
         }
     }

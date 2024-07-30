@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@android:color/white"
     tools:context="com.example.scribble.fragments.WorryFragment">
 
     <TextView
@@ -65,7 +65,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="290dp"
-                    android:background="@color/white"
+                    android:background="@android:color/white"
                     android:src="@drawable/rectangle_rounded_outline_transparent" />
 
 
@@ -99,7 +99,7 @@
                     android:layout_height="170dp"
                     android:layout_gravity="center"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/worry_2" />
+                    android:src="@drawable/worry_1_blu" />
 
             </FrameLayout>
 

@@ -33,27 +33,30 @@ public class MainActivity extends AppCompatActivity {
     private static final String JSON_STORE = "data.json";
     private File dataFile;
 
-    //TODO: refactor
+    //TODO: comment all
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setupNavController();
+        setUpBottomNavMenu();
+        SharedViewModel sharedViewModel = new ViewModelProvider(this).get(SharedViewModel.class);
+        loadData(sharedViewModel);
+    }
+
+    private void setupNavController() {
         NavHostFragment navHostFragment = (NavHostFragment)
                 getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
         assert navHostFragment != null;
         navController = navHostFragment.getNavController();
-        setUpBottomNavMenu();
-        SharedViewModel sharedViewModel = new ViewModelProvider(this).get(SharedViewModel.class);
+    }
 
+    private void loadData(SharedViewModel sharedViewModel) {
         ExecutorService executor = Executors.newSingleThreadExecutor();
         Handler handler = new Handler(Looper.getMainLooper());
-
-        //NEW:
-        // TODO: refactor
         executor.execute(() -> {
             boolean newFile = loadFile();
             JSONReader jsonReader;
-
             if (!newFile) {
                 try {
                     jsonReader = new JSONReader(dataFile);
@@ -70,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
 
     // TODO: comment
     // Returns true if a new file was created

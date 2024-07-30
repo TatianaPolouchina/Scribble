@@ -9,7 +9,6 @@ public class WorryImage {
         this.finishedImageResId = finishedImageResId;
     }
 
-
     public int getOngoingImageResId() {
         return ongoingImageResId;
     }

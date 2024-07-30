@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@android:color/white"
     tools:context="com.example.scribble.fragments.EndWorryFragment3">
 
     <ScrollView
@@ -71,7 +71,7 @@
 
                     <ImageView
                         style="@style/scribbleImageSize"
-                        android:background="@color/white" />
+                        android:background="@android:color/white" />
 
                     <ImageView
                         android:id="@+id/scribble"
@@ -83,14 +83,14 @@
                     android:layout_width="@dimen/worry_size"
                     android:layout_height="200dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/worry_2" />
+                    android:src="@drawable/worry_1_blu" />
 
                 <ImageView
                     android:id="@+id/worryCharacter"
                     android:layout_width="@dimen/worry_size"
                     android:layout_height="200dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/worry_2" />
+                    android:src="@drawable/worry_1_blu" />
 
             </FrameLayout>
 
