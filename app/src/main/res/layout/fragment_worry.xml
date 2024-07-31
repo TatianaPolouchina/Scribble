@@ -66,6 +66,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="290dp"
                     android:background="@android:color/white"
+                    android:importantForAccessibility="no"
                     android:src="@drawable/rectangle_rounded_outline_transparent" />
 
 
@@ -76,6 +77,7 @@
                     android:layout_gravity="center"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
+                    android:importantForAccessibility="no"
                     android:scaleType="centerInside"
                     android:src="@drawable/rectangle_rounded_10dp_blue" />
 
@@ -84,6 +86,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
+                    android:importantForAccessibility="no"
                     android:scaleType="fitCenter"
                     android:src="@drawable/vector_sun_and_stars" />
 
@@ -91,6 +94,7 @@
                     android:id="@+id/scribble"
                     style="@style/scribbleImage"
                     android:layout_gravity="center"
+                    android:importantForAccessibility="no"
                     app:tint="@color/lightBlue2" />
 
                 <ImageView
@@ -98,6 +102,7 @@
                     android:layout_width="170dp"
                     android:layout_height="170dp"
                     android:layout_gravity="center"
+                    android:importantForAccessibility="no"
                     android:scaleType="fitCenter"
                     android:src="@drawable/worry_1_blu" />
 
@@ -308,6 +313,7 @@
                     android:id="@+id/leftArrowBackgroundImage"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:importantForAccessibility="no"
                     android:scaleType="fitXY"
                     android:src="@drawable/rectangle_rounded_outline_white" />
 
@@ -333,6 +339,7 @@
                     android:id="@+id/rightArrowBackgroundImage"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:importantForAccessibility="no"
                     android:scaleType="fitXY"
                     android:src="@drawable/rectangle_rounded_outline_white" />
 

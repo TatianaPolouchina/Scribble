@@ -2,10 +2,12 @@ package com.example.scribble.fragments;
 
 import android.os.Bundle;
 import android.view.View;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+
 import com.example.scribble.SharedViewModel;
 import com.example.scribble.Utils;
 import com.google.android.material.textfield.TextInputEditText;

@@ -51,6 +51,7 @@
                     android:id="@+id/scribble"
                     style="@style/scribbleImage"
                     android:layout_gravity="center"
+                    android:importantForAccessibility="no"
                     app:tint="@color/lightBlue2" />
 
                 <ImageView
@@ -58,6 +59,7 @@
                     android:layout_width="@dimen/worry_size"
                     android:layout_height="@dimen/worry_size"
                     android:layout_gravity="center"
+                    android:importantForAccessibility="no"
                     android:src="@drawable/worry_1_blu" />
             </FrameLayout>
 

@@ -50,9 +50,9 @@ public class NewWorryFragment2 extends BaseFragment {
      */
     private void addOnClickListeners(@NonNull View view, TextInputEditText textInputField) {
         view.findViewById(R.id.skipButton).setOnClickListener(v -> {
-                sharedViewModel.getWorry().setDescription("");
-                NavHostFragment.findNavController(this).navigate
-                        (R.id.action_newWorryFragment2_to_newWorryFragment3);
+            sharedViewModel.getWorry().setDescription("");
+            NavHostFragment.findNavController(this).navigate
+                    (R.id.action_newWorryFragment2_to_newWorryFragment3);
         });
         view.findViewById(R.id.next_button).setOnClickListener(v -> {
             sharedViewModel.getWorry().setDescription(Objects.requireNonNull

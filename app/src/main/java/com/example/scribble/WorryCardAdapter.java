@@ -60,8 +60,9 @@ public class WorryCardAdapter extends RecyclerView.Adapter<WorryCardAdapter.View
         return worryItems.size();
     }
 
-    // TODO: finish comments
-    // ViewHolder class to hold the views
+    /***
+     * ViewHolder class to hold the Worry Views
+     */
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView textView;
         public final ImageView image;
@@ -74,6 +75,6 @@ public class WorryCardAdapter extends RecyclerView.Adapter<WorryCardAdapter.View
 
         public void bind(final OnItemClickListener listener) {
             itemView.setOnClickListener(v -> listener.onItemClick(getAdapterPosition()));
-            }
+        }
     }
 }

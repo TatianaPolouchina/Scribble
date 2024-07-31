@@ -32,9 +32,6 @@
         <item name="itemBackground">@drawable/selector_menu_item_background</item>
     </style>
 
-    <style name="AppTheme.BottomNavigationView" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="android:background">@android:color/white</item>
-    </style>
 
     <style name="TextInputLayout">
         <item name="android:layout_width">@dimen/textbox_width</item>

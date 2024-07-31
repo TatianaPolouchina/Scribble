@@ -24,6 +24,7 @@ import java.util.Objects;
  */
 public class RespondFragment extends BaseFragment {
     private Worry worry;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

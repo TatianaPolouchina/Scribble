@@ -60,7 +60,7 @@ public class EndWorryFragment2 extends BaseFragment {
         }
     }
 
-     /***
+    /***
      * Adds all on click listeners to Views
      * @param view container View
      */

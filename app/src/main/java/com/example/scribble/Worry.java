@@ -85,9 +85,9 @@ public class Worry implements Serializable {
     }
 
     /**
-    * Adds a response to the front of a list of responses/reminders
-    *
-    * @param response the response to be added
+     * Adds a response to the front of a list of responses/reminders
+     *
+     * @param response the response to be added
      **/
     public void addResponse(String response) {
         this.responses.add(0, response);

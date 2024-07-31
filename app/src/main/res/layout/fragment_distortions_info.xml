@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="com.example.scribble.fragments.DistortionsInfoFragment"
-    android:background="@drawable/rectangle_rounded_outline_white">
+    android:background="@drawable/rectangle_rounded_outline_white"
+    tools:context="com.example.scribble.fragments.DistortionsInfoFragment">
 
     <View
         android:id="@+id/touchScreen"
@@ -56,6 +56,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginBottom="50dp"
         android:background="#00000000"
+        android:importantForAccessibility="no"
         android:scaleType="fitXY"
         android:src="@drawable/scribble"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -19,6 +19,7 @@ public class Utils {
 
         /**
          * Closes the user keyboard
+         *
          * @param activity the current activity where the keyboard is open
          */
         public static void hideKeyboard(Activity activity) {
@@ -33,6 +34,7 @@ public class Utils {
 
         /**
          * Opens the user keyboard
+         *
          * @param editText desired text input field
          */
         public static void showKeyboard(Activity activity, EditText editText) {

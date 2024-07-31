@@ -26,6 +26,7 @@
             android:layout_height="90dp"
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
+            android:importantForAccessibility="no"
             android:scaleType="fitXY"
             android:src="@drawable/vector_trashcan"
             app:tint="@color/ongoing_vs_finished_color" />
@@ -34,8 +35,9 @@
             android:id="@+id/scribble"
             android:layout_width="60dp"
             android:layout_height="50dp"
-            android:layout_marginEnd="1dp"
             android:layout_gravity="center"
+            android:layout_marginEnd="1dp"
+            android:importantForAccessibility="no"
             android:src="@drawable/scribble"
             app:tint="@color/lightBlue2" />
 
@@ -44,6 +46,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:importantForAccessibility="no"
             android:src="@drawable/vector_sun_and_star"
             app:tint="@color/darkOrange" />
 
@@ -70,10 +73,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:background="@drawable/rectangle_rounded_outline_white"
+        android:elevation="@dimen/button_elevation"
         android:gravity="center_horizontal"
         android:stateListAnimator="@anim/nav_default_enter_anim"
         android:text="@string/delete_button_text"
-        android:elevation="@dimen/button_elevation"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -84,9 +87,9 @@
         android:id="@+id/cancelButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/karla"
+        android:padding="10dp"
         android:text="@string/cancel_delete_button_text"
         android:textColor="@color/grey"
         android:textSize="14sp"

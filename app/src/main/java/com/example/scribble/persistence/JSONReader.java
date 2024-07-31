@@ -53,6 +53,11 @@ public class JSONReader {
         return text.toString();
     }
 
+    /***
+     * Reads and returns the WorryImageHelper
+     *
+     * @return WorryImageHelper from the file
+     */
     public WorryImageHelper readWorryImageHelper() {
         WorryImageHelper worryImageHelper = new WorryImageHelper();
         try {
@@ -63,7 +68,12 @@ public class JSONReader {
         return worryImageHelper;
     }
 
-    //TODO: comment
+    /***
+     * Reads and returns the index list from the JSONArray
+     *
+     * @return the saved index list as a list of Integers
+     * @throws JSONException if the JSON array cannot be accessed
+     */
     public List<Integer> readIndexList() throws JSONException {
         List<Integer> indexList = new ArrayList<>();
         JSONArray indexListArray = jsonData.getJSONArray("worryImageIndexList");
@@ -72,9 +82,6 @@ public class JSONReader {
         }
         return indexList;
     }
-
-
-    //TODO: comment
 
     /***
      * Returns the list of ongoing worries from the source file
@@ -95,7 +102,6 @@ public class JSONReader {
      * Returns the list of finished worries from the source file
      *
      * @return list of all finished worries
-     * @throws JSONException if there is an error parsing the JSON data
      */
     public List<Worry> readFinishedWorries() {
         JSONArray JSONFinishedWorries;
@@ -109,6 +115,7 @@ public class JSONReader {
 
     /***
      * Converts and returns the array of JSONObjects into an array of type Worry
+     *
      * @param worryListJSON JSONArray of worries
      * @return ArrayList of worries
      */
@@ -126,9 +133,10 @@ public class JSONReader {
 
     /***
      * Returns the Worry contained in the JSONObject
+     *
      * @param json JSONObject containing the Worry
      * @return Worry object if there is an error parsing the JSON data
-     * @throws JSONException
+     * @throws JSONException if the JSON cannot be created
      */
     public Worry parseWorry(JSONObject json) throws JSONException {
         Worry worry = new Worry();
@@ -156,6 +164,7 @@ public class JSONReader {
 
     /***
      * Converts and returns the array of JSONObjects into an array of type String
+     *
      * @param json JSONArray of worries
      * @return ArrayList of responses as Strings
      * @throws JSONException if there is an error parsing the JSON data

@@ -9,8 +9,6 @@
     <string name="no_worries_prompt">Add a worry to get started</string>
     <string name="no_ongoing_worries_text">Congrats, zen master</string>
 
-    <string name="worry_button_description">Navigates to worry</string>
-
     <!-- Finished Worries Page-->
     <string name="finished_page_title">finished worries</string>
     <string name="finished_page_subtitle">You have %1$s finished worries</string>

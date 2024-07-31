@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
     /***
      * initializes dataFile as the file with the same name as JSON_STORE, or creates one if it does
      * not exist
+     *
      * @return true if a new file was created, false if it already exists
      */
     private boolean loadFile() {
@@ -137,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
 
     /***
      * Navigates to the fragment with ID fragmentId with a fade animation
+     *
      * @param fragmentId ID of the destination fragment
      */
     public void navigateWithFade(int fragmentId) {
@@ -150,6 +152,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Changes the background colour of the status bar
+     *
      * @param colourId the desired background colour code
      */
     public void setStatusBarColor(int colourId) {

@@ -23,7 +23,7 @@ public class SharedViewModel extends ViewModel {
 
     private final MutableLiveData<Worry> worry = new MutableLiveData<>();
     private MutableLiveData<List<Worry>> ongoingWorries;
-    private MutableLiveData<List<Worry>> finishedWorries;
+    private final MutableLiveData<List<Worry>> finishedWorries;
     private static final String JSON_STORE = "data.json";
     private JSONWriter jsonWriter;
     private WorryImageHelper worryImageHelper;
@@ -36,7 +36,6 @@ public class SharedViewModel extends ViewModel {
         this.finishedWorries.setValue(new ArrayList<>());
     }
 
-    //TODO: comment and fix
     public void setWorry(Worry worry) {
         this.worry.setValue(worry);
     }
@@ -53,7 +52,8 @@ public class SharedViewModel extends ViewModel {
     /***
      *  Saves the current worry object to the beginning of the list of Worries and to internal
      *  storage
-     * @param context
+     *
+     * @param context Application context
      */
     public void saveWorry(Context context) {
         if (this.jsonWriter == null) {
@@ -69,12 +69,10 @@ public class SharedViewModel extends ViewModel {
         saveData(context);
     }
 
-    // TODO: comment
-
     /***
      * Writes the ongoing worries, finished worries, and worryImageHelper to the JSON_STORE file
      *
-     * @param context
+     * @param context Application context
      */
     public void saveData(Context context) {
         if (this.jsonWriter == null) {

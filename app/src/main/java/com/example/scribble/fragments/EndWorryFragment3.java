@@ -121,6 +121,7 @@ public class EndWorryFragment3 extends BaseFragment {
         playScribbleAnimation(view);
 
     }
+
     /***
      * Plays the animated transition from ongoing to finished worry
      */

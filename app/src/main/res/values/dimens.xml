@@ -6,7 +6,6 @@
     <dimen name="distortion_padding">10dp</dimen>
     <dimen name="distortion_subtitle_margin_top">4dp</dimen>
 
-    <dimen name="text_margin">16dp</dimen>
     <dimen name="button_elevation">2dp</dimen>
     <dimen name="button_width">320dp</dimen>
     <dimen name="margin_title">30dp</dimen>

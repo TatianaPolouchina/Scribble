@@ -71,11 +71,13 @@
 
                     <ImageView
                         style="@style/scribbleImageSize"
-                        android:background="@android:color/white" />
+                        android:background="@android:color/white"
+                        android:importantForAccessibility="no" />
 
                     <ImageView
                         android:id="@+id/scribble"
-                        style="@style/scribbleImage" />
+                        style="@style/scribbleImage"
+                        android:importantForAccessibility="no" />
                 </FrameLayout>
 
                 <ImageView
@@ -83,6 +85,7 @@
                     android:layout_width="@dimen/worry_size"
                     android:layout_height="200dp"
                     android:layout_gravity="center"
+                    android:importantForAccessibility="no"
                     android:src="@drawable/worry_1_blu" />
 
                 <ImageView
@@ -90,6 +93,7 @@
                     android:layout_width="@dimen/worry_size"
                     android:layout_height="200dp"
                     android:layout_gravity="center"
+                    android:importantForAccessibility="no"
                     android:src="@drawable/worry_1_blu" />
 
             </FrameLayout>
