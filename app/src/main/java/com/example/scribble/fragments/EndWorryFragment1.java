@@ -36,17 +36,29 @@ public class EndWorryFragment1 extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         if (getArguments() != null) {
-            worry = (Worry) getArguments().getSerializable("selectedWorry");
-            if (worry != null) {
-                ImageView image = view.findViewById(R.id.worryCharacter);
-                image.setImageResource(worry.getOngoingImageResId());
-            }
+            loadWorry(view);
         }
-
         addOnClickListeners(view);
-
     }
 
+    /***
+     * Loads in worry data from arguments
+     * @param view container View
+     */
+    private void loadWorry(@NonNull View view) {
+        assert getArguments() != null;
+        worry = (Worry) getArguments().getSerializable("selectedWorry");
+        if (worry != null) {
+            ImageView image = view.findViewById(R.id.worryCharacter);
+            image.setImageResource(worry.getOngoingImageResId());
+        }
+    }
+
+    /***
+     * Adds all on click listeners to Views
+     *
+     * @param view container View
+     */
     private void addOnClickListeners(@NonNull View view) {
         Bundle bundle = new Bundle();
         bundle.putSerializable("selectedWorry", worry);

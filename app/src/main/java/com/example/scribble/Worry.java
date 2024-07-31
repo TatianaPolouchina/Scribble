@@ -30,12 +30,12 @@ public class Worry implements Serializable {
     public boolean finished;
     private List<String> responses;
 
-    public Worry(StringHelper stringHelper, WorryImageHelper worryImageHelper) {
+    public Worry(WorryImageHelper worryImageHelper) {
         this.title = "";
         this.howItEnded = "";
         this.worryImage = worryImageHelper.getRandomImage();
         this.responses = new ArrayList<>();
-        addResponse(stringHelper.getRandomReminder());
+        addResponse(StringHelper.getRandomReminder());
     }
 
     /***

@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
@@ -22,12 +21,8 @@ import com.example.scribble.Worry;
  * 3rd fragment for creating a new worry, asks user to assign cognitive distortions to the worry
  */
 public class NewWorryFragment3 extends BaseFragment {
-
     private GridLayout selectedDistortionsContainer;
     private TextView addDistortionLabel;
-
-    public NewWorryFragment3() {
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,15 +49,15 @@ public class NewWorryFragment3 extends BaseFragment {
         }
     }
 
-    // TODO: comment
+    /***
+     * Adds all on click listeners to Views
+     *
+     * @param view container View
+     */
     private void addOnClickListeners(@NonNull View view) {
-        ConstraintLayout addDistortionLayout = view.findViewById(R.id.addDistortionLayout);
-
-        addDistortionLayout.setOnClickListener(v ->
+        view.findViewById(R.id.addDistortionLayout).setOnClickListener(v ->
                 NavHostFragment.findNavController(this).navigate
                         (R.id.action_newWorryFragment3_to_distortionsFragment));
-
-
         view.findViewById(R.id.next_button).setOnClickListener(v ->
                 NavHostFragment.findNavController(this).navigate
                         (R.id.action_newWorryFragment3_to_newWorryFinishedFragment));
@@ -105,6 +100,11 @@ public class NewWorryFragment3 extends BaseFragment {
         }
     }
 
+    /***
+     * Adds the cognitive distortion image with ID id to the selectedDistortionsContainer
+     *
+     * @param id ID of image to be added
+     */
     private void addCDtoLayout(int id) {
         ImageView imageView = new ImageView(getContext());
         imageView.setImageResource(id);
@@ -115,6 +115,5 @@ public class NewWorryFragment3 extends BaseFragment {
 
         selectedDistortionsContainer.addView(imageView);
         addDistortionLabel.setVisibility(View.GONE);
-
     }
 }

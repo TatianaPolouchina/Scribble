@@ -32,10 +32,8 @@ public class NewWorryFinishedFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         ImageView worryImage = view.findViewById(R.id.worryCharacter);
         worryImage.setImageResource(sharedViewModel.getWorry().getOngoingImageResId());
-
         view.findViewById(R.id.finish_button).setOnClickListener(v -> {
             sharedViewModel.saveWorry(getContext());
             NavHostFragment.findNavController(this).navigate

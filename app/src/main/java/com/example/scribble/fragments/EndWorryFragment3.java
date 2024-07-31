@@ -42,7 +42,6 @@ public class EndWorryFragment3 extends BaseFragment {
         return inflater.inflate(R.layout.fragment_end_worry3, container, false);
     }
 
-    // TODO: comment all
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -50,11 +49,14 @@ public class EndWorryFragment3 extends BaseFragment {
         finishedWorryImage = view.findViewById(R.id.finishedWorryCharacter);
         setupWorry();
         randomizeMessage(view);
-        fadeToFinishedWorry(view);
+        playFinishAnimation(view);
         addOnCLickListeners(view);
         handleBackPress();
     }
 
+    /***
+     * Loads in worry data and updates images
+     */
     private void setupWorry() {
         if (getArguments() != null) {
             worry = (Worry) getArguments().getSerializable("selectedWorry");
@@ -65,6 +67,11 @@ public class EndWorryFragment3 extends BaseFragment {
         }
     }
 
+    /***
+     * Adds all on click listeners to Views
+     *
+     * @param view container View
+     */
     private void addOnCLickListeners(@NonNull View view) {
         view.findViewById(R.id.closeButton).setOnClickListener(v -> {
             sharedViewModel.finishWorry(worry, getContext());
@@ -76,6 +83,7 @@ public class EndWorryFragment3 extends BaseFragment {
     /***
      * Randomly assigns the finished worry one of two messages. message 2 can only be assigned if
      * the worry had betterThanExpected set to true
+     *
      * @param view view containing the messages
      */
     public void randomizeMessage(View view) {
@@ -105,11 +113,18 @@ public class EndWorryFragment3 extends BaseFragment {
     }
 
     /***
-     * Plays the animated transition from ongoing to finished worry
-     *
-     * @param view The view containing the worry images
+     * Plays the worry and scribble animations simultaneously
+     * @param view container view
      */
-    public void fadeToFinishedWorry(View view) {
+    public void playFinishAnimation(View view) {
+        fadeToFinishedWorry();
+        playScribbleAnimation(view);
+
+    }
+    /***
+     * Plays the animated transition from ongoing to finished worry
+     */
+    public void fadeToFinishedWorry() {
         ObjectAnimator fadeOutOngoingWorry = ObjectAnimator.ofFloat(ongoingWorryImage, "alpha", 1f, 0f);
         ObjectAnimator fadeInFinishedWorry = ObjectAnimator.ofFloat(finishedWorryImage, "alpha", 0f, 1f);
         fadeOutOngoingWorry.setDuration(1800);
@@ -117,7 +132,14 @@ public class EndWorryFragment3 extends BaseFragment {
 
         fadeOutOngoingWorry.start();
         fadeInFinishedWorry.start();
+    }
 
+    /***
+     * Plays the scribble to sun animation
+     *
+     * @param view container View
+     */
+    private void playScribbleAnimation(View view) {
         VideoView videoView = view.findViewById(R.id.animation);
         Uri videoUri = Uri.parse("android.resource://" + requireContext().getPackageName() + "/" + R.raw.scribble_to_sun_animation);
         videoView.setVideoURI(videoUri);
@@ -133,6 +155,5 @@ public class EndWorryFragment3 extends BaseFragment {
                 return false;
             });
         });
-
     }
 }

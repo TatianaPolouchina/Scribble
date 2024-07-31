@@ -56,6 +56,10 @@ public class DeleteWorryFragment extends DialogFragment {
         addOnClickListeners(view);
     }
 
+    /***
+     * Adds all on click listeners to Views
+     * @param view container View
+     */
     private void addOnClickListeners(@NonNull View view) {
         view.findViewById(R.id.confirmDeleteButton).setOnClickListener(v -> {
             deleteWorry();

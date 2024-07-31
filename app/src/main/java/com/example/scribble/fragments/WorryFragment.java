@@ -85,29 +85,42 @@ public class WorryFragment extends Fragment {
         requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), callback);
     }
 
-    // TODO: refactor
-
     /**
      * Replaces all titles and information with the corresponding data from the Worry
      *
      * @param view The view containing the worry fragment views
      */
     private void populateLayout(@NonNull View view) {
-        TextView worryDescription = view.findViewById(R.id.worryDescription);
-
         if (getArguments() != null) {
             worry = (Worry) getArguments().getSerializable("selectedWorry");
             if (worry != null) {
-                worryTitle.setText(worry.getTitle());
-                worryDescription.setText(worry.getDescription());
-                addSelectedDistortions();
-                setVisibility(view, worryDescription);
-                reminderIndex = 0;
-                reminderText.setText(worry.getResponses().get(reminderIndex));
-                updateLeftButton();
-                updateRightButton();
+                loadWorryData(view);
             }
         }
+    }
+
+    /***
+     * Loads data from the worry to populate the layout
+     *
+     * @param view container View
+     */
+    private void loadWorryData(@NonNull View view) {
+        TextView worryDescription = view.findViewById(R.id.worryDescription);
+        worryTitle.setText(worry.getTitle());
+        worryDescription.setText(worry.getDescription());
+        setVisibility(view, worryDescription);
+        addSelectedDistortions();
+        updateReminders();
+    }
+
+    /***
+     * Loads the Worry's reminders and updates the reminders box
+     */
+    private void updateReminders() {
+        reminderIndex = 0;
+        reminderText.setText(worry.getResponses().get(reminderIndex));
+        updateLeftButton();
+        updateRightButton();
     }
 
     /**
@@ -171,43 +184,67 @@ public class WorryFragment extends Fragment {
         }
     }
 
-    // TODO: too long? refactor?
-
     /**
      * Updates the layout to show only content specific to finished worries
      *
      * @param view The view containing the worry fragment views
      */
     public void updateLayoutFinished(View view) {
+        updateImagesToFinished(view);
+        removeActions(view);
+        updateTextViewsToFinished(view);
+        if (!worry.isBetterThanExpected()) {
+            view.findViewById(R.id.betterThanExpectedBadge).setVisibility(View.GONE);
+        }
+    }
+
+    /***
+     * Updates the images to reflect the finished worry
+     *
+     * @param view container View
+     */
+    private void updateImagesToFinished(View view) {
         ImageView background = view.findViewById(R.id.worryImageBackground);
         ImageView scribble = view.findViewById(R.id.scribble);
         ImageView worryCharacter = view.findViewById(R.id.worryCharacter);
+        background.setImageResource(R.drawable.rectangle_rounded_10dp_beige);
+        scribble.setVisibility(View.GONE);
+        worryCharacter.setImageResource(worry.getFinishedImageResId());
+    }
+
+    /***
+     * Removes the actions label and buttons
+     *
+     * @param view containerView
+     */
+    private void removeActions(View view) {
+        TextView actionsTextView = view.findViewById(R.id.actionsTextView);
         Button respondButton = view.findViewById(R.id.respondButton);
         Button finishWorryButton = view.findViewById(R.id.finishWorryButton);
+        actionsTextView.setVisibility(View.GONE);
+        respondButton.setVisibility(View.GONE);
+        finishWorryButton.setVisibility(View.GONE);
+    }
+
+    /***
+     * Updates the text, visibility, and colours of the title, description, and
+     * how it ended description/title to reflect the finished worry
+     *
+     * @param view container View
+     */
+    private void updateTextViewsToFinished(View view) {
         TextView descriptionTextView = view.findViewById(R.id.worryDescription);
-        TextView actionsTextView = view.findViewById(R.id.actionsTextView);
         TextView howItEndedTitle = view.findViewById(R.id.howItEndedTitle);
         TextView howItEndedDescription = view.findViewById(R.id.howItEndedDescription);
 
         descriptionTextView.setTextColor(getResources().getColor(R.color.darkGrey, requireActivity().getTheme()));
         worryTitle.setTextColor(getResources().getColor(R.color.mediumOrange,
                 requireActivity().getTheme()));
-        background.setImageResource(R.drawable.rectangle_rounded_10dp_beige);
-        scribble.setVisibility(View.GONE);
-        worryCharacter.setImageResource(worry.getFinishedImageResId());
-        actionsTextView.setVisibility(View.GONE);
-        respondButton.setVisibility(View.GONE);
-        finishWorryButton.setVisibility(View.GONE);
-
         if (worry.getHowItEnded().isEmpty()) {
             howItEndedTitle.setVisibility(View.GONE);
             howItEndedDescription.setVisibility(View.GONE);
         } else {
             howItEndedDescription.setText(worry.getHowItEnded());
-        }
-
-        if (!worry.isBetterThanExpected()) {
-            view.findViewById(R.id.betterThanExpectedBadge).setVisibility(View.GONE);
         }
     }
 
@@ -218,15 +255,12 @@ public class WorryFragment extends Fragment {
      */
     public void updateLayoutOngoing(View view) {
         ImageView worryCharacter = view.findViewById(R.id.worryCharacter);
-
         view.findViewById(R.id.sunAndStars).setVisibility(View.GONE);
         worryCharacter.setImageResource(worry.getOngoingImageResId());
         view.findViewById(R.id.howItEndedTitle).setVisibility(View.GONE);
         view.findViewById(R.id.howItEndedDescription).setVisibility(View.GONE);
         view.findViewById(R.id.betterThanExpectedBadge).setVisibility(View.GONE);
     }
-
-    // TODO: repeated code from NewWorryFragment3 (refactor)
 
     /**
      * Adds the logos associated to the selected distortions to the linear layout
@@ -263,7 +297,6 @@ public class WorryFragment extends Fragment {
             addCDtoLayout(R.drawable.vector_cd_label, R.string.Distortion10Name);
         }
     }
-
 
     /***
      * Formats and adds the drawable to the distortionsContainer

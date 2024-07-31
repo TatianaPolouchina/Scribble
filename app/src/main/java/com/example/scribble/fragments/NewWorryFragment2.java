@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.scribble.R;
-import com.example.scribble.Utils;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Objects;
@@ -21,9 +20,6 @@ import java.util.Objects;
  * 2nd fragment for creating a new worry, asks for a description
  */
 public class NewWorryFragment2 extends BaseFragment {
-
-    public NewWorryFragment2() {
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,26 +38,25 @@ public class NewWorryFragment2 extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
         TextInputEditText textInputField = view.findViewById(R.id.textInputField);
         ImageView worryImage = view.findViewById(R.id.worryCharacter);
-
         worryImage.setImageResource(sharedViewModel.getWorry().getOngoingImageResId());
-        if (Utils.screenUtils.tallScreen(view)) {
-            textInputField.requestFocus();
-            Utils.KeyboardUtils.showKeyboard(requireActivity(), textInputField);
-        }
+        updateKeyboard(view, textInputField);
         addOnClickListeners(view, textInputField);
     }
 
+    /***
+     * Adds all on click listeners to Views
+     *
+     * @param view container View
+     */
     private void addOnClickListeners(@NonNull View view, TextInputEditText textInputField) {
         view.findViewById(R.id.skipButton).setOnClickListener(v -> {
                 sharedViewModel.getWorry().setDescription("");
                 NavHostFragment.findNavController(this).navigate
                         (R.id.action_newWorryFragment2_to_newWorryFragment3);
         });
-
         view.findViewById(R.id.next_button).setOnClickListener(v -> {
             sharedViewModel.getWorry().setDescription(Objects.requireNonNull
                     (textInputField.getText()).toString());
-
             NavHostFragment.findNavController(this).navigate
                     (R.id.action_newWorryFragment2_to_newWorryFragment3);
         });

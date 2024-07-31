@@ -31,7 +31,6 @@ import java.util.Objects;
  */
 public class OngoingWorriesFragment extends BaseFragment implements OnItemClickListener {
 
-    //TODO: comment all
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +45,16 @@ public class OngoingWorriesFragment extends BaseFragment implements OnItemClickL
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        addObservers(view);
+    }
+
+    /***
+     * Observes the ongoing and finished worries for changes, updates the text and recycler view
+     * when a change occurs
+     *
+     * @param view container View
+     */
+    private void addObservers(@NonNull View view) {
         sharedViewModel.getOngoingWorriesLiveData().observe(getViewLifecycleOwner(), worries -> {
             setupRecyclerView(view);
             setupWorryNumberText(view);
@@ -55,6 +64,9 @@ public class OngoingWorriesFragment extends BaseFragment implements OnItemClickL
         handleBackPress();
     }
 
+    /***
+     * Updates the status bar and selected menu item
+     */
     @Override
     public void onResume() {
         super.onResume();
@@ -62,6 +74,12 @@ public class OngoingWorriesFragment extends BaseFragment implements OnItemClickL
         selectMenuItem();
     }
 
+    /***
+     * Updates the text and its visibility depending on how many finished or ongoing worries
+     * are saved
+     *
+     * @param view container View
+     */
     private void updateNoWorryText(@NonNull View view) {
         int numOngoing = sharedViewModel.getOngoingWorries().size();
         int numFinished = sharedViewModel.getFinishedWorries().size();
@@ -81,6 +99,12 @@ public class OngoingWorriesFragment extends BaseFragment implements OnItemClickL
         }
     }
 
+
+    /***
+     * Displays the number of worries
+     *
+     * @param view container View
+     */
     private void setupWorryNumberText(@NonNull View view) {
         TextView worryNumberText = view.findViewById(R.id.tvSecond);
         int numWorries = sharedViewModel.getOngoingWorries().size();
@@ -92,6 +116,11 @@ public class OngoingWorriesFragment extends BaseFragment implements OnItemClickL
         }
     }
 
+    /***
+     * sets up the Recycler view's layout and adapter
+     *
+     * @param view container View
+     */
     private void setupRecyclerView(@NonNull View view) {
         WorryCardAdapter adapter = new WorryCardAdapter(sharedViewModel.getOngoingWorries(), this);
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
@@ -129,8 +158,12 @@ public class OngoingWorriesFragment extends BaseFragment implements OnItemClickL
         }
     }
 
-    //TODO: comment and finish
-    // navigates to the worry page, populating it with the information of the associated worry
+
+    /***
+     * Opens the WorryFragment for the selected Worry in the RecyclerView
+     *
+     * @param position position of selected worry in the RecyclerView
+     */
     @Override
     public void onItemClick(int position) {
         Worry selectedWorry = sharedViewModel.getOngoingWorries().get(position);

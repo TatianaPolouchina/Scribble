@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.scribble.R;
-import com.example.scribble.Utils;
 import com.example.scribble.Worry;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -41,22 +40,30 @@ public class EndWorryFragment2 extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
         TextInputEditText textInput = view.findViewById(R.id.textInputField);
         addOnClickListeners(view, textInput);
-
-        if (Utils.screenUtils.tallScreen(view)) {
-            textInput.requestFocus();
-            Utils.KeyboardUtils.showKeyboard(requireActivity(), textInput);
-        }
-
+        updateKeyboard(view, textInput);
         if (getArguments() != null) {
-            worry = (Worry) getArguments().getSerializable("selectedWorry");
-            if (worry != null) {
-                ImageView image = view.findViewById(R.id.worryCharacter);
-                image.setImageResource(worry.getOngoingImageResId());
-            }
+            loadWorry(view);
         }
     }
 
-    // TODO: comment
+    /***
+     * Loads in worry data from arguments
+     *
+     * @param view container View
+     */
+    private void loadWorry(@NonNull View view) {
+        assert getArguments() != null;
+        worry = (Worry) getArguments().getSerializable("selectedWorry");
+        if (worry != null) {
+            ImageView image = view.findViewById(R.id.worryCharacter);
+            image.setImageResource(worry.getOngoingImageResId());
+        }
+    }
+
+     /***
+     * Adds all on click listeners to Views
+     * @param view container View
+     */
     private void addOnClickListeners(@NonNull View view, TextInputEditText textInputField) {
         view.findViewById(R.id.skipButton).setOnClickListener(v -> {
             worry.setHowItEnded("");

@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         setUpBottomNavMenu();
         SharedViewModel sharedViewModel = new ViewModelProvider(this).get(SharedViewModel.class);
         loadData(sharedViewModel);
+        StringHelper.setupStringHelper(getApplicationContext());
     }
 
     /***
