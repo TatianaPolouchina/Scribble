@@ -18,6 +18,9 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Objects;
 
+/***
+ * First fragment for ending a worry, asks the user how the worry went
+ */
 public class EndWorryFragment2 extends BaseFragment {
 
     private Worry worry;

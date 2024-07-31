@@ -15,6 +15,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/***
+ * Reader that reads the worries and worry image helper from the source file
+ */
 public class JSONReader {
     private final File source;
     private final JSONObject jsonData;
@@ -77,10 +80,9 @@ public class JSONReader {
      * Returns the list of ongoing worries from the source file
      *
      * @return list of all ongoing worries
-     * @throws JSONException if there is an error parsing the JSON data
      */
     public List<Worry> readOngoingWorries() {
-        JSONArray jsonOngoingWorries = null;
+        JSONArray jsonOngoingWorries;
         try {
             jsonOngoingWorries = jsonData.getJSONArray("ongoingWorries");
         } catch (JSONException e) {
@@ -96,7 +98,7 @@ public class JSONReader {
      * @throws JSONException if there is an error parsing the JSON data
      */
     public List<Worry> readFinishedWorries() {
-        JSONArray JSONFinishedWorries = null;
+        JSONArray JSONFinishedWorries;
         try {
             JSONFinishedWorries = jsonData.getJSONArray("finishedWorries");
         } catch (JSONException e) {
@@ -109,7 +111,6 @@ public class JSONReader {
      * Converts and returns the array of JSONObjects into an array of type Worry
      * @param worryListJSON JSONArray of worries
      * @return ArrayList of worries
-     * @throws JSONException if there is an error parsing the JSON data
      */
     public List<Worry> parseWorries(JSONArray worryListJSON) {
         List<Worry> worries = new ArrayList<>();

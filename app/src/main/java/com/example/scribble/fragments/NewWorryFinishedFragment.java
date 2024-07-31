@@ -13,6 +13,9 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.scribble.R;
 
+/***
+ * 4th fragment for creating a new worry, displays a comforting message
+ */
 public class NewWorryFinishedFragment extends BaseFragment {
 
     @Override

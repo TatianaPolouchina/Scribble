@@ -21,6 +21,10 @@ import com.google.android.material.textfield.TextInputEditText;
 import java.util.Objects;
 
 //TODO: add comments to all
+
+/***
+ * Fragment allowing user to input a response to the worry
+ */
 public class RespondFragment extends BaseFragment {
     private Worry worry;
     @Override

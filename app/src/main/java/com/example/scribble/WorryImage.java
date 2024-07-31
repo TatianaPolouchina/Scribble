@@ -1,5 +1,8 @@
 package com.example.scribble;
 
+/***
+ * Represents a pair of corresponding Worry images
+ */
 public class WorryImage {
     private final int ongoingImageResId;
     private final int finishedImageResId;

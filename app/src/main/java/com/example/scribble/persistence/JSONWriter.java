@@ -16,6 +16,9 @@ import java.io.PrintWriter;
 import java.util.List;
 
 //TODO: fix comments
+/***
+ * Writer that writes the worries and worry image helper to the source file
+ */
 public class JSONWriter {
     private PrintWriter writer;
     private final File file;

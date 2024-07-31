@@ -26,6 +26,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Objects;
 
+/***
+ * Fragment displaying all of the ongoing worries
+ */
 public class OngoingWorriesFragment extends BaseFragment implements OnItemClickListener {
 
     //TODO: comment all

@@ -25,6 +25,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Objects;
 
+/***
+ * Fragment displaying all of the finished worries
+ */
 public class FinishedWorriesFragment extends BaseFragment implements OnItemClickListener {
 
     @Override

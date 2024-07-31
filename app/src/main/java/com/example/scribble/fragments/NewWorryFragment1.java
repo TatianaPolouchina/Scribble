@@ -25,6 +25,9 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Objects;
 
+/***
+ * 1st fragment for creating a new worry, asks for a name
+ */
 public class NewWorryFragment1 extends BaseFragment {
     private StringHelper stringHelper;
     private WorryImageHelper worryImageHelper;

@@ -6,10 +6,8 @@ import java.util.List;
 import java.util.Random;
 
 /***
- * Class to provide random Worry images
+ * Class to provide random Worry image pairs
  */
-//TODO: comment all classes
-//TODO: comment class
 public class WorryImageHelper {
     private final List<WorryImage> imageList;
     private List<Integer> indexList;

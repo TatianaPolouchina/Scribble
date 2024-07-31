@@ -8,6 +8,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/***
+ * Represents a Worry with a title, description, image, cognitive distortions, and other information
+ */
 public class Worry implements Serializable {
     private String title;
     private WorryImage worryImage;
@@ -35,14 +38,14 @@ public class Worry implements Serializable {
         addResponse(stringHelper.getRandomReminder());
     }
 
-    //TODO: comment
-    // Only to be used when loading in worries, not creating new ones
+    /***
+     * Constructor for loading in new worries (not for creating new ones)
+     */
     public Worry() {
     }
 
     /***
      * Parses the Worry into a JSON object
-     *
      * @return this as a JSON object
      */
     public JSONObject toJSON() throws JSONException {

@@ -22,6 +22,10 @@ import com.example.scribble.Worry;
 
 import java.util.Random;
 
+/***
+ * Third fragment for ending a worry, worry fades from ongoing to finished and gives the user a
+ * congratulatory message
+ */
 public class EndWorryFragment3 extends BaseFragment {
     private Worry worry;
     private ImageView ongoingWorryImage;

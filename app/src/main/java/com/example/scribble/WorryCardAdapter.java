@@ -11,6 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+/***
+ * Manages the Worry card views in a recycler view
+ */
 public class WorryCardAdapter extends RecyclerView.Adapter<WorryCardAdapter.ViewHolder> {
 
     private final List<Worry> worryItems;

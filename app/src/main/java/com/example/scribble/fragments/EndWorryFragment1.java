@@ -14,6 +14,9 @@ import android.widget.ImageView;
 import com.example.scribble.R;
 import com.example.scribble.Worry;
 
+/***
+ * First fragment for ending a worry, asks the user if the worry was as bad as expected
+ */
 public class EndWorryFragment1 extends BaseFragment {
 
     private Worry worry;

@@ -15,6 +15,9 @@ import com.example.scribble.R;
 import com.example.scribble.Utils;
 import com.example.scribble.Worry;
 
+/***
+ * Fragment displaying cognitive distortions and their descriptions
+ */
 public class DistortionsFragment extends BaseFragment {
 
     private DistortionsInfoFragment infoFragment;

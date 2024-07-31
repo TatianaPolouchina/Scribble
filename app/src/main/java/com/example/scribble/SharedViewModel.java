@@ -16,7 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-// Viewmodel to share new Worry data among fragments when creating a new Worry
+/***
+ * Viewmodel to share new Worry data among fragments when creating a new Worry
+ */
 public class SharedViewModel extends ViewModel {
 
     private final MutableLiveData<Worry> worry = new MutableLiveData<>();
@@ -48,8 +50,11 @@ public class SharedViewModel extends ViewModel {
         return worry.getValue();
     }
 
-    // Saves the current worry object to the beginning of the list of Worries and to internal
-    // storage
+    /***
+     *  Saves the current worry object to the beginning of the list of Worries and to internal
+     *  storage
+     * @param context
+     */
     public void saveWorry(Context context) {
         if (this.jsonWriter == null) {
             jsonWriter = new JSONWriter(JSON_STORE, context);
@@ -65,6 +70,12 @@ public class SharedViewModel extends ViewModel {
     }
 
     // TODO: comment
+
+    /***
+     * Writes the ongoing worries, finished worries, and worryImageHelper to the JSON_STORE file
+     *
+     * @param context
+     */
     public void saveData(Context context) {
         if (this.jsonWriter == null) {
             jsonWriter = new JSONWriter(JSON_STORE, context);
@@ -75,9 +86,24 @@ public class SharedViewModel extends ViewModel {
             jsonWriter.close();
         } catch (FileNotFoundException e) {
             // nothing happens
+            //TODO: add a catch?
         } catch (JSONException | IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    /**
+     * Removes the worry from ongoingWorries and adds it to the beginning of finishedWorries
+     *
+     * @param worry the worry to be set as finished
+     */
+    public void finishWorry(Worry worry, Context context) {
+        Objects.requireNonNull(ongoingWorries.getValue()).remove(worry);
+        if (!Objects.requireNonNull(finishedWorries.getValue()).contains(worry)) {
+            finishedWorries.getValue().add(0, worry);
+        }
+        worry.finish();
+        saveData(context);
     }
 
     public List<Worry> getOngoingWorries() {
@@ -102,20 +128,6 @@ public class SharedViewModel extends ViewModel {
 
     public void setFinishedWorries(List<Worry> finishedWorries) {
         this.finishedWorries.setValue(finishedWorries);
-    }
-
-    /**
-     * Removes the worry from ongoingWorries and adds it to the beginning of finishedWorries
-     *
-     * @param worry the worry to be set as finished
-     */
-    public void finishWorry(Worry worry, Context context) {
-        Objects.requireNonNull(ongoingWorries.getValue()).remove(worry);
-        if (!Objects.requireNonNull(finishedWorries.getValue()).contains(worry)) {
-            finishedWorries.getValue().add(0, worry);
-        }
-        worry.finish();
-        saveData(context);
     }
 
     public void setWorryImageHelper(WorryImageHelper worryImageHelper) {

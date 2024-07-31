@@ -4,7 +4,9 @@ import android.content.Context;
 
 import java.util.Random;
 
-// Manages the reminders and hints from strings.xml
+/***
+ * Manages the reminders and hints from strings.xml
+ */
 public class StringHelper {
     private final String[] reminders;
     private final String[] hints;

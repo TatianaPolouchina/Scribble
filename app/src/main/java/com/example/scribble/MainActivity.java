@@ -26,14 +26,12 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-//TODO: comment methods
 public class MainActivity extends AppCompatActivity {
     private NavController navController;
     private BottomNavigationView bottomNavigationView;
     private static final String JSON_STORE = "data.json";
     private File dataFile;
 
-    //TODO: comment all
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
         loadData(sharedViewModel);
     }
 
+    /***
+     * Initializes the navController
+     */
     private void setupNavController() {
         NavHostFragment navHostFragment = (NavHostFragment)
                 getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
@@ -51,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
         navController = navHostFragment.getNavController();
     }
 
+    /***
+     * Loads data from the JSON_STORE file and saves it to the sharedViewModel
+     */
     private void loadData(SharedViewModel sharedViewModel) {
         ExecutorService executor = Executors.newSingleThreadExecutor();
         Handler handler = new Handler(Looper.getMainLooper());
@@ -74,8 +78,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    // TODO: comment
-    // Returns true if a new file was created
+    /***
+     * initializes dataFile as the file with the same name as JSON_STORE, or creates one if it does
+     * not exist
+     * @return true if a new file was created, false if it already exists
+     */
     private boolean loadFile() {
         dataFile = new File(getFilesDir(), JSON_STORE);
         if (!dataFile.exists()) {
@@ -89,7 +96,9 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
-    // Creates the bottom navigation menu
+    /***
+     * sets up the bottom navigation menu's navigation functionality and sets its visibility
+     */
     private void setUpBottomNavMenu() {
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnItemSelectedListener(this::onItemSelectedListener);
@@ -125,7 +134,10 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
-    //TODO: comment
+    /***
+     * Navigates to the fragment with ID fragmentId with a fade animation
+     * @param fragmentId ID of the destination fragment
+     */
     public void navigateWithFade(int fragmentId) {
         navController.navigate(fragmentId, null, new NavOptions.Builder()
                 .setEnterAnim(R.anim.fade_in)
@@ -137,7 +149,6 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Changes the background colour of the status bar
-     *
      * @param colourId the desired background colour code
      */
     public void setStatusBarColor(int colourId) {

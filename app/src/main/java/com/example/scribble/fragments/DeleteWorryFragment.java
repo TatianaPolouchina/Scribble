@@ -23,6 +23,9 @@ import com.example.scribble.Worry;
 
 import java.util.Objects;
 
+/***
+ * Fragment with option to delete a Worry
+ */
 public class DeleteWorryFragment extends DialogFragment {
 
     private final boolean finished;

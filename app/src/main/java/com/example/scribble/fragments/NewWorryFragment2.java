@@ -17,6 +17,9 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Objects;
 
+/***
+ * 2nd fragment for creating a new worry, asks for a description
+ */
 public class NewWorryFragment2 extends BaseFragment {
 
     public NewWorryFragment2() {

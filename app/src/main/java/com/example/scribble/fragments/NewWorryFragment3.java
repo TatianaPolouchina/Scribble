@@ -18,6 +18,9 @@ import com.example.scribble.R;
 import com.example.scribble.Utils;
 import com.example.scribble.Worry;
 
+/***
+ * 3rd fragment for creating a new worry, asks user to assign cognitive distortions to the worry
+ */
 public class NewWorryFragment3 extends BaseFragment {
 
     private GridLayout selectedDistortionsContainer;

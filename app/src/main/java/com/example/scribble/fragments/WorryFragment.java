@@ -25,6 +25,9 @@ import com.example.scribble.Worry;
 import java.util.List;
 import java.util.Objects;
 
+/***
+ * Fragment displaying all of a Worry's information and options
+ */
 public class WorryFragment extends Fragment {
     private Worry worry;
     private LinearLayout distortionsContainer;

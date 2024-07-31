@@ -17,6 +17,9 @@ import com.example.scribble.R;
 
 import java.util.Objects;
 
+/***
+ * Dialog fragment with information on cognitive distortions
+ */
 public class DistortionsInfoFragment extends DialogFragment {
 
     @Override
