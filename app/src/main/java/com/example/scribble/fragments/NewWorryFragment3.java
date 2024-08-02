@@ -75,7 +75,7 @@ public class NewWorryFragment3 extends BaseFragment {
             addCDtoLayout(R.drawable.vector_cd_brain);
         }
         if (worry.isFortuneTelling()) {
-            addCDtoLayout(R.drawable.vector_cd_crystal_ball);
+            addCDtoLayout(R.drawable.cd_crystal_ball);
         }
         if (worry.isCatastrophizing()) {
             addCDtoLayout(R.drawable.vector_cd_explosion);
@@ -87,7 +87,7 @@ public class NewWorryFragment3 extends BaseFragment {
             addCDtoLayout(R.drawable.vector_cd_magnifying_glass);
         }
         if (worry.isDisqualifyPositive()) {
-            addCDtoLayout(R.drawable.vector_cd_crossed_out_sun);
+            addCDtoLayout(R.drawable.cd_crossed_out_sun);
         }
         if (worry.isPersonalization()) {
             addCDtoLayout(R.drawable.vector_cd_mirror);

@@ -2,10 +2,12 @@
     <!-- Selected state -->
     <item android:state_selected="true">
         <layer-list>
-            <item android:drawable="@drawable/vector_cd_crystal_ball" />
+            <item android:drawable="@drawable/cd_crystal_ball"
+                android:height="100dp"
+                android:width="100dp"/>
             <item android:drawable="@drawable/circle_dark_blue" />
         </layer-list>
     </item>
     <!-- Default state -->
-    <item android:drawable="@drawable/vector_cd_crystal_ball_bw" />
+    <item android:drawable="@drawable/cd_crystal_ball_bw" />
 </selector>

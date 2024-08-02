@@ -85,7 +85,7 @@ public class NewWorryFragment1 extends BaseFragment {
     }
 
     /***
-     * Displays a snackbar asking the user to enter a name
+     * Displays a Snackbar asking the user to enter a name
      *
      * @param view container View
      */

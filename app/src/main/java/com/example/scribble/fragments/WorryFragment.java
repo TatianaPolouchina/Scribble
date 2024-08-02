@@ -108,8 +108,8 @@ public class WorryFragment extends Fragment {
         TextView worryDescription = view.findViewById(R.id.worryDescription);
         worryTitle.setText(worry.getTitle());
         worryDescription.setText(worry.getDescription());
-        setVisibility(view, worryDescription);
         addSelectedDistortions();
+        setVisibility(view, worryDescription);
         updateReminders();
     }
 
@@ -273,7 +273,7 @@ public class WorryFragment extends Fragment {
             addCDtoLayout(R.drawable.vector_cd_brain, R.string.Distortion2Name);
         }
         if (worry.isFortuneTelling()) {
-            addCDtoLayout(R.drawable.vector_cd_crystal_ball, R.string.Distortion3Name);
+            addCDtoLayout(R.drawable.cd_crystal_ball, R.string.Distortion3Name);
         }
         if (worry.isCatastrophizing()) {
             addCDtoLayout(R.drawable.vector_cd_explosion, R.string.Distortion4Name);
@@ -285,7 +285,7 @@ public class WorryFragment extends Fragment {
             addCDtoLayout(R.drawable.vector_cd_magnifying_glass, R.string.Distortion6NameFormatted);
         }
         if (worry.isDisqualifyPositive()) {
-            addCDtoLayout(R.drawable.vector_cd_crossed_out_sun, R.string.Distortion7NameFormatted);
+            addCDtoLayout(R.drawable.cd_crossed_out_sun, R.string.Distortion7NameFormatted);
         }
         if (worry.isPersonalization()) {
             addCDtoLayout(R.drawable.vector_cd_mirror, R.string.Distortion8Name);

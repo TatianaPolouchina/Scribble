@@ -1,7 +1,19 @@
-<resources>
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Scribble" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="Base.Theme.Scribble" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="buttonStyle">@style/CustomButton</item>
+        <item name="background">@android:color/white</item>
+        <item name="itemBackground">@android:color/white</item>
     </style>
+
+    <style name="CustomButton" parent="Widget.AppCompat.Button">
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="CustomSnackbar" parent="Widget.Design.Snackbar">
+        <item name="android:background">@color/lightBlue</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="background">@color/beige</item>
+    </style>
+
+
 </resources>

@@ -23,10 +23,7 @@
     <!-- Distortions Page -->
     <string name="distortions_page_title">Add Distortions</string>
     <string name="back_arrow_description">Back Arrow</string>
-    <string name="distortions_description1">Cognitive distortions are negative thought patterns that
-        lead to worry. </string>
-    <string name="distortions_description2">Recognizing these distortions can help us see situations
-        more clearly and manage our worries effectively. </string>
+    <string name="cognitive_distortion_name_template">template</string>
 
     <!-- Cognitive Distortions -->
     <string name="Distortion1Name">Overgeneralizing</string>
@@ -173,6 +170,10 @@
     <string name="cognitive_distortions_label">Cognitive Distortions</string>
     <string name="reminders_label">Reminders</string>
     <string name="end_worry_button_text">Finish Worry</string>
+
+    <!-- Worry fragment template-->
+    <string name="worry_name_template">Worry Name</string>
+    <string name="worry_description_placeholder">description\n</string>
 
     <!-- Buttons-->
     <string name="submit_button_text">Submit</string>

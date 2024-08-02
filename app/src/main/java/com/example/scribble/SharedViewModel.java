@@ -82,9 +82,7 @@ public class SharedViewModel extends ViewModel {
             jsonWriter.open();
             jsonWriter.write(ongoingWorries.getValue(), finishedWorries.getValue(), worryImageHelper);
             jsonWriter.close();
-        } catch (FileNotFoundException e) {
-            // nothing happens
-            //TODO: add a catch?
+        } catch (FileNotFoundException ignored) {
         } catch (JSONException | IOException e) {
             throw new RuntimeException(e);
         }

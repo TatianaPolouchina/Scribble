@@ -31,7 +31,7 @@
             android:layout_marginTop="8dp"
             android:fontFamily="@font/karla_bold"
             android:gravity="center_horizontal"
-            android:text="Card Title"
+            android:text="@string/worry_name_template"
             android:textColor="@color/grey"
             android:textSize="12sp"
             android:textStyle="bold" />

@@ -20,22 +20,20 @@
         android:layout_height="60dp"
         android:layout_marginTop="5dp"
         android:importantForAccessibility="no"
-        android:src="@drawable/vector_stars_left"
+        android:src="@drawable/stars_left"
         app:layout_constraintBottom_toBottomOf="@+id/tvFirst"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvFirst"
-        app:tint="@color/mediumOrange" />
+        app:layout_constraintTop_toTopOf="@+id/tvFirst" />
 
 
     <ImageView
         android:layout_width="100dp"
         android:layout_height="70dp"
         android:importantForAccessibility="no"
-        android:src="@drawable/vector_sun_right"
+        android:src="@drawable/stars_right"
         app:layout_constraintBottom_toBottomOf="@+id/tvFirst"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvFirst"
-        app:tint="@color/mediumOrange" />
+        app:layout_constraintTop_toTopOf="@+id/tvFirst" />
 
     <TextView
         android:id="@+id/tvFirst"
