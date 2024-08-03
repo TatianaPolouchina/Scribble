@@ -83,14 +83,13 @@ public class MainActivity extends AppCompatActivity {
      * initializes dataFile as the file with the same name as JSON_STORE, or creates one if it does
      * not exist
      *
-     * @return true if a new file was created, false if it already exists
+     * @return true if a new file was created, false otherwise
      */
     private boolean loadFile() {
         dataFile = new File(getFilesDir(), JSON_STORE);
         if (!dataFile.exists()) {
             try {
-                dataFile.createNewFile();
-                return true;
+                return dataFile.createNewFile();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

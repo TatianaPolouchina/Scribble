@@ -8,6 +8,7 @@
         android:id="@+id/cdImageSelector"
         android:layout_width="95dp"
         android:layout_height="95dp"
+        android:importantForAccessibility="no"
         android:padding="7dp"
         android:src="@drawable/selector_cd_brain" />
 

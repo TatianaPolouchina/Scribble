@@ -38,10 +38,8 @@
         <action
             android:id="@+id/action_ongoingWorriesFragment_to_worryFragment"
             app:destination="@id/worryFragment"
-            app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/empty_transition"
-            app:popEnterAnim="@anim/empty_transition"
-            app:popExitAnim="@anim/fade_out" />
+            app:enterAnim="@anim/scale_in"
+            app:popExitAnim="@anim/scale_out" />
     </fragment>
 
     <fragment
@@ -52,10 +50,8 @@
         <action
             android:id="@+id/action_finishedWorriesFragment_to_worryFragment"
             app:destination="@id/worryFragment"
-            app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/empty_transition"
-            app:popEnterAnim="@anim/empty_transition"
-            app:popExitAnim="@anim/fade_out" />
+            app:enterAnim="@anim/scale_in"
+            app:popExitAnim="@anim/scale_out" />
     </fragment>
 
     <fragment
@@ -86,10 +82,7 @@
         <action
             android:id="@+id/action_newWorryFinishedFragment_to_ongoingWorriesFragment"
             app:destination="@id/ongoingWorriesFragment"
-            app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/empty_transition"
-            app:popEnterAnim="@anim/empty_transition"
-            app:popExitAnim="@anim/fade_out" />
+            app:enterAnim="@anim/pop_in" />
     </fragment>
 
     <fragment
@@ -104,30 +97,22 @@
             android:id="@+id/action_ongoingWorryFragment_to_endWorryFragment1"
             app:destination="@id/endWorryFragment1"
             app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/empty_transition"
-            app:popEnterAnim="@anim/empty_transition"
+            app:exitAnim="@anim/fade_out"
             app:popExitAnim="@anim/fade_out" />
         <action
             android:id="@+id/action_worryFragment_to_respondFragment"
             app:destination="@id/respondFragment"
             app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/empty_transition"
-            app:popEnterAnim="@anim/empty_transition"
+            app:exitAnim="@anim/fade_out"
             app:popExitAnim="@anim/fade_out" />
         <action
             android:id="@+id/action_worryFragment_to_ongoingWorriesFragment"
             app:destination="@id/ongoingWorriesFragment"
-            app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/empty_transition"
-            app:popEnterAnim="@anim/empty_transition"
-            app:popExitAnim="@anim/fade_out" />
+            app:enterAnim="@anim/pop_in" />
         <action
             android:id="@+id/action_worryFragment_to_finishedWorriesFragment"
             app:destination="@id/finishedWorriesFragment"
-            app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/empty_transition"
-            app:popEnterAnim="@anim/empty_transition"
-            app:popExitAnim="@anim/fade_out" />
+            app:enterAnim="@anim/pop_in"/>
     </fragment>
 
     <fragment
@@ -164,10 +149,7 @@
         <action
             android:id="@+id/action_endWorryFragment3_to_finishedWorriesFragment"
             app:destination="@id/finishedWorriesFragment"
-            app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/empty_transition"
-            app:popEnterAnim="@anim/empty_transition"
-            app:popExitAnim="@anim/fade_out" />
+            app:enterAnim="@anim/pop_in" />
     </fragment>
 
     <dialog
@@ -187,8 +169,7 @@
             android:id="@+id/action_respondFragment_to_worryFragment"
             app:destination="@id/worryFragment"
             app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/empty_transition"
-            app:popEnterAnim="@anim/empty_transition"
+            app:exitAnim="@anim/fade_out"
             app:popExitAnim="@anim/fade_out" />
     </fragment>
 

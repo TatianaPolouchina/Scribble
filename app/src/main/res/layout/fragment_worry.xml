@@ -6,372 +6,388 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context="com.example.scribble.fragments.WorryFragment">
+    tools:context="com.example.scribble.fragments.WorryFragment"
+    tools:ignore="Overdraw">
 
-    <TextView
-        android:id="@+id/worryNameTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/karla_bold"
-        android:text="@string/worry_name_template"
-        android:textAlignment="center"
-        android:textColor="@color/darkBlueMain"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/backButton"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@android:color/transparent"
-        android:contentDescription="@string/back_arrow_description"
-        android:src="@drawable/vector_arrow_back"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/worryNameTitle"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:tint="@color/grey" />
-
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/pageContents"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="17dp"
+        android:visibility="visible"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/worryNameTitle">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <TextView
+            android:id="@+id/worryNameTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/karla_bold"
+            android:text="@string/worry_name_template"
+            android:textAlignment="center"
+            android:textColor="@color/darkBlueMain"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/back_arrow_description"
+            android:src="@drawable/vector_arrow_back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/worryNameTitle"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:tint="@color/grey" />
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="0dp"
+            android:layout_marginTop="17dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/worryNameTitle">
 
-            <FrameLayout
-                android:id="@+id/worryImageLayout"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_height="wrap_content">
 
-
-                <ImageView
+                <FrameLayout
+                    android:id="@+id/worryImageLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="290dp"
-                    android:background="@android:color/white"
-                    android:importantForAccessibility="no"
-                    android:src="@drawable/rectangle_rounded_outline_transparent" />
-
-
-                <ImageView
-                    android:id="@+id/worryImageBackground"
-                    android:layout_width="match_parent"
-                    android:layout_height="270dp"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:importantForAccessibility="no"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/rectangle_rounded_10dp_blue" />
-
-                <ImageView
-                    android:id="@+id/sunAndStars"
-                    android:layout_width="wrap_content"
-                    android:layout_height="270dp"
-                    android:layout_gravity="top"
-                    android:importantForAccessibility="no"
-                    android:paddingStart="30dp"
-                    android:paddingTop="25dp"
-                    android:paddingEnd="30dp"
-                    android:paddingBottom="110dp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/sun_and_stars" />
-
-                <ImageView
-                    android:id="@+id/scribble"
-                    style="@style/scribbleImage"
-                    android:layout_gravity="center"
-                    android:importantForAccessibility="no"
-                    app:tint="@color/lightBlue2" />
-
-                <ImageView
-                    android:id="@+id/worryCharacter"
-                    android:layout_width="170dp"
-                    android:layout_height="170dp"
-                    android:layout_gravity="center"
-                    android:importantForAccessibility="no"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/worry_1_blu" />
-
-            </FrameLayout>
-
-            <TextView
-                android:id="@+id/betterThanExpectedBadge"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
-                android:background="@drawable/rectangle_rounded_10dp_beige"
-                android:backgroundTint="@color/lightOrange"
-                android:fontFamily="@font/karla_bold"
-                android:gravity="center"
-                android:text="@string/better_than_expected_badge_text"
-                android:textAlignment="center"
-                android:textColor="@color/darkOrange"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/worryImageLayout" />
-
-
-            <TextView
-                android:id="@+id/descriptionTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/karla_bold"
-                android:text="@string/worry_description_placeholder"
-                android:textColor="@color/grey"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/betterThanExpectedBadge" />
-
-            <TextView
-                android:id="@+id/worryDescription"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="30dp"
-                android:fontFamily="@font/karla_bold"
-                android:text="@string/worry_description_placeholder"
-                android:textColor="@color/darkBlueMain"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/descriptionTitle" />
-
-
-            <TextView
-                android:id="@+id/howItEndedTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/karla_bold"
-                android:text="@string/how_it_ended_label"
-                android:textColor="@color/grey"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/worryDescription" />
-
-            <TextView
-                android:id="@+id/howItEndedDescription"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="30dp"
-                android:fontFamily="@font/karla_bold"
-                android:text="@string/worry_description_placeholder"
-                android:textColor="@color/mediumOrange"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/howItEndedTitle" />
-
-            <TextView
-                android:id="@+id/actionsTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/karla_bold"
-                android:text="@string/options_title"
-                android:textColor="@color/grey"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/howItEndedDescription" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/respondButton"
-                style="@style/OutlineButton"
-                android:layout_width="@dimen/button_width"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:elevation="@dimen/button_elevation"
-                android:stateListAnimator="@anim/nav_default_enter_anim"
-                android:text="@string/worry_respond_button_text"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/actionsTextView" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/finishWorryButton"
-                style="@style/OutlineButton"
-                android:layout_width="@dimen/button_width"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:elevation="@dimen/button_elevation"
-                android:stateListAnimator="@anim/nav_default_enter_anim"
-                android:text="@string/finish_worry_button_text"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/respondButton" />
-
-
-            <TextView
-                android:id="@+id/cognitiveDistortionsLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/karla_bold"
-                android:text="@string/cognitive_distortions_label"
-                android:textColor="@color/grey"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/finishWorryButton" />
-
-            <HorizontalScrollView
-                android:id="@+id/distortionsScrollView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:scrollbars="none"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cognitiveDistortionsLabel">
-
-                <LinearLayout
-                    android:id="@+id/distortionsContainer"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="start"
-                    android:orientation="horizontal"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/distortionsScrollView" />
-            </HorizontalScrollView>
+                    app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/remindersLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/karla_bold"
-                android:text="@string/reminders_label"
-                android:textColor="@color/grey"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/distortionsScrollView" />
 
-            <TextView
-                android:id="@+id/reminderTextView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="30dp"
-                android:background="@drawable/rectangle_rounded_outline_white"
-                android:fontFamily="@font/karla_bold"
-                android:gravity="center"
-                android:minHeight="130dp"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:text="@string/worry_description_placeholder"
-                android:textColor="@color/darkGrey"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/rightReminderButton"
-                app:layout_constraintStart_toEndOf="@id/leftReminderButton"
-                app:layout_constraintTop_toBottomOf="@+id/remindersLabel" />
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="290dp"
+                        android:background="@android:color/white"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/rectangle_rounded_outline_transparent" />
 
-            <FrameLayout
-                android:id="@+id/leftReminderButton"
-                android:layout_width="50dp"
-                android:layout_height="0dp"
-                android:layout_marginStart="10dp"
-                app:layout_constraintBottom_toBottomOf="@id/reminderTextView"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/reminderTextView">
 
-                <ImageView
-                    android:id="@+id/leftArrowBackgroundImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:importantForAccessibility="no"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/rectangle_rounded_outline_white" />
+                    <ImageView
+                        android:id="@+id/worryImageBackground"
+                        android:layout_width="match_parent"
+                        android:layout_height="270dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:importantForAccessibility="no"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/rectangle_rounded_10dp_blue" />
 
-                <ImageView
-                    android:id="@+id/leftArrowImage"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_gravity="center"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/vector_triangle_arrow_left" />
-            </FrameLayout>
+                    <ImageView
+                        android:id="@+id/sunAndStars"
+                        android:layout_width="wrap_content"
+                        android:layout_height="270dp"
+                        android:layout_gravity="top"
+                        android:importantForAccessibility="no"
+                        android:paddingStart="30dp"
+                        android:paddingTop="25dp"
+                        android:paddingEnd="30dp"
+                        android:paddingBottom="110dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/sun_and_stars" />
 
-            <FrameLayout
-                android:id="@+id/rightReminderButton"
-                android:layout_width="50dp"
-                android:layout_height="0dp"
-                android:layout_marginEnd="10dp"
-                app:layout_constraintBottom_toBottomOf="@+id/reminderTextView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/reminderTextView">
+                    <ImageView
+                        android:id="@+id/scribble"
+                        style="@style/scribbleImage"
+                        android:layout_gravity="center"
+                        android:importantForAccessibility="no"
+                        app:tint="@color/lightBlue2" />
 
-                <ImageView
-                    android:id="@+id/rightArrowBackgroundImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:importantForAccessibility="no"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/rectangle_rounded_outline_white" />
+                    <ImageView
+                        android:id="@+id/worryCharacter"
+                        android:layout_width="170dp"
+                        android:layout_height="170dp"
+                        android:layout_gravity="center"
+                        android:importantForAccessibility="no"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/worry_1_blu" />
 
-                <ImageView
-                    android:id="@+id/rightArrowImage"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_gravity="center"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/vector_triangle_arrow_right" />
-            </FrameLayout>
+                </FrameLayout>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/betterThanExpectedBadge"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/rectangle_rounded_10dp_beige"
+                    android:backgroundTint="@color/lightOrange"
+                    android:fontFamily="@font/karla_bold"
+                    android:gravity="center"
+                    android:text="@string/better_than_expected_badge_text"
+                    android:textAlignment="center"
+                    android:textColor="@color/darkOrange"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/worryImageLayout" />
 
-    </ScrollView>
 
-    <ImageButton
-        android:id="@+id/deleteButton"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@android:color/transparent"
-        android:padding="8dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/vector_trashcan"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.9"
-        app:layout_constraintStart_toEndOf="@+id/worryNameTitle"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/grey" />
+                <TextView
+                    android:id="@+id/descriptionTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/karla_bold"
+                    android:text="@string/worry_description_placeholder"
+                    android:textColor="@color/grey"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/betterThanExpectedBadge" />
+
+                <TextView
+                    android:id="@+id/worryDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="30dp"
+                    android:fontFamily="@font/karla_bold"
+                    android:text="@string/worry_description_placeholder"
+                    android:textColor="@color/darkBlueMain"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/descriptionTitle" />
+
+
+                <TextView
+                    android:id="@+id/howItEndedTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/karla_bold"
+                    android:text="@string/how_it_ended_label"
+                    android:textColor="@color/grey"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/worryDescription" />
+
+                <TextView
+                    android:id="@+id/howItEndedDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="30dp"
+                    android:fontFamily="@font/karla_bold"
+                    android:text="@string/worry_description_placeholder"
+                    android:textColor="@color/mediumOrange"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/howItEndedTitle" />
+
+                <TextView
+                    android:id="@+id/actionsTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/karla_bold"
+                    android:text="@string/options_title"
+                    android:textColor="@color/grey"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/howItEndedDescription" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/respondButton"
+                    style="@style/OutlineButton"
+                    android:layout_width="@dimen/button_width"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:elevation="@dimen/button_elevation"
+                    android:stateListAnimator="@anim/nav_default_enter_anim"
+                    android:text="@string/worry_respond_button_text"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/actionsTextView" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/finishWorryButton"
+                    style="@style/OutlineButton"
+                    android:layout_width="@dimen/button_width"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:elevation="@dimen/button_elevation"
+                    android:stateListAnimator="@anim/nav_default_enter_anim"
+                    android:text="@string/finish_worry_button_text"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/respondButton" />
+
+
+                <TextView
+                    android:id="@+id/cognitiveDistortionsLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/karla_bold"
+                    android:text="@string/cognitive_distortions_label"
+                    android:textColor="@color/grey"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/finishWorryButton" />
+
+                <HorizontalScrollView
+                    android:id="@+id/distortionsScrollView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:scrollbars="none"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cognitiveDistortionsLabel">
+
+                    <LinearLayout
+                        android:id="@+id/distortionsContainer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:orientation="horizontal"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/distortionsScrollView" />
+                </HorizontalScrollView>
+
+                <TextView
+                    android:id="@+id/remindersLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/karla_bold"
+                    android:text="@string/reminders_label"
+                    android:textColor="@color/grey"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/distortionsScrollView" />
+
+                <TextView
+                    android:id="@+id/reminderTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/rectangle_rounded_outline_white"
+                    android:fontFamily="@font/karla_bold"
+                    android:gravity="center"
+                    android:minHeight="130dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:text="@string/worry_description_placeholder"
+                    android:textColor="@color/darkGrey"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/rightReminderButton"
+                    app:layout_constraintStart_toEndOf="@id/leftReminderButton"
+                    app:layout_constraintTop_toBottomOf="@+id/remindersLabel" />
+
+                <FrameLayout
+                    android:id="@+id/leftReminderButton"
+                    android:layout_width="50dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintBottom_toBottomOf="@id/reminderTextView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/reminderTextView">
+
+                    <ImageView
+                        android:id="@+id/leftArrowBackgroundImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:importantForAccessibility="no"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/rectangle_rounded_outline_white" />
+
+                    <ImageView
+                        android:id="@+id/leftArrowImage"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/exit_button_content_description"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/vector_triangle_arrow_left" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/rightReminderButton"
+                    android:layout_width="50dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="10dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/reminderTextView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/reminderTextView">
+
+                    <ImageView
+                        android:id="@+id/rightArrowBackgroundImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:importantForAccessibility="no"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/rectangle_rounded_outline_white" />
+
+                    <ImageView
+                        android:id="@+id/rightArrowImage"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/next_reminder_button_content_description"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/vector_triangle_arrow_right" />
+                </FrameLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+        <ImageButton
+            android:id="@+id/deleteButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/previous_reminder_button_content_description"
+            android:padding="8dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/vector_trashcan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.9"
+            app:layout_constraintStart_toEndOf="@+id/worryNameTitle"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/grey" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

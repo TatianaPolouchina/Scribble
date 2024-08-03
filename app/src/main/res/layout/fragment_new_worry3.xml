@@ -90,6 +90,7 @@
                     android:layout_height="30dp"
                     android:layout_marginTop="20dp"
                     android:background="@android:color/white"
+                    android:contentDescription="@string/add_distortion_button_content_description"
                     android:src="@drawable/vector_plus_sign"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/addDistortionLayout"

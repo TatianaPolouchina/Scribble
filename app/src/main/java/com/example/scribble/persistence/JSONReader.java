@@ -47,8 +47,7 @@ public class JSONReader {
                 text.append(line);
                 text.append('\n');
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException ignored) {
         }
         return text.toString();
     }

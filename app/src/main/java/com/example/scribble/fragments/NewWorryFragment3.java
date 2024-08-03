@@ -13,6 +13,7 @@ import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.scribble.MainActivity;
 import com.example.scribble.R;
 import com.example.scribble.Utils;
 import com.example.scribble.Worry;
@@ -49,6 +50,12 @@ public class NewWorryFragment3 extends BaseFragment {
         }
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((MainActivity) requireActivity()).setStatusBarColor(R.color.white);
+    }
+
     /***
      * Adds all on click listeners to Views
      *
@@ -69,16 +76,16 @@ public class NewWorryFragment3 extends BaseFragment {
     private void addSelectedDistortions() {
         Worry worry = sharedViewModel.getWorry();
         if (worry.isOvergeneralizing()) {
-            addCDtoLayout(R.drawable.vector_cd_circles);
+            addCDtoLayout(R.drawable.cd_circles);
         }
         if (worry.isMindReading()) {
-            addCDtoLayout(R.drawable.vector_cd_brain);
+            addCDtoLayout(R.drawable.cd_brain);
         }
         if (worry.isFortuneTelling()) {
             addCDtoLayout(R.drawable.cd_crystal_ball);
         }
         if (worry.isCatastrophizing()) {
-            addCDtoLayout(R.drawable.vector_cd_explosion);
+            addCDtoLayout(R.drawable.cd_explosion);
         }
         if (worry.isAllOrNothing()) {
             addCDtoLayout(R.drawable.vector_cd_cross_out_circle);

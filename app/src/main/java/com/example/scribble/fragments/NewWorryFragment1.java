@@ -8,6 +8,8 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,7 +50,8 @@ public class NewWorryFragment1 extends BaseFragment {
         addOnClickListeners(view);
         updateKeyboard(view, textInputField);
         textInputField.setHint(StringHelper.getRandomHint());
-
+        new Handler(Looper.getMainLooper()).postDelayed(() ->
+                view.findViewById(R.id.pageContents).setVisibility(View.VISIBLE), 100);
     }
 
     /***
@@ -92,6 +95,7 @@ public class NewWorryFragment1 extends BaseFragment {
     private void displayNoNameWarning(@NonNull View view) {
         Snackbar snackbar = Snackbar.make(view, R.string.no_name_entered_warning_text, 1500);
         snackbar.setBackgroundTint(requireContext().getColor(R.color.lightBlue));
+        snackbar.setTextColor(requireContext().getColor(android.R.color.black));
         snackbar.show();
     }
 

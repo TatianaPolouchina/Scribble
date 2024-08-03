@@ -57,10 +57,10 @@ public class WorryFragment extends Fragment {
         reminderText = view.findViewById(R.id.reminderTextView);
         leftButton = view.findViewById(R.id.leftReminderButton);
         rightButton = view.findViewById(R.id.rightReminderButton);
-        populateLayout(view);
         addOnClickListeners(view);
-        ((MainActivity) requireActivity()).setStatusBarColor(R.color.white);
         handleBackPress();
+        populateLayout(view);
+        ((MainActivity) requireActivity()).setStatusBarColor(R.color.white);
     }
 
     /***
@@ -267,16 +267,16 @@ public class WorryFragment extends Fragment {
      */
     private void addSelectedDistortions() {
         if (worry.isOvergeneralizing()) {
-            addCDtoLayout(R.drawable.vector_cd_circles, R.string.Distortion1Name);
+            addCDtoLayout(R.drawable.cd_circles, R.string.Distortion1Name);
         }
         if (worry.isMindReading()) {
-            addCDtoLayout(R.drawable.vector_cd_brain, R.string.Distortion2Name);
+            addCDtoLayout(R.drawable.cd_brain, R.string.Distortion2Name);
         }
         if (worry.isFortuneTelling()) {
             addCDtoLayout(R.drawable.cd_crystal_ball, R.string.Distortion3Name);
         }
         if (worry.isCatastrophizing()) {
-            addCDtoLayout(R.drawable.vector_cd_explosion, R.string.Distortion4Name);
+            addCDtoLayout(R.drawable.cd_explosion, R.string.Distortion4Name);
         }
         if (worry.isAllOrNothing()) {
             addCDtoLayout(R.drawable.vector_cd_cross_out_circle, R.string.Distortion5NameFormatted);

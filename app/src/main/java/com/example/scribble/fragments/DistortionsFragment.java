@@ -31,12 +31,9 @@ public class DistortionsFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         Utils.KeyboardUtils.hideKeyboard(requireActivity());
-        ((MainActivity) requireActivity()).setStatusBarColor(R.color.white);
-
+        ((MainActivity) requireActivity()).setStatusBarColor(R.color.distortionsPageBlue);
         loadData(view);
-
         addOnClickListeners(view);
     }
 
