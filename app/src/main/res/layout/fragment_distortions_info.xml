@@ -5,10 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/rectangle_rounded_outline_white"
-    tools:context="com.example.scribble.fragments.DistortionsInfoFragment">
+    tools:context="com.tatiana.scribble.fragments.DistortionsInfoFragment">
 
     <View
-        android:id="@+id/touchScreen"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -50,7 +49,6 @@
         app:layout_constraintTop_toBottomOf="@id/textView" />
 
     <ImageView
-        android:id="@+id/imageView2"
         android:layout_width="40dp"
         android:layout_height="45dp"
         android:layout_marginTop="50dp"

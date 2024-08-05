@@ -20,7 +20,6 @@
         tools:listitem="@layout/worry_card_template" />
 
     <include
-        android:id="@+id/worries_title_bar"
         layout="@layout/ongoing_worries_title_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

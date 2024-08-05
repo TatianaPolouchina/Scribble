@@ -2,12 +2,11 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
     app:startDestination="@id/ongoingWorriesFragment">
 
     <fragment
         android:id="@+id/newWorryFragment3"
-        android:name="com.example.scribble.fragments.NewWorryFragment3"
+        android:name="com.tatiana.scribble.fragments.NewWorryFragment3"
         tools:layout="@layout/fragment_new_worry3">
 
         <action
@@ -20,7 +19,7 @@
 
     <fragment
         android:id="@+id/distortionsFragment"
-        android:name="com.example.scribble.fragments.DistortionsFragment"
+        android:name="com.tatiana.scribble.fragments.DistortionsFragment"
         tools:layout="@layout/fragment_distortions_page">
         <action
             android:id="@+id/action_distortionsFragment_to_newWorryFragment2"
@@ -32,7 +31,7 @@
 
     <fragment
         android:id="@+id/ongoingWorriesFragment"
-        android:name="com.example.scribble.fragments.OngoingWorriesFragment"
+        android:name="com.tatiana.scribble.fragments.OngoingWorriesFragment"
         android:label="OngoingWorriesFragment"
         tools:layout="@layout/fragment_ongoing_worries">
         <action
@@ -44,7 +43,7 @@
 
     <fragment
         android:id="@+id/finishedWorriesFragment"
-        android:name="com.example.scribble.fragments.FinishedWorriesFragment"
+        android:name="com.tatiana.scribble.fragments.FinishedWorriesFragment"
         android:label="FinishedWorriesFragment"
         tools:layout="@layout/fragment_finished_worries">
         <action
@@ -56,7 +55,7 @@
 
     <fragment
         android:id="@+id/newWorryFragment1"
-        android:name="com.example.scribble.fragments.NewWorryFragment1"
+        android:name="com.tatiana.scribble.fragments.NewWorryFragment1"
         android:label="fragment_new_worry"
         tools:layout="@layout/fragment_new_worry">
         <action
@@ -66,7 +65,7 @@
 
     <fragment
         android:id="@+id/newWorryFragment2"
-        android:name="com.example.scribble.fragments.NewWorryFragment2"
+        android:name="com.tatiana.scribble.fragments.NewWorryFragment2"
         android:label="NewWorryFragment2"
         tools:layout="@layout/fragment_new_worry2">
         <action
@@ -76,7 +75,7 @@
 
     <fragment
         android:id="@+id/newWorryFinishedFragment"
-        android:name="com.example.scribble.fragments.NewWorryFinishedFragment"
+        android:name="com.tatiana.scribble.fragments.NewWorryFinishedFragment"
         android:label="NewWorryFinishedFragment"
         tools:layout="@layout/fragment_new_worry_finished">
         <action
@@ -87,12 +86,12 @@
 
     <fragment
         android:id="@+id/worryFragment"
-        android:name="com.example.scribble.fragments.WorryFragment"
+        android:name="com.tatiana.scribble.fragments.WorryFragment"
         android:label="fragment_ongoing_worry"
         tools:layout="@layout/fragment_worry">
         <argument
             android:name="selectedWorry"
-            app:argType="com.example.scribble.Worry" />
+            app:argType="com.tatiana.scribble.Worry" />
         <action
             android:id="@+id/action_ongoingWorryFragment_to_endWorryFragment1"
             app:destination="@id/endWorryFragment1"
@@ -117,12 +116,12 @@
 
     <fragment
         android:id="@+id/endWorryFragment1"
-        android:name="com.example.scribble.fragments.EndWorryFragment1"
+        android:name="com.tatiana.scribble.fragments.EndWorryFragment1"
         android:label="fragment_end_worry1"
         tools:layout="@layout/fragment_end_worry1">
         <argument
             android:name="selectedWorry"
-            app:argType="com.example.scribble.Worry" />
+            app:argType="com.tatiana.scribble.Worry" />
         <action
             android:id="@+id/action_endWorryFragment1_to_endWorryFragment2"
             app:destination="@id/endWorryFragment2" />
@@ -130,12 +129,12 @@
 
     <fragment
         android:id="@+id/endWorryFragment2"
-        android:name="com.example.scribble.fragments.EndWorryFragment2"
+        android:name="com.tatiana.scribble.fragments.EndWorryFragment2"
         android:label="fragment_end_worry2"
         tools:layout="@layout/fragment_end_worry2">
         <argument
             android:name="selectedWorry"
-            app:argType="com.example.scribble.Worry" />
+            app:argType="com.tatiana.scribble.Worry" />
         <action
             android:id="@+id/action_endWorryFragment2_to_endWorryFragment3"
             app:destination="@id/endWorryFragment3" />
@@ -143,7 +142,7 @@
 
     <fragment
         android:id="@+id/endWorryFragment3"
-        android:name="com.example.scribble.fragments.EndWorryFragment3"
+        android:name="com.tatiana.scribble.fragments.EndWorryFragment3"
         android:label="fragment_end_worry3"
         tools:layout="@layout/fragment_end_worry3">
         <action
@@ -154,17 +153,17 @@
 
     <dialog
         android:id="@+id/distortionsInfoFragment"
-        android:name="com.example.scribble.fragments.DistortionsInfoFragment"
+        android:name="com.tatiana.scribble.fragments.DistortionsInfoFragment"
         android:label="fragment_distortion_info"
         tools:layout="@layout/fragment_distortions_info" />
     <fragment
         android:id="@+id/respondFragment"
-        android:name="com.example.scribble.fragments.RespondFragment"
+        android:name="com.tatiana.scribble.fragments.RespondFragment"
         android:label="fragment_respond"
         tools:layout="@layout/fragment_respond">
         <argument
             android:name="selectedWorry"
-            app:argType="com.example.scribble.Worry" />
+            app:argType="com.tatiana.scribble.Worry" />
         <action
             android:id="@+id/action_respondFragment_to_worryFragment"
             app:destination="@id/worryFragment"

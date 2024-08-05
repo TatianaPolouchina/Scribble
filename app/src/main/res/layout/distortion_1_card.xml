@@ -8,7 +8,6 @@
     android:padding="@dimen/distortion_padding">
 
     <ImageView
-        android:id="@+id/imageView"
         android:layout_width="@dimen/distortion_diameter"
         android:layout_height="@dimen/distortion_diameter"
         android:layout_gravity="center_vertical"
@@ -23,7 +22,6 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/titleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/karla_bold"
@@ -33,7 +31,6 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/subtitleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/distortion_subtitle_margin_top"

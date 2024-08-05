@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.scribble"
+    namespace = "com.tatiana.scribble"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.scribble"
+        applicationId = "com.tatiana.scribble"
         minSdk = 26
         targetSdk = 34
         versionCode = 1

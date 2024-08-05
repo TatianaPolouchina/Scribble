@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context="com.example.scribble.fragments.WorryFragment"
+    tools:context="com.tatiana.scribble.fragments.WorryFragment"
     tools:ignore="Overdraw">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -325,7 +325,6 @@
                     app:layout_constraintTop_toTopOf="@id/reminderTextView">
 
                     <ImageView
-                        android:id="@+id/leftArrowBackgroundImage"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:importantForAccessibility="no"
@@ -333,7 +332,6 @@
                         android:src="@drawable/rectangle_rounded_outline_white" />
 
                     <ImageView
-                        android:id="@+id/leftArrowImage"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:layout_gravity="center"
@@ -352,7 +350,6 @@
                     app:layout_constraintTop_toTopOf="@+id/reminderTextView">
 
                     <ImageView
-                        android:id="@+id/rightArrowBackgroundImage"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:importantForAccessibility="no"
@@ -360,7 +357,6 @@
                         android:src="@drawable/rectangle_rounded_outline_white" />
 
                     <ImageView
-                        android:id="@+id/rightArrowImage"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:layout_gravity="center"
