@@ -50,10 +50,10 @@ public class JSONWriter {
         JSONObject json = new JSONObject();
         JSONArray ongoingWorriesJSON = worryListToJSON(ongoingWorries);
         JSONArray finishedWorriesJSON = worryListToJSON(finishedWorries);
-        JSONArray worryImageIndexList = imageHelperToJSON(imageHelper);
+        JSONArray worryImageUnchosenKeys = imageHelperToJSON(imageHelper);
         json.put("ongoingWorries", ongoingWorriesJSON);
         json.put("finishedWorries", finishedWorriesJSON);
-        json.put("worryImageIndexList", worryImageIndexList);
+        json.put("worryImageUnchosenKeys", worryImageUnchosenKeys);
         saveToFile(json.toString());
     }
 
@@ -73,17 +73,17 @@ public class JSONWriter {
     }
 
     /***
-     * Converts the imageHelper's index list to JSON
+     * Converts the imageHelper's unchosenKeys to JSON
      *
      * @param imageHelper WorryImageHelper to be converted
-     * @return imageHelper's index list as a JSON
+     * @return imageHelper's unchosenKeys list as a JSON
      */
     protected JSONArray imageHelperToJSON(WorryImageHelper imageHelper) {
-        JSONArray indexListJSON = new JSONArray();
-        for (Integer element : imageHelper.getIndexList()) {
-            indexListJSON.put(element);
+        JSONArray unchosenKeys = new JSONArray();
+        for (String element : imageHelper.getUnchosenKeys()) {
+            unchosenKeys.put(element);
         }
-        return indexListJSON;
+        return unchosenKeys;
     }
 
     // MODIFIES: this

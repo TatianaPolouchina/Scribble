@@ -13,6 +13,7 @@ import java.util.List;
  */
 public class Worry implements Serializable {
     private String title;
+    private String worryImageKey;
     private WorryImage worryImage;
     private String description;
     private boolean overgeneralizing;
@@ -33,7 +34,8 @@ public class Worry implements Serializable {
     public Worry(WorryImageHelper worryImageHelper) {
         this.title = "";
         this.howItEnded = "";
-        this.worryImage = worryImageHelper.getRandomImage();
+        this.worryImageKey = worryImageHelper.getRandomKey();
+        this.worryImage = worryImageHelper.getWorryImage(worryImageKey);
         this.responses = new ArrayList<>();
         addResponse(StringHelper.getRandomReminder());
     }
@@ -51,8 +53,7 @@ public class Worry implements Serializable {
     public JSONObject toJSON() throws JSONException {
         JSONObject worryJSON = new JSONObject();
         worryJSON.put("title", title);
-        worryJSON.put("ongoingImageID", worryImage.getOngoingImageResId());
-        worryJSON.put("finishedImageID", worryImage.getFinishedImageResId());
+        worryJSON.put("worryImageKey", worryImageKey);
         worryJSON.put("description", description);
         worryJSON.put("overgeneralizing", overgeneralizing);
         worryJSON.put("mindReading", mindReading);
@@ -99,6 +100,10 @@ public class Worry implements Serializable {
 
     public String getTitle() {
         return title;
+    }
+
+    public void setWorryImageKey(String worryImageKey) {
+        this.worryImageKey = worryImageKey;
     }
 
     public void setWorryImage(WorryImage image) {

@@ -150,7 +150,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/karla_bold"
-                    android:text="@string/worry_description_placeholder"
+                    android:text="@string/description_label"
                     android:textColor="@color/grey"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"

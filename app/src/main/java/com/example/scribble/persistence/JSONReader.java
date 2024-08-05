@@ -1,7 +1,6 @@
 package com.example.scribble.persistence;
 
 import com.example.scribble.Worry;
-import com.example.scribble.WorryImage;
 import com.example.scribble.WorryImageHelper;
 
 import org.json.JSONArray;
@@ -60,7 +59,7 @@ public class JSONReader {
     public WorryImageHelper readWorryImageHelper() {
         WorryImageHelper worryImageHelper = new WorryImageHelper();
         try {
-            worryImageHelper.setIndexList(readIndexList());
+            worryImageHelper.setUnchosenKeys(readUnchosenKeys());
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
@@ -68,18 +67,18 @@ public class JSONReader {
     }
 
     /***
-     * Reads and returns the index list from the JSONArray
+     * Reads and returns the list of unchosenKeys from the JSONArray
      *
-     * @return the saved index list as a list of Integers
+     * @return the saved unchosenKeys as a list of Integers
      * @throws JSONException if the JSON array cannot be accessed
      */
-    public List<Integer> readIndexList() throws JSONException {
-        List<Integer> indexList = new ArrayList<>();
-        JSONArray indexListArray = jsonData.getJSONArray("worryImageIndexList");
-        for (int i = 0; i < indexListArray.length(); i++) {
-            indexList.add(indexListArray.getInt(i));
+    public List<String> readUnchosenKeys() throws JSONException {
+        List<String> unchosenKeys = new ArrayList<>();
+        JSONArray unchosenKeysJSON = jsonData.getJSONArray("worryImageUnchosenKeys");
+        for (int i = 0; i < unchosenKeysJSON.length(); i++) {
+            unchosenKeys.add(unchosenKeysJSON.getString(i));
         }
-        return indexList;
+        return unchosenKeys;
     }
 
     /***
@@ -140,9 +139,9 @@ public class JSONReader {
     public Worry parseWorry(JSONObject json) throws JSONException {
         Worry worry = new Worry();
         worry.setTitle(json.getString("title"));
-        int ongoingImageID = json.getInt("ongoingImageID");
-        int finishedImageID = json.getInt("finishedImageID");
-        worry.setWorryImage(new WorryImage(ongoingImageID, finishedImageID));
+        String worryImageKey = json.getString("worryImageKey");
+        worry.setWorryImageKey(worryImageKey);
+        worry.setWorryImage(new WorryImageHelper().getWorryImage(worryImageKey));
         worry.setDescription(json.getString("description"));
         worry.setOvergeneralizing(json.getBoolean("overgeneralizing"));
         worry.setMindReading(json.getBoolean("mindReading"));

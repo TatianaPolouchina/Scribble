@@ -164,6 +164,7 @@
     <!-- Worry fragment-->
     <string name="better_than_expected_badge_text">This worry went better than expected!</string>
     <string name="how_it_ended_label">How It Ended</string>
+    <string name="description_label">Description</string>
     <string name="options_title">Actions</string>
     <string name="finish_worry_button_text">Finish Worry</string>
     <string name="worry_respond_button_text">Respond</string>
