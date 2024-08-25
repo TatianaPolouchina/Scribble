@@ -45,8 +45,22 @@ public class NewWorryFragment3 extends BaseFragment {
         worryImage.setImageResource(sharedViewModel.getWorry().getOngoingImageResId());
         addSelectedDistortions();
         addOnClickListeners(view);
+        setColumnCount(view);
+    }
+
+    /***
+     * Sets the number of columns of selected distortions depending on screen width and density
+     * @param view container View
+     */
+    private void setColumnCount(@NonNull View view) {
+        int columnWidthDp = 200;
+        float scale = getResources().getDisplayMetrics().density;
+        int columnWidthPx = (int) (columnWidthDp * scale + 0.5f); // Convert dp to pixels
+
+        int screenWidth = Utils.screenUtils.getScreenWidth(view);
+        int numColumns = screenWidth / columnWidthPx;
         if (!Utils.screenUtils.wideScreen(view)) {
-            selectedDistortionsContainer.setColumnCount(3);
+            selectedDistortionsContainer.setColumnCount(numColumns);
         }
     }
 
