@@ -1,8 +1,8 @@
 # Scribble: Worry Diary
 Scribble is a unique worry journal designed to help you manage and reflect on your worries.
 
-<img src="https://github.com/TatianaPolouchina/Scribble/blob/main/1.png?raw=true" alt="Alt text" width="200"> <img src="https://github.com/TatianaPolouchina/Scribble/blob/main/2.png?raw=true" alt="Alt text" width="200"> <img src="https://github.com/TatianaPolouchina/Scribble/blob/main/3.png?raw=true" alt="Alt text" width="200"> <img src="https://github.com/TatianaPolouchina/Scribble/blob/main/4.png?raw=true" alt="Alt text" width="200">
-<img src="https://github.com/TatianaPolouchina/Scribble/blob/main/5.png?raw=true" alt="Alt text" width="200"> <img src="https://github.com/TatianaPolouchina/Scribble/blob/main/6.png?raw=true" alt="Alt text" width="200"> <img src="https://github.com/TatianaPolouchina/Scribble/blob/main/7.png?raw=true" alt="Alt text" width="200">
+<img src="https://github.com/TatianaPolouchina/Scribble/blob/main/1.png?raw=true" alt="App screenshot" width="200"> <img src="https://github.com/TatianaPolouchina/Scribble/blob/main/2.png?raw=true" alt="App screenshot" width="200"> <img src="https://github.com/TatianaPolouchina/Scribble/blob/main/3.png?raw=true" alt="App screenshot" width="200"> <img src="https://github.com/TatianaPolouchina/Scribble/blob/main/4.png?raw=true" alt="App screenshot" width="200">
+<img src="https://github.com/TatianaPolouchina/Scribble/blob/main/5.png?raw=true" alt="App screenshot" width="200"> <img src="https://github.com/TatianaPolouchina/Scribble/blob/main/6.png?raw=true" alt="App screenshot" width="200"> <img src="https://github.com/TatianaPolouchina/Scribble/blob/main/7.png?raw=true" alt="App screenshot" width="200">
 
 ## Features
 
