@@ -24,14 +24,3 @@ See your worries shift from the scary unknown to something not so scary after al
 **Reflect on Old Worries:**
 Go back and review your old worries to see your progress over time.
 
-## Installation
-
-1. **Download the APK:**
-
-2. **Enable Unknown Sources:**
-   - Go to your device's `Settings`.
-   - Navigate to `Security` or `Apps` and enable `Unknown Sources`.
-
-3. **Install the APK:**
-   - Open the downloaded APK file and follow the prompts to install the app.
-
