@@ -24,3 +24,5 @@ See your worries shift from the scary unknown to something not so scary after al
 **Reflect on Old Worries:**
 Go back and review your old worries to see your progress over time.
 
+## Installation
+Download on the Google Play Store: https://play.google.com/store/apps/details?id=com.tatiana.scribble
